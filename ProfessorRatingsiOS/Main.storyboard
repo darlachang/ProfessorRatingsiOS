@@ -28,7 +28,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRI-bQ-kc0">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41R-l9-0FO">
                                 <constraints>
@@ -102,12 +102,12 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Your Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5uO-6Z-u9Z">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Professor Ratings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axd-2B-B6S">
                                 <constraints>
@@ -120,6 +120,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHU-nk-6Mi">
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="SignUpPressed:" destination="RIZ-dq-HD3" eventType="touchUpInside" id="9Uy-Ij-81q"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPd-TS-bRD">
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
@@ -131,7 +134,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="tPd-TS-bRD" secondAttribute="leading" id="36h-cL-Nmr"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="tPd-TS-bRD" secondAttribute="leading" constant="16" id="36h-cL-Nmr"/>
                             <constraint firstItem="kHU-nk-6Mi" firstAttribute="top" secondItem="5uO-6Z-u9Z" secondAttribute="bottom" constant="30" id="59b-ux-j7k"/>
                             <constraint firstItem="9yR-Wr-lsy" firstAttribute="trailing" secondItem="sxj-cQ-z67" secondAttribute="trailing" id="DAO-Tp-p8Z"/>
                             <constraint firstItem="sxj-cQ-z67" firstAttribute="top" secondItem="9yR-Wr-lsy" secondAttribute="bottom" constant="10" id="DVa-FA-sdQ"/>
@@ -149,6 +152,11 @@
                             <constraint firstItem="axd-2B-B6S" firstAttribute="centerX" secondItem="9yR-Wr-lsy" secondAttribute="centerX" id="zxm-HX-jWw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordText" destination="5uO-6Z-u9Z" id="a4p-TN-up9"/>
+                        <outlet property="emailText" destination="9yR-Wr-lsy" id="tSu-mk-D4B"/>
+                        <outlet property="passwordText" destination="sxj-cQ-z67" id="QXf-Wb-ytE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fm-u9-psb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
