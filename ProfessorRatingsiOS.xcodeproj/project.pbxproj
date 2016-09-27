@@ -15,6 +15,8 @@
 		FB36E0691D9A0934002EC392 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB36E0671D9A0934002EC392 /* LaunchScreen.storyboard */; };
 		FB36E0741D9A0934002EC392 /* ProfessorRatingsiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB36E0731D9A0934002EC392 /* ProfessorRatingsiOSTests.swift */; };
 		FB36E07F1D9A0935002EC392 /* ProfessorRatingsiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB36E07E1D9A0935002EC392 /* ProfessorRatingsiOSUITests.swift */; };
+		FB36E08F1D9A0B93002EC392 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB36E08D1D9A0B93002EC392 /* Alamofire.framework */; };
+		FB36E0901D9A0B93002EC392 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB36E08E1D9A0B93002EC392 /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		FB36E07A1D9A0934002EC392 /* ProfessorRatingsiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProfessorRatingsiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB36E07E1D9A0935002EC392 /* ProfessorRatingsiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorRatingsiOSUITests.swift; sourceTree = "<group>"; };
 		FB36E0801D9A0935002EC392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB36E08D1D9A0B93002EC392 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		FB36E08E1D9A0B93002EC392 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB36E08F1D9A0B93002EC392 /* Alamofire.framework in Frameworks */,
+				FB36E0901D9A0B93002EC392 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +89,7 @@
 				FB36E0721D9A0934002EC392 /* ProfessorRatingsiOSTests */,
 				FB36E07D1D9A0935002EC392 /* ProfessorRatingsiOSUITests */,
 				FB36E0591D9A0934002EC392 /* Products */,
+				FB36E08C1D9A0B93002EC392 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +135,15 @@
 			path = ProfessorRatingsiOSUITests;
 			sourceTree = "<group>";
 		};
+		FB36E08C1D9A0B93002EC392 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB36E08D1D9A0B93002EC392 /* Alamofire.framework */,
+				FB36E08E1D9A0B93002EC392 /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +154,7 @@
 				FB36E0541D9A0934002EC392 /* Sources */,
 				FB36E0551D9A0934002EC392 /* Frameworks */,
 				FB36E0561D9A0934002EC392 /* Resources */,
+				FB36E0921D9A0C1B002EC392 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -256,6 +273,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FB36E0921D9A0C1B002EC392 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FB36E0541D9A0934002EC392 /* Sources */ = {
@@ -414,6 +449,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ProfessorRatingsiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hongfeili.ProfessorRatingsiOS;
@@ -426,6 +465,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ProfessorRatingsiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hongfeili.ProfessorRatingsiOS;
@@ -507,6 +550,7 @@
 				FB36E0851D9A0935002EC392 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB36E0861D9A0935002EC392 /* Build configuration list for PBXNativeTarget "ProfessorRatingsiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +559,7 @@
 				FB36E0881D9A0935002EC392 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB36E0891D9A0935002EC392 /* Build configuration list for PBXNativeTarget "ProfessorRatingsiOSUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +568,7 @@
 				FB36E08B1D9A0935002EC392 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
