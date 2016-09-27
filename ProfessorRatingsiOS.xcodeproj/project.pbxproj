@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FB36E05C1D9A0934002EC392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB36E05B1D9A0934002EC392 /* AppDelegate.swift */; };
-		FB36E05E1D9A0934002EC392 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB36E05D1D9A0934002EC392 /* ViewController.swift */; };
-		FB36E0611D9A0934002EC392 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB36E05F1D9A0934002EC392 /* Main.storyboard */; };
 		FB36E0641D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB36E0621D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodeld */; };
 		FB36E0661D9A0934002EC392 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB36E0651D9A0934002EC392 /* Assets.xcassets */; };
 		FB36E0691D9A0934002EC392 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB36E0671D9A0934002EC392 /* LaunchScreen.storyboard */; };
@@ -17,6 +15,11 @@
 		FB36E07F1D9A0935002EC392 /* ProfessorRatingsiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB36E07E1D9A0935002EC392 /* ProfessorRatingsiOSUITests.swift */; };
 		FB36E08F1D9A0B93002EC392 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB36E08D1D9A0B93002EC392 /* Alamofire.framework */; };
 		FB36E0901D9A0B93002EC392 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB36E08E1D9A0B93002EC392 /* SwiftyJSON.framework */; };
+		FB36E0A71D9A15CC002EC392 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB36E0A61D9A15CC002EC392 /* Main.storyboard */; };
+		FB9A51F61D9A1C880094BA53 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A51F41D9A1C880094BA53 /* SignUpViewController.swift */; };
+		FB9A51F71D9A1C880094BA53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A51F51D9A1C880094BA53 /* ViewController.swift */; };
+		FBC526561D9A1EF500ED39D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC526551D9A1EF500ED39D2 /* Constants.swift */; };
+		FBC526581D9A1F0000ED39D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC526571D9A1F0000ED39D2 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +42,6 @@
 /* Begin PBXFileReference section */
 		FB36E0581D9A0934002EC392 /* ProfessorRatingsiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfessorRatingsiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB36E05B1D9A0934002EC392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB36E05D1D9A0934002EC392 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FB36E0601D9A0934002EC392 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB36E0631D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProfessorRatingsiOS.xcdatamodel; sourceTree = "<group>"; };
 		FB36E0651D9A0934002EC392 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB36E0681D9A0934002EC392 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +54,11 @@
 		FB36E0801D9A0935002EC392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB36E08D1D9A0B93002EC392 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FB36E08E1D9A0B93002EC392 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		FB36E0A61D9A15CC002EC392 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FB9A51F41D9A1C880094BA53 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controllers/SignUpViewController.swift; sourceTree = "<group>"; };
+		FB9A51F51D9A1C880094BA53 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
+		FBC526551D9A1EF500ED39D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Helpers/Constants.swift; sourceTree = "<group>"; };
+		FBC526571D9A1F0000ED39D2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +112,14 @@
 		FB36E05A1D9A0934002EC392 /* ProfessorRatingsiOS */ = {
 			isa = PBXGroup;
 			children = (
+				FBC526541D9A1EDB00ED39D2 /* Models */,
+				FBC526531D9A1ED400ED39D2 /* Helpers */,
+				FB9A51F31D9A1C7C0094BA53 /* Controllers */,
 				FB36E05B1D9A0934002EC392 /* AppDelegate.swift */,
-				FB36E05D1D9A0934002EC392 /* ViewController.swift */,
-				FB36E05F1D9A0934002EC392 /* Main.storyboard */,
 				FB36E0651D9A0934002EC392 /* Assets.xcassets */,
 				FB36E0671D9A0934002EC392 /* LaunchScreen.storyboard */,
 				FB36E06A1D9A0934002EC392 /* Info.plist */,
+				FB36E0A61D9A15CC002EC392 /* Main.storyboard */,
 				FB36E0621D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodeld */,
 			);
 			path = ProfessorRatingsiOS;
@@ -142,6 +150,31 @@
 				FB36E08E1D9A0B93002EC392 /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB9A51F31D9A1C7C0094BA53 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FB9A51F41D9A1C880094BA53 /* SignUpViewController.swift */,
+				FB9A51F51D9A1C880094BA53 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FBC526531D9A1ED400ED39D2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FBC526551D9A1EF500ED39D2 /* Constants.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		FBC526541D9A1EDB00ED39D2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FBC526571D9A1F0000ED39D2 /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,8 +286,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB36E0691D9A0934002EC392 /* LaunchScreen.storyboard in Resources */,
+				FB36E0A71D9A15CC002EC392 /* Main.storyboard in Resources */,
 				FB36E0661D9A0934002EC392 /* Assets.xcassets in Resources */,
-				FB36E0611D9A0934002EC392 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,8 +330,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB36E05E1D9A0934002EC392 /* ViewController.swift in Sources */,
+				FBC526561D9A1EF500ED39D2 /* Constants.swift in Sources */,
+				FB9A51F61D9A1C880094BA53 /* SignUpViewController.swift in Sources */,
+				FBC526581D9A1F0000ED39D2 /* User.swift in Sources */,
 				FB36E0641D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodeld in Sources */,
+				FB9A51F71D9A1C880094BA53 /* ViewController.swift in Sources */,
 				FB36E05C1D9A0934002EC392 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,14 +371,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FB36E05F1D9A0934002EC392 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB36E0601D9A0934002EC392 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FB36E0671D9A0934002EC392 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
