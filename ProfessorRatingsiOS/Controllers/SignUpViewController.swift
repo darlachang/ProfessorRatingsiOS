@@ -77,7 +77,6 @@ class SignUpViewController: UIViewController {
     }
     
     func registerUser() {
-        
         let params:[String: Any] = [
             "name" : "",
             "email" : emailText.text!,
@@ -93,9 +92,16 @@ class SignUpViewController: UIViewController {
                 // TODO Handle registration fail
             }
             if let value = response.result.value {
-                let user = JSON(value)
-                print(user.description)
-                // TODO store authentication token and navigate to next page
+                let jsonObject = JSON(value)
+                if !jsonObject["success"].bool!{
+                    self.showMessage(jsonObject["message"].string!, type: .error)
+                    return
+                }
+                
+                // Save user id && access token locally
+                
+                
+                // Navigate to next page
             }
         }
     }
