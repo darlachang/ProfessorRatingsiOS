@@ -38,41 +38,41 @@ class SignUpViewController: UIViewController {
     
     @IBAction func SignUpPressed(_ sender: AnyObject) {
         let verifyResult = verifyFields()
-        if verifyResult.success {
+        if verifyResult == RegistrationVerificationResult.success {
             // TODO - jump to next page
             registerUser()
         } else {
-            showMessage(verifyResult.error.rawValue, type: .error, options: [.textNumberOfLines(2)])
+            showMessage(verifyResult.rawValue, type: .error, options: [.textNumberOfLines(2)])
         }
     }
     
-    func verifyFields() -> (success: Bool, error:RegistrationError) {
+    func verifyFields() -> RegistrationVerificationResult {
         if let email = emailText.text {
             if !validateEmail(candidate: email) {
-                return (false, .InvalidEmail)
+                return .invalidEmail
             }
         }
         if let password = passwordText.text {
             if password.contains(" ") {
-                return (false, .PasswordContainsSpace)
+                return .passwordContainsSpace
             }
             
             if password.characters.count < 6 {
-                return (false, .PasswordTooShort)
+                return .passwordTooShort
             }
             
             if let confirmPassword = confirmPasswordText.text {
                 if confirmPassword != password {
-                    return (false, .PasswordDoesNotConfirm)
+                    return .passwordDoesNotConfirm
                 }
             } else {
-                return (false, .EmptyConfirmPassword)
+                return .emptyConfirmPassword
             }
         } else {
-            return (false, .EmptyPassword)
+            return .emptyPassword
         }
         
-        return (true, .None)
+        return .success
     }
     
     func registerUser() {
@@ -100,15 +100,15 @@ class SignUpViewController: UIViewController {
     }
 }
 
-enum RegistrationError: String {
+enum RegistrationVerificationResult: String {
     case
-    InvalidEmail = "Invalid Email. \nPlease make sure to use your edu email",
-    EmptyPassword = "Empty Password",
-    EmptyConfirmPassword = "Empty Confirm Password",
-    PasswordContainsSpace = "Password Contains Space",
-    PasswordTooShort = "Password is too short",
-    PasswordDoesNotConfirm = "Make sure your password matches ",
-    EmailAlreadyExist = "Email Already Exit",
-    None
+    invalidEmail = "Invalid Email. \nPlease make sure to use your edu email",
+    emptyPassword = "Empty Password",
+    emptyConfirmPassword = "Empty Confirm Password",
+    passwordContainsSpace = "Password Contains Space",
+    passwordTooShort = "Password is too short",
+    passwordDoesNotConfirm = "Make sure your password matches ",
+    emailAlreadyExist = "Email Already Exit",
+    success
 }
 
