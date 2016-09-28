@@ -8,12 +8,15 @@
 
 import UIKit
 import GSMessages
+import Alamofire
+import SwiftyJSON
 
 class SignUpViewController: UIViewController {
     
     @IBOutlet weak var confirmPasswordText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var emailText: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -37,6 +40,7 @@ class SignUpViewController: UIViewController {
         let verifyResult = verifyFields()
         if verifyResult.success {
             // TODO - jump to next page
+            registerUser()
         } else {
             showMessage(verifyResult.error.rawValue, type: .error, options: [.textNumberOfLines(2)])
         }
@@ -65,11 +69,34 @@ class SignUpViewController: UIViewController {
                 return (false, .EmptyConfirmPassword)
             }
         } else {
-          return (false, .EmptyPassword)
+            return (false, .EmptyPassword)
         }
         
-        // POST users on another thread
         return (true, .None)
+    }
+    
+    func registerUser() {
+        let params:[String: Any] = [
+            "name" : "",
+            "email" : emailText.text!,
+            "password" : passwordText.text!
+        ]
+        Alamofire.request(Config.registrationURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
+            (response) in
+            guard response.result.error == nil else {
+                print("Error while registering")
+                print(response.result.error)
+                return
+                
+                // TODO Handle registration fail
+            }
+            if let value = response.result.value {
+                let user = JSON(value)
+                print(user.description)
+                // TODO store authentication token and navigate to next page
+            }
+            
+        }
     }
 }
 

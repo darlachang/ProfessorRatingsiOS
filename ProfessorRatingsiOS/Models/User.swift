@@ -1,5 +1,8 @@
+import Alamofire
+
 class User {
-    var name:String
+    var id:Int?
+    var name:String?
     var email:String
     var password:String
     
