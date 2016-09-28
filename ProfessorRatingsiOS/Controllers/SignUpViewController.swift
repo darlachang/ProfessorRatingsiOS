@@ -10,6 +10,7 @@ import UIKit
 import GSMessages
 import Alamofire
 import SwiftyJSON
+import CryptoSwift
 
 class SignUpViewController: UIViewController {
     
@@ -76,10 +77,11 @@ class SignUpViewController: UIViewController {
     }
     
     func registerUser() {
+        
         let params:[String: Any] = [
             "name" : "",
             "email" : emailText.text!,
-            "password" : passwordText.text!
+            "password" : encrypt(password: passwordText.text!)
         ]
         Alamofire.request(Config.registrationURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in
@@ -95,8 +97,12 @@ class SignUpViewController: UIViewController {
                 print(user.description)
                 // TODO store authentication token and navigate to next page
             }
-            
         }
+    }
+    
+    func encrypt(password:String) -> String {
+        let encryptedPW: String = try! password.encrypt(cipher: AES(key: Config.encryptionKey, iv: Config.iv))
+        return encryptedPW
     }
 }
 
