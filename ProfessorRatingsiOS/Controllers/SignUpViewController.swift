@@ -87,6 +87,7 @@ class SignUpViewController: UIViewController {
             guard response.result.error == nil else {
                 print("Error while registering")
                 print(response.result.error)
+                
                 return
                 
                 // TODO Handle registration fail
@@ -99,8 +100,12 @@ class SignUpViewController: UIViewController {
                 }
                 
                 // Save user id && access token locally
+                let defaults = UserDefaults.standard
+                defaults.set(jsonObject["user_id"].stringValue, forKey: "user_id")
                 
-                
+                //read the data
+                 let userID = defaults.object(forKey: "user_id") as? String
+                print(userID!)
                 // Navigate to next page
             }
         }
