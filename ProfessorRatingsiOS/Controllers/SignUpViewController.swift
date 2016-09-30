@@ -80,7 +80,7 @@ class SignUpViewController: UIViewController {
         let params:[String: Any] = [
             "name" : "",
             "email" : emailText.text!,
-            "password" : encrypt(password: passwordText.text!)
+            "password" : Utils.encrypt(passwordText.text!)
         ]
         Alamofire.request(Config.registrationURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in
@@ -109,11 +109,6 @@ class SignUpViewController: UIViewController {
                 // Navigate to next page
             }
         }
-    }
-    
-    func encrypt(password:String) -> String {
-        let encryptedPW: String = try! password.encrypt(cipher: AES(key: Config.encryptionKey, iv: Config.iv))
-        return encryptedPW
     }
 }
 

@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         let defaults = UserDefaults.standard
 
         let userID = defaults.object(forKey: "user_id") as? String
-        print(userID!)
+//        print(userID!)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

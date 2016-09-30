@@ -21,6 +21,9 @@
 		FBC526561D9A1EF500ED39D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC526551D9A1EF500ED39D2 /* Constants.swift */; };
 		FBC526581D9A1F0000ED39D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC526571D9A1F0000ED39D2 /* User.swift */; };
 		FBEA6F811D9C0A5F00C653EA /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBEA6F801D9C0A5F00C653EA /* CryptoSwift.framework */; };
+		FBF8A3781D9EFBA100680370 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF8A3771D9EFBA100680370 /* Utils.swift */; };
+		FBF8A3791D9EFBA100680370 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF8A3771D9EFBA100680370 /* Utils.swift */; };
+		FBF8A37A1D9EFBA100680370 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF8A3771D9EFBA100680370 /* Utils.swift */; };
 		FBF920B61D9B153C009631D5 /* GSMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBF920B51D9B153C009631D5 /* GSMessages.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,7 @@
 		FBC526551D9A1EF500ED39D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Helpers/Constants.swift; sourceTree = "<group>"; };
 		FBC526571D9A1F0000ED39D2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		FBEA6F801D9C0A5F00C653EA /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
+		FBF8A3771D9EFBA100680370 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Helpers/Utils.swift; sourceTree = "<group>"; };
 		FBF920B51D9B153C009631D5 /* GSMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSMessages.framework; path = Carthage/Build/iOS/GSMessages.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				FBC526551D9A1EF500ED39D2 /* Constants.swift */,
+				FBF8A3771D9EFBA100680370 /* Utils.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -343,6 +348,7 @@
 				FBC526561D9A1EF500ED39D2 /* Constants.swift in Sources */,
 				FB9A51F61D9A1C880094BA53 /* SignUpViewController.swift in Sources */,
 				FBC526581D9A1F0000ED39D2 /* User.swift in Sources */,
+				FBF8A3781D9EFBA100680370 /* Utils.swift in Sources */,
 				FB36E0641D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodeld in Sources */,
 				FB9A51F71D9A1C880094BA53 /* ViewController.swift in Sources */,
 				FB36E05C1D9A0934002EC392 /* AppDelegate.swift in Sources */,
@@ -354,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB36E0741D9A0934002EC392 /* ProfessorRatingsiOSTests.swift in Sources */,
+				FBF8A3791D9EFBA100680370 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB36E07F1D9A0935002EC392 /* ProfessorRatingsiOSUITests.swift in Sources */,
+				FBF8A37A1D9EFBA100680370 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
