@@ -1,4 +1,5 @@
 github "Alamofire/Alamofire"
 github "SwiftyJSON/SwiftyJSON"
 github "wxxsw/GSMessages"
+github "krzyzanowskim/CryptoSwift"
 

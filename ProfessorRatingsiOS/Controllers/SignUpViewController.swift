@@ -10,6 +10,7 @@ import UIKit
 import GSMessages
 import Alamofire
 import SwiftyJSON
+import CryptoSwift
 
 class SignUpViewController: UIViewController {
     
@@ -38,47 +39,48 @@ class SignUpViewController: UIViewController {
     
     @IBAction func SignUpPressed(_ sender: AnyObject) {
         let verifyResult = verifyFields()
-        if verifyResult.success {
+        if verifyResult == RegistrationVerificationResult.success {
             // TODO - jump to next page
             registerUser()
         } else {
-            showMessage(verifyResult.error.rawValue, type: .error, options: [.textNumberOfLines(2)])
+            showMessage(verifyResult.rawValue, type: .error, options: [.textNumberOfLines(2)])
         }
     }
     
-    func verifyFields() -> (success: Bool, error:RegistrationError) {
+    func verifyFields() -> RegistrationVerificationResult {
         if let email = emailText.text {
             if !validateEmail(candidate: email) {
-                return (false, .InvalidEmail)
+                return .invalidEmail
             }
         }
         if let password = passwordText.text {
             if password.contains(" ") {
-                return (false, .PasswordContainsSpace)
+                return .passwordContainsSpace
             }
             
             if password.characters.count < 6 {
-                return (false, .PasswordTooShort)
+                return .passwordTooShort
             }
             
             if let confirmPassword = confirmPasswordText.text {
                 if confirmPassword != password {
-                    return (false, .PasswordDoesNotConfirm)
+                    return .passwordDoesNotConfirm
                 }
             } else {
-                return (false, .EmptyConfirmPassword)
+                return .emptyConfirmPassword
             }
         } else {
-            return (false, .EmptyPassword)
+            return .emptyPassword
         }
         
-        return (true, .None)
+        return .success
     }
     
     func registerUser() {
         let params:[String: Any] = [
             "name" : "",
             "email" : emailText.text!,
+            //"password" : Utils.encrypt(passwordText.text!)
             "password" : passwordText.text!
         ]
         Alamofire.request(Config.registrationURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
@@ -86,29 +88,40 @@ class SignUpViewController: UIViewController {
             guard response.result.error == nil else {
                 print("Error while registering")
                 print(response.result.error)
+                
                 return
                 
                 // TODO Handle registration fail
             }
             if let value = response.result.value {
-                let user = JSON(value)
-                print(user.description)
-                // TODO store authentication token and navigate to next page
+                let jsonObject = JSON(value)
+                if !jsonObject["success"].bool!{
+                    self.showMessage(jsonObject["message"].string!, type: .error)
+                    return
+                }
+                
+                // Save user id && access token locally
+                let defaults = UserDefaults.standard
+                defaults.set(jsonObject["user_id"].stringValue, forKey: "user_id")
+                
+                //read the data
+                 let userID = defaults.object(forKey: "user_id") as? String
+                print(userID!)
+                // Navigate to next page
             }
-            
         }
     }
 }
 
-enum RegistrationError: String {
+enum RegistrationVerificationResult: String {
     case
-    InvalidEmail = "Invalid Email. \nPlease make sure to use your edu email",
-    EmptyPassword = "Empty Password",
-    EmptyConfirmPassword = "Empty Confirm Password",
-    PasswordContainsSpace = "Password Contains Space",
-    PasswordTooShort = "Password is too short",
-    PasswordDoesNotConfirm = "Make sure your password matches ",
-    EmailAlreadyExist = "Email Already Exit",
-    None
+    invalidEmail = "Invalid Email. \nPlease make sure to use your edu email",
+    emptyPassword = "Empty Password",
+    emptyConfirmPassword = "Empty Confirm Password",
+    passwordContainsSpace = "Password Contains Space",
+    passwordTooShort = "Password is too short",
+    passwordDoesNotConfirm = "Make sure your password matches ",
+    emailAlreadyExist = "Email Already Exit",
+    success
 }
 
