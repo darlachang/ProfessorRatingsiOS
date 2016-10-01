@@ -36,6 +36,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="SignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yRf-eK-Cf3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DE7-za-JGV">
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -71,6 +74,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="KRI-bQ-kc0" secondAttribute="trailing" constant="42" id="ytD-hc-gSX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="SignInPressed" destination="41R-l9-0FO" id="ari-6g-58f"/>
+                        <outlet property="emailText" destination="gAf-Kt-Wgz" id="bPv-AC-42E"/>
+                        <outlet property="passwordText" destination="KRI-bQ-kc0" id="gbC-Fh-THG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,15 +96,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="can't drag the log in button to this controller,otherwise the user could directly get into this page w/o log-in.  " borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rpb-JS-aUv">
-                                <frame key="frameInset" minX="-133" minY="432" width="709" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="search page. (after log-in successfully)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYF-58-wAw">
-                                <frame key="frameInset" minX="51" minY="323" width="298" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="search page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbJ-Gy-6DQ">
+                                <frame key="frameInset" minX="140" minY="323" width="95" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -105,10 +106,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="jMD-kO-8Vd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jz6-Ob-yi8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1084" y="37"/>
+            <point key="canvasLocation" x="2023.2" y="36.431784107946029"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="rG6-Qg-1Vk">
@@ -232,6 +234,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBV-WO-O2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1008.8" y="805.54722638680664"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Pwq-it-BjR">
+            <objects>
+                <navigationController storyboardIdentifier="navisearch" automaticallyAdjustsScrollViewInsets="NO" id="HLU-IM-FiT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2jk-px-2D1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xqy-2G-Ni3" kind="relationship" relationship="rootViewController" id="QfM-i2-Uu0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MVu-vh-Ldx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="36.431784107946029"/>
         </scene>
     </scenes>
 </document>
