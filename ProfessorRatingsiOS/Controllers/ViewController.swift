@@ -34,18 +34,18 @@ class ViewController: UIViewController {
     }
     
     func loginUser(){
-       // print("password is " + Utils.encrypt(passwordText.text!))
+        // print("password is " + Utils.encrypt(passwordText.text!))
         let params:[String: Any] = [
             "email" : emailText.text!,
-           // "password" : Utils.encrypt(passwordText.text!)
+            // "password" : Utils.encrypt(passwordText.text!)
             "password" : passwordText.text!
         ]
         //show spinner
         Alamofire.request(Config.loginURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in
             guard response.result.error == nil else {
-//                print("Error while login")
-//                print(response.result.error)
+                //                print("Error while login")
+                //                print(response.result.error)
                 self.showMessage(response.result.error as! String, type: .error, options: [.textNumberOfLines(2)])
                 return
             }
@@ -60,10 +60,9 @@ class ViewController: UIViewController {
                 let defaults = UserDefaults.standard
                 defaults.set(jsonObject["user_id"].stringValue, forKey: "user_id")
                 
-
                 //read userID
-//                let defaults = UserDefaults.standard
-//                let userID = defaults.object(forKey: "user_id") as? String
+                //                let defaults = UserDefaults.standard
+                //                let userID = defaults.object(forKey: "user_id") as? String
                 //hide spinner
             }
             
@@ -72,39 +71,15 @@ class ViewController: UIViewController {
     }
     
     func nextPage(){
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let naviSearchController = storyboard.instantiateViewController(withIdentifier: "navisearch")
-                self.present(naviSearchController, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let naviSearchController = storyboard.instantiateViewController(withIdentifier: "navisearch")
+        self.present(naviSearchController, animated: true, completion: nil)
+        //   self.navigationController?.pushViewController(naviSearchController, animated: true) //push是navi給到下一頁. popviewController是跳回上一頁
         
-             //   self.navigationController?.pushViewController(naviSearchController, animated: true) //push是navi給到下一頁. popviewController是跳回上一頁
-
     }
     @IBAction func SignInPressed(_ sender: AnyObject) {
         loginUser()
-        //background thread 發slash loging請求
-        //ui thread 調spinner出來,
-        //background完成後
-        //spinner取消
-        //看success or not
-        //不success 重新輸入, success 進入下一頁
         
-        
-        
-        //go to search page
     }
     
-    //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //        let searchViewController = storyboard.instantiateViewController(withIdentifier: "SearchViewController")
-    //
-    //
-    //        self.navigationController?.pushViewController(searchViewController, animated: true)
-    
-    
-    //            if(){
-    //                //if userIdexist, //if userId exist, show the next searchviewcontroller
-    //            if(segue.identifier == "push"){
-    //                (segue.destinationViewController)
-    //            }
-    //        }
-
 }
