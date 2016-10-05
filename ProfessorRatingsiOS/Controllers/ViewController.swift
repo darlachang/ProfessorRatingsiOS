@@ -21,10 +21,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let defaults = UserDefaults.standard
-        let userID = defaults.object(forKey: "user_id") as? String
-        print(userID!)
         // Do any additional setup after loading the view, typically from a nib.
     }
     

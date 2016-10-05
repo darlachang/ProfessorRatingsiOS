@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -167,6 +167,12 @@
                                     <action selector="exitButtonPressed:" destination="RIZ-dq-HD3" eventType="touchUpInside" id="Z4p-jI-5Lz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyO-se-c49">
+                                <state key="normal" title="Submit Review"/>
+                                <connections>
+                                    <segue destination="QQS-Bu-aTh" kind="show" id="hCP-wZ-LDl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -176,8 +182,10 @@
                             <constraint firstItem="sxj-cQ-z67" firstAttribute="top" secondItem="9yR-Wr-lsy" secondAttribute="bottom" constant="10" id="DVa-FA-sdQ"/>
                             <constraint firstItem="9bx-l1-gHJ" firstAttribute="top" secondItem="5uO-6Z-u9Z" secondAttribute="bottom" constant="434" id="E8o-1v-cVS"/>
                             <constraint firstItem="sxj-cQ-z67" firstAttribute="leading" secondItem="5uO-6Z-u9Z" secondAttribute="leading" id="P7F-zL-hu0"/>
+                            <constraint firstItem="zyO-se-c49" firstAttribute="centerX" secondItem="ouV-ar-eSK" secondAttribute="centerX" id="T0g-6R-kJu"/>
                             <constraint firstItem="9yR-Wr-lsy" firstAttribute="leading" secondItem="ouV-ar-eSK" secondAttribute="leadingMargin" constant="42" id="Xpw-ES-EqQ"/>
                             <constraint firstItem="axd-2B-B6S" firstAttribute="leading" secondItem="ouV-ar-eSK" secondAttribute="leadingMargin" id="g9K-EM-cJN"/>
+                            <constraint firstItem="zyO-se-c49" firstAttribute="top" secondItem="kHU-nk-6Mi" secondAttribute="bottom" constant="16" id="h75-9S-NeW"/>
                             <constraint firstItem="9yR-Wr-lsy" firstAttribute="top" secondItem="axd-2B-B6S" secondAttribute="bottom" constant="8" symbolic="YES" id="hL9-WL-0Kh"/>
                             <constraint firstItem="kHU-nk-6Mi" firstAttribute="centerX" secondItem="ouV-ar-eSK" secondAttribute="centerX" id="peB-aR-AW2"/>
                             <constraint firstItem="sxj-cQ-z67" firstAttribute="trailing" secondItem="5uO-6Z-u9Z" secondAttribute="trailing" id="tCe-9L-TvJ"/>
@@ -199,24 +207,6 @@
             </objects>
             <point key="canvasLocation" x="1948" y="805.54722638680664"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="mua-u7-JRO">
-            <objects>
-                <viewController id="QYp-Ul-nO8" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fSy-ts-teN"/>
-                        <viewControllerLayoutGuide type="bottom" id="HGy-x6-gCs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ztb-qX-gkb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Daf-xI-Obc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2784.8000000000002" y="806.44677661169419"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="wFc-cV-3kP">
             <objects>
@@ -234,6 +224,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBV-WO-O2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1008.8" y="805.54722638680664"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="s7e-GJ-ou0">
+            <objects>
+                <viewController id="QQS-Bu-aTh" customClass="SubmitReviewViewController" customModule="ProfessorRatingsiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pw2-Na-7WB"/>
+                        <viewControllerLayoutGuide type="bottom" id="tcn-OI-uDT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zyF-fE-vXq" customClass="SubmitViewController">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="WhA-WV-NyS">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="qwF-aF-vYV">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="QQS-Bu-aTh" id="m9A-8e-jP6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XPC-q8-kx7">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="QQS-Bu-aTh" id="Jhs-WM-JxR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="59H-DH-bbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1948" y="1561"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pwq-it-BjR">
