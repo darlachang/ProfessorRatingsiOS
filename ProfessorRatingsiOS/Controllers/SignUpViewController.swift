@@ -80,8 +80,8 @@ class SignUpViewController: UIViewController {
         let params:[String: Any] = [
             "name" : "",
             "email" : emailText.text!,
-            //"password" : Utils.encrypt(passwordText.text!)
-            "password" : passwordText.text!
+            "password" : Utils.encrypt(passwordText.text!)
+           // "password" : passwordText.text!
         ]
         Alamofire.request(Config.registrationURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in

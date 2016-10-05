@@ -34,13 +34,13 @@ class ViewController: UIViewController {
     }
     
     func loginUser(){
-        // print("password is " + Utils.encrypt(passwordText.text!))
+         print("password is " + Utils.encrypt(passwordText.text!))
         let params:[String: Any] = [
             "email" : emailText.text!,
-            // "password" : Utils.encrypt(passwordText.text!)
-            "password" : passwordText.text!
+             "password" : Utils.encrypt(passwordText.text!)
+           // "password" : passwordText.text!
         ]
-        //show spinner
+        //TODO: show spinner
         Alamofire.request(Config.loginURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in
             guard response.result.error == nil else {
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
                 // Save user id && access token locally
                 let defaults = UserDefaults.standard
                 defaults.set(jsonObject["user_id"].stringValue, forKey: "user_id")
-                
+                print("user id is" + jsonObject["user_id"].stringValue)
                 //read userID
                 //                let defaults = UserDefaults.standard
                 //                let userID = defaults.object(forKey: "user_id") as? String
