@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         
         let defaults = UserDefaults.standard
         let userID = defaults.object(forKey: "user_id") as? String
-        print(userID!)
+        //print(userID!)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -37,8 +37,8 @@ class ViewController: UIViewController {
          print("password is " + Utils.encrypt(passwordText.text!))
         let params:[String: Any] = [
             "email" : emailText.text!,
-             "password" : Utils.encrypt(passwordText.text!)
-           // "password" : passwordText.text!
+            // "password" : Utils.encrypt(passwordText.text!)
+            "password" : passwordText.text!
         ]
         //TODO: show spinner
         Alamofire.request(Config.loginURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
