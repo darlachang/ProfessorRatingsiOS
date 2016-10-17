@@ -170,7 +170,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyO-se-c49">
                                 <state key="normal" title="Submit Review"/>
                                 <connections>
-                                    <segue destination="d3e-sR-oQC" kind="show" id="hCP-wZ-LDl"/>
+                                    <segue destination="QQS-Bu-aTh" kind="show" id="hCP-wZ-LDl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -225,6 +225,36 @@
             </objects>
             <point key="canvasLocation" x="1008.8" y="805.54722638680664"/>
         </scene>
+        <!--Title-->
+        <scene sceneID="s7e-GJ-ou0">
+            <objects>
+                <viewController id="QQS-Bu-aTh" customClass="SubmitReviewViewController" customModule="ProfessorRatingsiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pw2-Na-7WB"/>
+                        <viewControllerLayoutGuide type="bottom" id="tcn-OI-uDT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zyF-fE-vXq" customClass="SubmitViewController">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="WhA-WV-NyS">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="qwF-aF-vYV">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="QQS-Bu-aTh" id="m9A-8e-jP6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XPC-q8-kx7">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="QQS-Bu-aTh" id="Jhs-WM-JxR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="59H-DH-bbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1948" y="1561"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pwq-it-BjR">
             <objects>
@@ -242,14 +272,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVu-vh-Ldx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1084" y="36.431784107946029"/>
-        </scene>
-        <!--submitReview-->
-        <scene sceneID="smk-aZ-VR2">
-            <objects>
-                <viewControllerPlaceholder storyboardName="submitReview" id="d3e-sR-oQC" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jk4-Og-CEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1948" y="1561"/>
         </scene>
     </scenes>
 </document>

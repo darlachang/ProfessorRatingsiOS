@@ -32,6 +32,7 @@
 		FBF8A3791D9EFBA100680370 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF8A3771D9EFBA100680370 /* Utils.swift */; };
 		FBF8A37A1D9EFBA100680370 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF8A3771D9EFBA100680370 /* Utils.swift */; };
 		FBF920B61D9B153C009631D5 /* GSMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBF920B51D9B153C009631D5 /* GSMessages.framework */; };
+		FBFF53C21DA593B5008E0407 /* submitReview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBFF53C11DA593B5008E0407 /* submitReview.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		FBEA6F801D9C0A5F00C653EA /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		FBF8A3771D9EFBA100680370 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Helpers/Utils.swift; sourceTree = "<group>"; };
 		FBF920B51D9B153C009631D5 /* GSMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSMessages.framework; path = Carthage/Build/iOS/GSMessages.framework; sourceTree = "<group>"; };
+		FBFF53C11DA593B5008E0407 /* submitReview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = submitReview.storyboard; path = Views/submitReview.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				FB36E0671D9A0934002EC392 /* LaunchScreen.storyboard */,
 				FB36E06A1D9A0934002EC392 /* Info.plist */,
 				FB36E0A61D9A15CC002EC392 /* Main.storyboard */,
+				FBFF53C11DA593B5008E0407 /* submitReview.storyboard */,
 				FB36E0621D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodeld */,
 			);
 			path = ProfessorRatingsiOS;
@@ -340,6 +343,7 @@
 				FB36E0691D9A0934002EC392 /* LaunchScreen.storyboard in Resources */,
 				FB36E0A71D9A15CC002EC392 /* Main.storyboard in Resources */,
 				FB1EF31E1DA54A3200361EC1 /* StickySliderViewCell.xib in Resources */,
+				FBFF53C21DA593B5008E0407 /* submitReview.storyboard in Resources */,
 				FB36E0661D9A0934002EC392 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
