@@ -63,7 +63,7 @@ class SubmitReviewViewController: FormViewController {
             }
             
             +++ Section("Show my rater information")
-            <<< SwitchRow("major") {
+            <<< SwitchRow("Major") {
                 $0.title = "Major"
                 $0.value = true
             }
@@ -71,18 +71,33 @@ class SubmitReviewViewController: FormViewController {
                 $0.title = "Year Of School"
                 $0.value = true
             }
+            <<< ButtonRow() { row in
+                row.title = "SAVE"
+                row.onCellSelection({ (buttonCell, buttonRow) in
+                    self.save()
+                })
+            }.cellSetup({ (cell, row) in
+                let bgColorView = UIView()
+                bgColorView.backgroundColor = PR_Colors.lightGreen
+                cell.selectedBackgroundView = bgColorView
+                cell.tintColor = PR_Colors.lightGreen
+            })
     }
     
     @IBAction func saveButtonPressed(_ sender: AnyObject) {
-        print("Save button pressed")
-        let result: [String: Any] = [
-            "score" : (form.rowBy(tag: "score") as! StickySliderViewRow).value!.value
-        ]
-        print(result)
+        save()
     }
     
     @IBAction func cancelButtonPressed(_ sender: AnyObject) {
         print("Cancel button ")
+    }
+    
+    func save(){
+        let result: [String: Any] = [
+            "score" : (form.rowBy(tag: "score") as! StickySliderViewRow).value!.value,
+            
+        ]
+        print(result)
     }
     
 }

@@ -1,4 +1,5 @@
 import Alamofire
+import UIKit
 
 struct Config {
     static let encryptionKey = "rateMyProfessor"
@@ -7,4 +8,8 @@ struct Config {
     static let registrationURL = "\(baseURL)/users"
     static let loginURL = "\(baseURL)/login"
     static let searchURL = "\(baseURL)/search"
+}
+
+struct PR_Colors {
+    static let lightGreen = UIColor(red:0.31, green:0.89, blue:0.76, alpha:1.00)
 }

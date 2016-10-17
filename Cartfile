@@ -4,4 +4,5 @@ github "wxxsw/GSMessages"
 github "krzyzanowskim/CryptoSwift"
 github "xhacker/TagListView"  "master"
 github "xmartlabs/Eureka" ~> 2.0
+github "i-schuetz/SwiftCharts"
 
