@@ -24,7 +24,6 @@ class ViewController: UIViewController {
         
         let defaults = UserDefaults.standard
         let userID = defaults.object(forKey: "user_id") as? String
-        print(userID!)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -34,19 +33,16 @@ class ViewController: UIViewController {
     }
     
     func loginUser(){
-        // print("password is " + Utils.encrypt(passwordText.text!))
         let params:[String: Any] = [
             "email" : emailText.text!,
-            // "password" : Utils.encrypt(passwordText.text!)
             "password" : passwordText.text!
         ]
-        //show spinner
+        //TODO: show spinner
+
         Alamofire.request(Config.loginURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in
             guard response.result.error == nil else {
-                //                print("Error while login")
-                //                print(response.result.error)
-                self.showMessage(response.result.error as! String, type: .error, options: [.textNumberOfLines(2)])
+                self.showMessage(response.result.error.debugDescription, type: .error, options: [.textNumberOfLines(2)])
                 return
             }
             if let value = response.result.value {
@@ -59,11 +55,6 @@ class ViewController: UIViewController {
                 // Save user id && access token locally
                 let defaults = UserDefaults.standard
                 defaults.set(jsonObject["user_id"].stringValue, forKey: "user_id")
-                
-                //read userID
-                //                let defaults = UserDefaults.standard
-                //                let userID = defaults.object(forKey: "user_id") as? String
-                //hide spinner
             }
             
             self.nextPage()
