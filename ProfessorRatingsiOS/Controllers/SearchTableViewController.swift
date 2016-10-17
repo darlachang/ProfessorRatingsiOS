@@ -12,8 +12,8 @@ import SwiftyJSON
 
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
     var course:[Course] = [
-        Course(name: "Obj-Oriented Prog & Data Struc", cid: "CS 2110", professor: "Gries", department: "Computer Science", avgReview: 3.6, numOfReview: 233),
-       Course(name: "Intro of Database Sys", cid: "CS 5320", professor: "Demers", department: "Computer Science", avgReview: 3.6, numOfReview: 150)
+        Course(name: "Obj-Oriented Prog & Data Struc", id: "CS 2110", professor: "Gries", department: "Computer Science", avgReview: 3.6, numOfReview: 233),
+       Course(name: "Intro of Database Sys", id: "CS 5320", professor: "Demers", department: "Computer Science", avgReview: 3.6, numOfReview: 150)
     ]
     var searchController:UISearchController!
     var searchResults:[Course] = []
@@ -41,7 +41,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                     for professor in professors {
                         if let courses = professor["courses"].array{
                             for course in courses {
-                                self.course.append(Course.init(name: course["course_name"].stringValue, cid: course["course_id"].stringValue, professor: professor["professor_name"].stringValue, department: professor["department"].stringValue, avgReview: professor["average_review"].doubleValue, numOfReview: professor["number_of_reviews"].intValue))
+                                self.course.append(Course.init(name: course["course_name"].stringValue, id: course["course_id"].stringValue, professor: professor["professor_name"].stringValue, department: professor["department"].stringValue, avgReview: professor["average_review"].doubleValue, numOfReview: professor["number_of_reviews"].intValue))
                             }
                         }
                     }
@@ -90,7 +90,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         
         //set cell
         cell.nameLabel.text = course.name
-        cell.cidLabel.text = course.cid
+        cell.cidLabel.text = course.id
         cell.professorLabel.text = course.professor
         cell.avgReviewLabel.text = String(course.avgReview)
         
@@ -158,7 +158,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     func filterContentForSearchText(_ searchText: String){
         searchResults = course.filter({ (course:Course) -> Bool in
             let nameMatch = course.name.range(of:searchText, options: NSString.CompareOptions.caseInsensitive)
-            let cidMatch = course.cid!.range(of:searchText, options: NSString.CompareOptions.caseInsensitive)
+            let cidMatch = course.id!.range(of:searchText, options: NSString.CompareOptions.caseInsensitive)
             let profMatch = course.professor.range(of:searchText, options: NSString.CompareOptions.caseInsensitive)
             return nameMatch != nil || cidMatch != nil || profMatch != nil
         })

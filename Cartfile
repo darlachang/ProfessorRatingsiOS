@@ -2,4 +2,6 @@ github "Alamofire/Alamofire"
 github "SwiftyJSON/SwiftyJSON"
 github "wxxsw/GSMessages"
 github "krzyzanowskim/CryptoSwift"
+github "xhacker/TagListView"  "master"
+github "xmartlabs/Eureka" ~> 2.0
 

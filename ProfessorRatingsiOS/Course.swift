@@ -12,7 +12,7 @@ import CoreData
 class Course {
     
     var name:String = ""
-    var cid:String?
+    var id:String?
     var professor:String = ""
     var department:String = ""
     var avgReview:Double = 0.0
@@ -20,11 +20,11 @@ class Course {
  
 
     
-    convenience init(name:String, cid:String, professor:String, department:String, avgReview:Double, numOfReview:Int) {
+    convenience init(name:String, id:String, professor:String, department:String, avgReview:Double, numOfReview:Int) {
 
             self.init()
             self.name = name
-            self.cid = cid
+            self.id = id
             self.professor = professor
             self.department = department
             self.avgReview = avgReview

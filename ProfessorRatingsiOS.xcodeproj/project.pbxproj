@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		292E2E891DA1ADE7005ECFFC /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E2E881DA1ADE7005ECFFC /* SearchTableViewController.swift */; };
-		292E2E8A1DA1ADE7005ECFFC /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E2E881DA1ADE7005ECFFC /* SearchTableViewController.swift */; };
-		292E2E8B1DA1ADE7005ECFFC /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E2E881DA1ADE7005ECFFC /* SearchTableViewController.swift */; };
 		292E2E8E1DA1B031005ECFFC /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E2E8D1DA1B031005ECFFC /* Course.swift */; };
-		292E2E8F1DA1B031005ECFFC /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E2E8D1DA1B031005ECFFC /* Course.swift */; };
-		292E2E901DA1B031005ECFFC /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E2E8D1DA1B031005ECFFC /* Course.swift */; };
 		296F03661DA1C1CB00C4893B /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296F03651DA1C1CB00C4893B /* SearchTableViewCell.swift */; };
+		FB0A6F3C1DA434F000E4F403 /* SubmitReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */; };
+		FB0AB7D91DB567120054C262 /* StickySliderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0AB7D71DB567120054C262 /* StickySliderViewCell.swift */; };
+		FB0AB7DA1DB567120054C262 /* StickySliderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB0AB7D81DB567120054C262 /* StickySliderViewCell.xib */; };
 		FB36E05C1D9A0934002EC392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB36E05B1D9A0934002EC392 /* AppDelegate.swift */; };
 		FB36E0641D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB36E0621D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodeld */; };
 		FB36E0661D9A0934002EC392 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB36E0651D9A0934002EC392 /* Assets.xcassets */; };
@@ -23,15 +22,17 @@
 		FB36E08F1D9A0B93002EC392 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB36E08D1D9A0B93002EC392 /* Alamofire.framework */; };
 		FB36E0901D9A0B93002EC392 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB36E08E1D9A0B93002EC392 /* SwiftyJSON.framework */; };
 		FB36E0A71D9A15CC002EC392 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB36E0A61D9A15CC002EC392 /* Main.storyboard */; };
+		FB8427491DA448E9009D4B5B /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8427471DA448E9009D4B5B /* Eureka.framework */; };
+		FB84274A1DA448E9009D4B5B /* TagListView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8427481DA448E9009D4B5B /* TagListView.framework */; };
+		FB84274E1DA44D0F009D4B5B /* Professor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84274D1DA44D0F009D4B5B /* Professor.swift */; };
 		FB9A51F61D9A1C880094BA53 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A51F41D9A1C880094BA53 /* SignUpViewController.swift */; };
 		FB9A51F71D9A1C880094BA53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A51F51D9A1C880094BA53 /* ViewController.swift */; };
 		FBC526561D9A1EF500ED39D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC526551D9A1EF500ED39D2 /* Constants.swift */; };
 		FBC526581D9A1F0000ED39D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC526571D9A1F0000ED39D2 /* User.swift */; };
 		FBEA6F811D9C0A5F00C653EA /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBEA6F801D9C0A5F00C653EA /* CryptoSwift.framework */; };
 		FBF8A3781D9EFBA100680370 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF8A3771D9EFBA100680370 /* Utils.swift */; };
-		FBF8A3791D9EFBA100680370 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF8A3771D9EFBA100680370 /* Utils.swift */; };
-		FBF8A37A1D9EFBA100680370 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF8A3771D9EFBA100680370 /* Utils.swift */; };
 		FBF920B61D9B153C009631D5 /* GSMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBF920B51D9B153C009631D5 /* GSMessages.framework */; };
+		FBFF53C21DA593B5008E0407 /* submitReview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBFF53C11DA593B5008E0407 /* submitReview.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,9 @@
 		292E2E881DA1ADE7005ECFFC /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = Controllers/SearchTableViewController.swift; sourceTree = "<group>"; };
 		292E2E8D1DA1B031005ECFFC /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		296F03651DA1C1CB00C4893B /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitReviewViewController.swift; path = Controllers/SubmitReviewViewController.swift; sourceTree = "<group>"; };
+		FB0AB7D71DB567120054C262 /* StickySliderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StickySliderViewCell.swift; path = ProfessorRatingsiOS/Views/StickySliderViewCell.swift; sourceTree = SOURCE_ROOT; };
+		FB0AB7D81DB567120054C262 /* StickySliderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StickySliderViewCell.xib; path = ProfessorRatingsiOS/Views/StickySliderViewCell.xib; sourceTree = SOURCE_ROOT; };
 		FB36E0581D9A0934002EC392 /* ProfessorRatingsiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfessorRatingsiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB36E05B1D9A0934002EC392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB36E0631D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProfessorRatingsiOS.xcdatamodel; sourceTree = "<group>"; };
@@ -70,6 +74,9 @@
 		FB36E08D1D9A0B93002EC392 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FB36E08E1D9A0B93002EC392 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		FB36E0A61D9A15CC002EC392 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FB8427471DA448E9009D4B5B /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
+		FB8427481DA448E9009D4B5B /* TagListView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TagListView.framework; path = Carthage/Build/iOS/TagListView.framework; sourceTree = "<group>"; };
+		FB84274D1DA44D0F009D4B5B /* Professor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Professor.swift; path = Models/Professor.swift; sourceTree = "<group>"; };
 		FB9A51F41D9A1C880094BA53 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controllers/SignUpViewController.swift; sourceTree = "<group>"; };
 		FB9A51F51D9A1C880094BA53 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
 		FBC526551D9A1EF500ED39D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Helpers/Constants.swift; sourceTree = "<group>"; };
@@ -77,6 +84,7 @@
 		FBEA6F801D9C0A5F00C653EA /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		FBF8A3771D9EFBA100680370 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Helpers/Utils.swift; sourceTree = "<group>"; };
 		FBF920B51D9B153C009631D5 /* GSMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSMessages.framework; path = Carthage/Build/iOS/GSMessages.framework; sourceTree = "<group>"; };
+		FBFF53C11DA593B5008E0407 /* submitReview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = submitReview.storyboard; path = Views/submitReview.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +94,10 @@
 			files = (
 				FBF920B61D9B153C009631D5 /* GSMessages.framework in Frameworks */,
 				FBEA6F811D9C0A5F00C653EA /* CryptoSwift.framework in Frameworks */,
+				FB84274A1DA448E9009D4B5B /* TagListView.framework in Frameworks */,
 				FB36E08F1D9A0B93002EC392 /* Alamofire.framework in Frameworks */,
 				FB36E0901D9A0B93002EC392 /* SwiftyJSON.framework in Frameworks */,
+				FB8427491DA448E9009D4B5B /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +126,14 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		FB1EF31C1DA5487E00361EC1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FBFF53BD1DA552AA008E0407 /* StickySlider */,
+			);
+			name = Views;
+			sourceTree = "<unknown>";
+		};
 		FB36E04F1D9A0934002EC392 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +158,7 @@
 		FB36E05A1D9A0934002EC392 /* ProfessorRatingsiOS */ = {
 			isa = PBXGroup;
 			children = (
+				FB1EF31C1DA5487E00361EC1 /* Views */,
 				292E2E8C1DA1B00A005ECFFC /* Cell */,
 				FBC526541D9A1EDB00ED39D2 /* Models */,
 				FBC526531D9A1ED400ED39D2 /* Helpers */,
@@ -149,6 +168,7 @@
 				FB36E0671D9A0934002EC392 /* LaunchScreen.storyboard */,
 				FB36E06A1D9A0934002EC392 /* Info.plist */,
 				FB36E0A61D9A15CC002EC392 /* Main.storyboard */,
+				FBFF53C11DA593B5008E0407 /* submitReview.storyboard */,
 				FB36E0621D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodeld */,
 			);
 			path = ProfessorRatingsiOS;
@@ -175,6 +195,8 @@
 		FB36E08C1D9A0B93002EC392 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB8427471DA448E9009D4B5B /* Eureka.framework */,
+				FB8427481DA448E9009D4B5B /* TagListView.framework */,
 				FBEA6F801D9C0A5F00C653EA /* CryptoSwift.framework */,
 				FBF920B51D9B153C009631D5 /* GSMessages.framework */,
 				FB36E08D1D9A0B93002EC392 /* Alamofire.framework */,
@@ -188,6 +210,7 @@
 			children = (
 				FB9A51F41D9A1C880094BA53 /* SignUpViewController.swift */,
 				FB9A51F51D9A1C880094BA53 /* ViewController.swift */,
+				FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */,
 				292E2E881DA1ADE7005ECFFC /* SearchTableViewController.swift */,
 			);
 			name = Controllers;
@@ -206,9 +229,19 @@
 			isa = PBXGroup;
 			children = (
 				FBC526571D9A1F0000ED39D2 /* User.swift */,
+				FB84274D1DA44D0F009D4B5B /* Professor.swift */,
 				292E2E8D1DA1B031005ECFFC /* Course.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		FBFF53BD1DA552AA008E0407 /* StickySlider */ = {
+			isa = PBXGroup;
+			children = (
+				FB0AB7D71DB567120054C262 /* StickySliderViewCell.swift */,
+				FB0AB7D81DB567120054C262 /* StickySliderViewCell.xib */,
+			);
+			name = StickySlider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +355,8 @@
 			files = (
 				FB36E0691D9A0934002EC392 /* LaunchScreen.storyboard in Resources */,
 				FB36E0A71D9A15CC002EC392 /* Main.storyboard in Resources */,
+				FBFF53C21DA593B5008E0407 /* submitReview.storyboard in Resources */,
+				FB0AB7DA1DB567120054C262 /* StickySliderViewCell.xib in Resources */,
 				FB36E0661D9A0934002EC392 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +388,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GSMessages.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/TagListView.framework",
 			);
 			outputPaths = (
 			);
@@ -367,12 +404,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB0A6F3C1DA434F000E4F403 /* SubmitReviewViewController.swift in Sources */,
 				292E2E8E1DA1B031005ECFFC /* Course.swift in Sources */,
 				FBC526561D9A1EF500ED39D2 /* Constants.swift in Sources */,
 				FB9A51F61D9A1C880094BA53 /* SignUpViewController.swift in Sources */,
+				FB0AB7D91DB567120054C262 /* StickySliderViewCell.swift in Sources */,
 				FBC526581D9A1F0000ED39D2 /* User.swift in Sources */,
 				FBF8A3781D9EFBA100680370 /* Utils.swift in Sources */,
 				FB36E0641D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodeld in Sources */,
+				FB84274E1DA44D0F009D4B5B /* Professor.swift in Sources */,
 				FB9A51F71D9A1C880094BA53 /* ViewController.swift in Sources */,
 				FB36E05C1D9A0934002EC392 /* AppDelegate.swift in Sources */,
 				292E2E891DA1ADE7005ECFFC /* SearchTableViewController.swift in Sources */,
@@ -384,10 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				292E2E8F1DA1B031005ECFFC /* Course.swift in Sources */,
 				FB36E0741D9A0934002EC392 /* ProfessorRatingsiOSTests.swift in Sources */,
-				292E2E8A1DA1ADE7005ECFFC /* SearchTableViewController.swift in Sources */,
-				FBF8A3791D9EFBA100680370 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,10 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				292E2E901DA1B031005ECFFC /* Course.swift in Sources */,
 				FB36E07F1D9A0935002EC392 /* ProfessorRatingsiOSUITests.swift in Sources */,
-				292E2E8B1DA1ADE7005ECFFC /* SearchTableViewController.swift in Sources */,
-				FBF8A37A1D9EFBA100680370 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
