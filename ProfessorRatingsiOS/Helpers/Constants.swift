@@ -6,4 +6,5 @@ struct Config {
     static let baseURL =  "http://mive.us"
     static let registrationURL = "\(baseURL)/users"
     static let loginURL = "\(baseURL)/login"
+    static let searchURL = "\(baseURL)/search"
 }
