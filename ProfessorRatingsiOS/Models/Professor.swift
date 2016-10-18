@@ -10,6 +10,7 @@ import Foundation
 
 class Professor {
     var name:String!
+    var id:String!
     
     init(name:String) {
         self.name = name

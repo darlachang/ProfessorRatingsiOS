@@ -8,6 +8,7 @@ struct Config {
     static let registrationURL = "\(baseURL)/users"
     static let loginURL = "\(baseURL)/login"
     static let searchURL = "\(baseURL)/search"
+    static let reviewURL = "\(baseURL)/reviews"
 }
 
 struct PR_Colors {
