@@ -12,8 +12,8 @@ import SwiftyJSON
 
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
     var course:[Course] = [
-        Course(name: "Obj-Oriented Prog & Data Struc", id: "CS 2110", professor: "Gries", department: "Computer Science", avgReview: 3.6, numOfReview: 233),
-       Course(name: "Intro of Database Sys", id: "CS 5320", professor: "Demers", department: "Computer Science", avgReview: 3.6, numOfReview: 150)
+//        Course(name: "Obj-Oriented Prog & Data Struc", id: "CS 2110", professor: "Gries", department: "Computer Science", avgReview: 3.6, numOfReview: 233),
+//       Course(name: "Intro of Database Sys", id: "CS 5320", professor: "Demers", department: "Computer Science", avgReview: 3.6, numOfReview: 150)
     ]
     var searchController:UISearchController!
     var searchResults:[Course] = []
@@ -22,7 +22,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("my course is", course)
+        //print("my course is", course)
         
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
@@ -100,7 +100,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
         return cell
     }
-    
+//    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let index = indexPath.row
+//        
+//    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -162,6 +166,25 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             let profMatch = course.professor.range(of:searchText, options: NSString.CompareOptions.caseInsensitive)
             return nameMatch != nil || cidMatch != nil || profMatch != nil
         })
+    }
+    
+//    func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
+//        print("segue here")
+//        if segue!.identifier == "SearchtoProfile" {
+//            let viewController:CourseProfileViewController = segue!.destination as! CourseProfileViewController
+//            let indexPath = self.tableView.indexPathForSelectedRow
+//            viewController.courseinfo = course[(indexPath?.row)!]
+//        }
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("segue here")
+        if segue.identifier == "SearchtoProfile" {
+            let viewController:CourseProfileViewController = segue.destination as! CourseProfileViewController
+            let indexPath = self.tableView.indexPathForSelectedRow
+            viewController.courseinfo = course[(indexPath?.row)!]
+        }
+
     }
 
 }
