@@ -10,6 +10,9 @@ import UIKit
 
 class CourseProfileCommentsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var tags: UILabel!
+    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var comment: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         let label = UILabel()

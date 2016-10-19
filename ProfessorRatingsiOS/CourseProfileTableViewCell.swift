@@ -10,6 +10,9 @@ import UIKit
 
 class CourseProfileTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var ratingAmt: UILabel!
+    @IBOutlet weak var ratingTitle: UILabel!
+    @IBOutlet weak var ratingNum: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
