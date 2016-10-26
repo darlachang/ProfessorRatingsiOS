@@ -28,12 +28,21 @@ class Comments: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func shorten(_ date: String) -> String{
+       // let string = date
+        let index = date.characters.index(of: "T")
+        if let i = index {
+            return date.substring(to: i)
+        }
+        return date
+    }
+    
     convenience init(comment: String, student:String, date:String, agree:Int, disagree:Int, stdRating:Int) {
         
         self.init()
         self.comment = comment
         self.student = student
-        self.date = date
+        self.date = shorten(date)
         self.agree = agree
         self.disagree = disagree
         self.stdRating = stdRating
