@@ -17,6 +17,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     ]
     var searchController:UISearchController!
     var searchResults:[Course] = []
+    var searchString:String?
+    var searchRequest: Alamofire.Request?
     
     
     override func viewDidLoad() {
@@ -169,8 +171,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         let params:[String: Any] = [
             "q" : string
         ]
-        
-        Alamofire.request(Config.searchURL, method: .get, parameters: params,encoding: URLEncoding.default).responseJSON {
+        searchRequest?.cancel()
+        searchRequest = Alamofire.request(Config.searchURL, method: .get, parameters: params,encoding: URLEncoding.default).responseJSON {
             (response) in
             if let value = response.result.value {
                 print("ahhaha")
