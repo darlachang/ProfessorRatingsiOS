@@ -178,7 +178,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             let comment = self.commentInfo[indexPath.row]
             cell.comment.text = self.commentInfo[indexPath.row].comment
             cell.date.text = comment.date
-//            cell.student.text = "student A"
+            cell.student.text = "Senior, Electrical Engineer, A+"
 //            cell.date.text = "12/16/2016"
             cell.starCount = comment.stdRating
             cell.displayStars()
