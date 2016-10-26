@@ -17,8 +17,6 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
     @IBOutlet weak var Agree: UIButton!
     @IBOutlet weak var disagreeLabel: UILabel!
     @IBOutlet weak var Disagree: UIButton!
-    @IBOutlet weak var ratingStar: UIImageView!
-    
     @IBOutlet weak var endStar: UIView!
     
     var starCount = 0
@@ -26,7 +24,6 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        ratingStar.isHidden = true
         Agree.isHidden = true
         Disagree.isHidden = true
         agreeLabel.isHidden = true
@@ -38,14 +35,10 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
         Disagree.layer.borderColor = PR_Colors.brightOrange.cgColor
         Disagree.layer.cornerRadius = 10
         
+        comment.sizeToFit()
+        layoutIfNeeded()
         displayStars()
-        
-        
-        //        let label = UILabel()
-        //        label.frame = CGRect.init(x: <#T##CGFloat#>, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
-        //       self.contentView.addSubview(label)
-        // Initialization code
-        
+
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -57,38 +50,41 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
     func displayStars() {
         let count = starCount
         var currentStar = endStar
-        var point = currentStar!.superview!.convert(currentStar!.center, to: self)
-        var x = point.x
-        let y = point.y
-        let space = 5
+        var position:CGPoint = currentStar!.superview!.convert(currentStar!.center, to: self)
+        position.x -= currentStar!.frame.width/2
+        position.y -= currentStar!.frame.height/2
+        let space = 2
         
-        for i in 0 ..< (5-count) {
+        for _ in 0 ..< (5-count) {
             // Apply empty star
-            currentStar = addStar(x: x, y: y, size: currentStar!.frame.size, isFilled: false)
-            x = x - currentStar!.frame.width - CGFloat(space)
+            currentStar = addStar(position: position, size: currentStar!.frame.size, isFilled: false)
+            position.x = position.x - currentStar!.frame.width - CGFloat(space)
         }
         
-        for i in 0 ..< count {
-            currentStar = addStar(x: x, y: y, size: currentStar!.frame.size, isFilled: true)
-            x = x - currentStar!.frame.width
+        for _ in 0 ..< count {
+            currentStar = addStar(position: position, size: currentStar!.frame.size, isFilled: true)
+            position.x = position.x - currentStar!.frame.width - CGFloat(space)
         }
     }
     
-    func addStar(x: CGFloat, y: CGFloat, size: CGSize, isFilled: Bool) -> UIView{
+    func addStar(position: CGPoint, size: CGSize, isFilled: Bool) -> UIView{
         let newStar = UIView()
-        let point = CGPoint(x: x, y: y)
-        let rect = CGRect(origin: point, size: size)
+        let rect = CGRect(origin: position, size: size)
         newStar.frame = rect
-        UIGraphicsBeginImageContext(size)
-        
+//        UIGraphicsBeginImageContext(size)
+//
+//        if isFilled {
+//            #imageLiteral(resourceName: "filled_star").draw(in: rect)
+//        } else {
+//            #imageLiteral(resourceName: "empty_star").draw(in: rect)
+//        }
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        newStar.backgroundColor = UIColor(patternImage: image!)
         if isFilled {
-            #imageLiteral(resourceName: "filled_star").draw(in: rect)
+            newStar.layer.contents = #imageLiteral(resourceName: "filled_star").cgImage
         } else {
-            #imageLiteral(resourceName: "empty_star").draw(in: rect)
+            newStar.layer.contents = #imageLiteral(resourceName: "empty_star").cgImage
         }
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        newStar.backgroundColor = UIColor(patternImage: image!)
-        UIGraphicsEndImageContext()
         self.addSubview(newStar)
         return newStar
     }

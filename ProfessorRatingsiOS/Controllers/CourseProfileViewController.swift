@@ -170,7 +170,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         case 1:
             let cellIdentifier = "commentsCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileCommentsTableViewCell
-            cell.ratingStar.image = UIImage(named:"arrow")
+//            cell.ratingStar.image = UIImage(named:"arrow")
             cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
             
 //            let comment = self.commentInfo[indexPath.row]
@@ -179,6 +179,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             cell.student.text = "student A"
             cell.date.text = "12/16/2016"
             cell.starCount = 3
+            cell.displayStars()
             return cell
             
         case 2:
