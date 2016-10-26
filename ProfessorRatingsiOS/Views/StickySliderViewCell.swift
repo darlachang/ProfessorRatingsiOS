@@ -22,6 +22,7 @@ class StickySliderViewCell: Cell<StickySliderContent>, CellType {
     @IBOutlet weak var leftLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var valueIndicator: UILabel!
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -35,6 +36,8 @@ class StickySliderViewCell: Cell<StickySliderContent>, CellType {
         let newStep = roundf(sender.value / Float(self.row.value!.step))
         sender.value = newStep * self.row.value!.step
         row.value?.value = sender.value
+        valueIndicator.text = String(Int(slider.value))
+
     }
     
     override public func setup() {
@@ -46,12 +49,13 @@ class StickySliderViewCell: Cell<StickySliderContent>, CellType {
             slider.minimumValue = Float(content.lowerValue)
             slider.maximumValue = Float(content.higherValue)
         }
-        height = {return 100}
+        height = {return 130}
     }
     
     override public func update() {
         super.update()
         slider.value = (row.value?.value)!
+        valueIndicator.text = String(Int(slider.value))
     }
 }
 

@@ -53,6 +53,9 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     //    }
     
     //var courseinfo = []
+    let SCORE = 0
+    let COMMENT = 1
+    let QUOTE = 2
     
     
     func imageWithColor(_ color: UIColor) -> UIImage {
@@ -114,14 +117,15 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         var returnValue = 0
         switch(courseSegmentedControl.selectedSegmentIndex)
         {
-        case 0:
+        case SCORE:
             returnValue = 3
             break
-        case 1:
+        case COMMENT:
             print("count of commentInfo = ", commentInfo.count)
-            returnValue = 3 //commentInfo.count
+//            returnValue = 3 //commentInfo.count
+            returnValue = commentInfo.count
             break
-        case 2:
+        case QUOTE:
             returnValue = 3
             break
         default:
@@ -135,7 +139,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         
         switch(courseSegmentedControl.selectedSegmentIndex){
             
-        case 0:
+        case SCORE:
             let cellIdentifier = "courseprofileCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileTableViewCell
             
@@ -149,7 +153,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                 cell.ratingTitle.text = RatingsList[1] //workload
                 if let a = self.courseInfo.workloadString {
                     cell.ratingNum.text =  a
-                    
                 }
                 //cell.ratingAmt.text = "\(RatingsAmount[1]) ratings"
                 
@@ -167,21 +170,21 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             return cell
             
             
-        case 1:
+        case COMMENT:
             let cellIdentifier = "commentsCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileCommentsTableViewCell
             cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
             
-            //            let comment = self.commentInfo[indexPath.row]
-            // cell.comment.text = self.commentInfo[indexPath.row].comment
-            //            cell.setStarCount(count: comment.stdRating)
-            cell.student.text = "student A"
-            cell.date.text = "12/16/2016"
-            cell.starCount = 3
+            let comment = self.commentInfo[indexPath.row]
+            cell.comment.text = self.commentInfo[indexPath.row].comment
+            cell.date.text = comment.date
+//            cell.student.text = "student A"
+//            cell.date.text = "12/16/2016"
+            cell.starCount = comment.stdRating
             cell.displayStars()
             return cell
             
-        case 2:
+        case QUOTE:
             //            let cellIdentifier = "courseprofileCell"
             //            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
             //            cell.textLabel!.text = QuotesList[indexPath.row]
@@ -237,8 +240,8 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                     for cominfo in commentinfos{
                         self.commentInfo.append(Comments.init(
                             comment:cominfo["comment"].stringValue,
-                            student:"",
-                            date:"",
+                            student:cominfo["user"].stringValue,
+                            date:cominfo["date"].stringValue,
                             agree:cominfo["like_count"].int!,
                             disagree:cominfo["dislike_count"].int!,
                             stdRating:cominfo["rating"].int!

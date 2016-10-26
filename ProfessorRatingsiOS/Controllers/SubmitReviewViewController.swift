@@ -52,17 +52,17 @@ class SubmitReviewViewController: FormViewController {
                     rightText: "5",
                     title: "Rate Your Professor",
                     step: 1,
-                    lowerValue: 0,
-                    higherValue: 4,
-                    value: 2)
+                    lowerValue: 1,
+                    higherValue: 5,
+                    value: 3)
             }
             <<< StickySliderViewRow(fields.work_load.rawValue){
                 $0.value = StickySliderContent(
-                    leftText: "Lighter", rightText: "Heavier", title: "Workload compare to other classes", step: 1, lowerValue: 0, higherValue: 4, value: 2)
+                    leftText: "Lighter", rightText: "Heavier", title: "Workload compare to other classes", step: 1, lowerValue: 1, higherValue: 5, value: 3)
             }
             <<< StickySliderViewRow(fields.grading_difficulty.rawValue){
                 $0.value = StickySliderContent(
-                    leftText: "Easy", rightText: "Difficult", title: "Grading", step: 1, lowerValue: 0, higherValue: 4, value: 2)
+                    leftText: "Easy", rightText: "Difficult", title: "Grading", step: 1, lowerValue: 1, higherValue: 5, value: 3)
             }
             +++ Section("What would you like to tell somebody who wants to take this test?")
             <<< TextAreaRow(fields.comment.rawValue) {row in
