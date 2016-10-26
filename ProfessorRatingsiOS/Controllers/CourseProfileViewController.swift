@@ -77,8 +77,8 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         nameLabel.text = courseInfo.name
         professorLabel.text = courseInfo.professor.name
         
-        Review.layer.borderWidth = 1.0
         Review.layer.borderColor = PR_Colors.brightOrange.cgColor
+        Review.layer.borderWidth = 1.0
         Review.layer.cornerRadius = 10
         
         
@@ -170,12 +170,11 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         case 1:
             let cellIdentifier = "commentsCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileCommentsTableViewCell
-//            cell.ratingStar.image = UIImage(named:"arrow")
             cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
             
-//            let comment = self.commentInfo[indexPath.row]
+            //            let comment = self.commentInfo[indexPath.row]
             // cell.comment.text = self.commentInfo[indexPath.row].comment
-//            cell.setStarCount(count: comment.stdRating)
+            //            cell.setStarCount(count: comment.stdRating)
             cell.student.text = "student A"
             cell.date.text = "12/16/2016"
             cell.starCount = 3
@@ -251,22 +250,18 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
-    func nextPage(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let submitReviewController = storyboard.instantiateViewController(withIdentifier: "submitReview") as! SubmitReviewViewController
-        //self.navigationController!.show(submitReviewController, sender: self)
+    func submitReview(){
+        let storyboard = UIStoryboard(name: "submitReview", bundle: nil)
+        let submitReviewController = storyboard.instantiateViewController(withIdentifier: "SubmitReviewViewController") as! SubmitReviewViewController
         submitReviewController.professor = courseInfo.professor
         submitReviewController.course = courseInfo
         self.navigationController?.pushViewController(submitReviewController, animated: true)
-        //        self.present(submitReviewController, animated: true, completion: nil)
-        
-        
     }
     
     
-    //    @IBAction func ReviewPressed(_ sender: AnyObject) {
-    //        self.nextPage()
-    //    }
+    @IBAction func ReviewPressed(_ sender: AnyObject) {
+        self.submitReview()
+    }
     
     
     /*

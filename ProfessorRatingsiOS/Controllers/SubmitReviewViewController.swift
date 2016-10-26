@@ -41,7 +41,7 @@ class SubmitReviewViewController: FormViewController {
     
     func setUpTitle() {
         // TODO make sure these are set in prepare for segue
-        //navigationItem.title = "\(course.id) by \n \(professor.name)"
+        navigationItem.title = "\(course.id!) by \(professor.name!)"
     }
     
     func buildForm() {
@@ -102,13 +102,12 @@ class SubmitReviewViewController: FormViewController {
     }
     
     @IBAction func cancelButtonPressed(_ sender: AnyObject) {
-        print("Cancel button ")
+        self.navigationController!.popViewController(animated: true)
     }
     
     func save(){
         var params: [String: Any] = [
-//            fields.prof_id.rawValue : professor.id,
-//            fields.course_id.rawValue : course.id!,
+            fields.course_id.rawValue : course.db_id!,
             fields.rating.rawValue : (form.rowBy(tag: fields.rating.rawValue) as! StickySliderViewRow).value!.value,
             fields.work_load.rawValue : (form.rowBy(tag: fields.work_load.rawValue) as! StickySliderViewRow).value!.value,
             fields.grading_difficulty.rawValue : (form.rowBy(tag: fields.grading_difficulty.rawValue) as! StickySliderViewRow).value!.value,
