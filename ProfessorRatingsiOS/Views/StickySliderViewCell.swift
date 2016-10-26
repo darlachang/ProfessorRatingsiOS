@@ -48,8 +48,13 @@ class StickySliderViewCell: Cell<StickySliderContent>, CellType {
             rightLabel.text = content.rightText
             slider.minimumValue = Float(content.lowerValue)
             slider.maximumValue = Float(content.higherValue)
+            if content.showValue {
+                height = {return 130}
+            } else {
+                valueIndicator.isHidden = true
+                height = {return 100}
+            }
         }
-        height = {return 130}
     }
     
     override public func update() {
@@ -67,6 +72,7 @@ struct StickySliderContent:Equatable {
     var lowerValue:Int
     var higherValue:Int
     var value:Float = 2
+    var showValue:Bool = false
 }
 
 func ==(lhs: StickySliderContent, rhs: StickySliderContent) -> Bool {
