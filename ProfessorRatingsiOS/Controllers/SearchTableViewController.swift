@@ -75,7 +75,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         //set cell
         cell.nameLabel.text = course.name
         cell.cidLabel.text = course.id
-        cell.professorLabel.text = course.professor
+        cell.professorLabel.text = course.professor.name
         cell.avgReviewLabel.text = String(course.avgReview)
         
         //        if let isVisited = course.isVisited? .boolValue {
@@ -149,18 +149,18 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         searchResults = course.filter({ (course:Course) -> Bool in
             let nameMatch = course.name.range(of:searchText, options: NSString.CompareOptions.caseInsensitive)
             let cidMatch = course.id!.range(of:searchText, options: NSString.CompareOptions.caseInsensitive)
-            let profMatch = course.professor.range(of:searchText, options: NSString.CompareOptions.caseInsensitive)
+            let profMatch = course.professor.name.range(of:searchText, options: NSString.CompareOptions.caseInsensitive)
             return nameMatch != nil || cidMatch != nil || profMatch != nil
         })
         search(string: searchText)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("segue here")
+        //print("segue here")
         if segue.identifier == "SearchtoProfile" {
             let viewController:CourseProfileViewController = segue.destination as! CourseProfileViewController
             let indexPath = self.tableView.indexPathForSelectedRow
-            viewController.courseinfo = course[(indexPath?.row)!]
+            viewController.courseInfo = course[(indexPath!.row)]
         }
         
     }
@@ -181,19 +181,28 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                 // print("the course's avg review is ", jsonObject)
                 if let professors = jsonObject.array { //.array is the usage of swiftyjson's library.
                     for professor in professors {
+                        let prof = Professor(name: professor["professor_name"].stringValue)
                         if let courses = professor["courses"].array{
                             if courses.isEmpty {
                                 self.course.append(Course.init(
+                                    db_id:"",
                                     name:"",
                                     id:"",
-                                    professor: professor["professor_name"].stringValue,
+                                    professor: prof,
                                     department: professor["department"].stringValue,
                                     avgReview: professor["average_review"].doubleValue,
                                     numOfReview: professor["number_of_reviews"].intValue
                                 ))
                             } else {
                                 for course in courses {
-                                    self.course.append(Course.init(name: course["course_name"].stringValue, id: course["course_id"].stringValue, professor: professor["professor_name"].stringValue, department: professor["department"].stringValue, avgReview: professor["average_review"].doubleValue, numOfReview: professor["number_of_reviews"].intValue))
+                                    self.course.append(Course.init(
+                                        db_id: course["course_object_id"].stringValue,
+                                        name: course["course_name"].stringValue,
+                                        id: course["course_id"].stringValue,
+                                        professor: prof,
+                                        department: professor["department"].stringValue,
+                                        avgReview: professor["average_review"].doubleValue,
+                                        numOfReview: professor["number_of_reviews"].intValue))
                                 }
                             }
                         }
