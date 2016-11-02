@@ -105,6 +105,9 @@
                                                     <state key="normal" title="AGREE">
                                                         <color key="titleColor" red="0.94117647058823528" green="0.37647058823529411" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="likePressed:" destination="Wn2-dM-xdG" eventType="touchUpInside" id="UuD-o2-rUN"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ds-FO-CJp">
                                                     <constraints>
@@ -114,6 +117,9 @@
                                                     <state key="normal" title="DISAGREE">
                                                         <color key="titleColor" red="0.011764705882352941" green="0.52156862745098043" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="dislikePressed:" destination="Wn2-dM-xdG" eventType="touchUpInside" id="qDO-x5-jZ0"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmy-fb-TTY">
                                                     <constraints>
@@ -132,7 +138,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKG-Bc-Iwj">
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="WKG-Bc-Iwj" secondAttribute="height" multiplier="17:18" id="gFx-Co-oi2"/>
                                                         <constraint firstAttribute="width" constant="17" id="tai-IZ-Idc"/>
@@ -168,7 +173,7 @@
                                             <outlet property="Agree" destination="850-fB-2vW" id="n5S-QS-gfj"/>
                                             <outlet property="Disagree" destination="3Ds-FO-CJp" id="LJl-Qd-km5"/>
                                             <outlet property="agreeLabel" destination="Mmy-fb-TTY" id="R4c-ur-3Lr"/>
-                                            <outlet property="comment" destination="acX-Gf-YnZ" id="zQM-vO-1bV"/>
+                                            <outlet property="commentLabel" destination="acX-Gf-YnZ" id="nwH-5h-wEP"/>
                                             <outlet property="date" destination="v6d-Yn-wkP" id="TF0-w9-B97"/>
                                             <outlet property="disagreeLabel" destination="lJ8-eD-Zfu" id="Pkl-Pf-iCg"/>
                                             <outlet property="endStar" destination="WKG-Bc-Iwj" id="Nvb-e6-Og5"/>

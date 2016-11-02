@@ -51,6 +51,7 @@ class ViewController: UIViewController {
                 // Save user id && access token locally
                 let defaults = UserDefaults.standard
                 defaults.set(jsonObject["user_id"].stringValue, forKey: "user_id")
+                print("Hongfei setting user ID as \(jsonObject["user_id"].stringValue)")
             }
 
             self.nextPage()

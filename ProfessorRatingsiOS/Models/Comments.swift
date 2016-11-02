@@ -10,6 +10,7 @@ import UIKit
 
 class Comments: UITableViewCell {
     
+    var commentID:String!
     var comment:String!
     var student:String!
     var date:String!
@@ -37,9 +38,10 @@ class Comments: UITableViewCell {
         return date
     }
     
-    convenience init(comment: String, student:String, date:String, agree:Int, disagree:Int, stdRating:Int) {
+    convenience init(commentID: String, comment: String, student:String, date:String, agree:Int, disagree:Int, stdRating:Int) {
         
         self.init()
+        self.commentID = commentID
         self.comment = comment
         self.student = student
         self.date = shorten(date)

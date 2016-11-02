@@ -171,7 +171,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         let params:[String: Any] = [
             "q" : string
         ]
-        searchRequest?.cancel()
+        searchRequest?.cancel() //user search "INFO", every "I", "IN",etc sent a request to server. we want to cancel the previous request
         searchRequest = Alamofire.request(Config.searchURL, method: .get, parameters: params,encoding: URLEncoding.default).responseJSON {
             (response) in
             if let value = response.result.value {

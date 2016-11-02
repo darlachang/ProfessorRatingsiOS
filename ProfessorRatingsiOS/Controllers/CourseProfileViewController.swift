@@ -83,9 +83,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         Review.layer.borderColor = PR_Colors.brightOrange.cgColor
         Review.layer.borderWidth = 1.0
         Review.layer.cornerRadius = 10
-        
-        
-        
+              
         
         //        let courseSegmentControl = UISegmentedControl (items: ["Ratings & Tag", "Comments", "Quotes"])
         //        courseSegmentControl.frame = CGRect.init(x: 10, y: 150, width: 300, height: 30)
@@ -176,12 +174,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
             
             let comment = self.commentInfo[indexPath.row]
-            cell.comment.text = self.commentInfo[indexPath.row].comment
-            cell.date.text = comment.date
-            cell.student.text = "Senior, Electrical Engineer, A+"
-//            cell.date.text = "12/16/2016"
-            cell.starCount = comment.stdRating
-            cell.displayStars()
+            cell.bindObject(comment)
             return cell
             
         case QUOTE:
@@ -238,7 +231,9 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                 let jsonObject = JSON(value)
                 if let commentinfos = jsonObject.array{
                     for cominfo in commentinfos{
+                        print("commentinfos ", commentinfos)
                         self.commentInfo.append(Comments.init(
+                            commentID:cominfo["_id"].stringValue,
                             comment:cominfo["comment"].stringValue,
                             student:cominfo["user"].stringValue,
                             date:cominfo["date"].stringValue,
@@ -251,6 +246,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                 self.profileTableView.reloadData() //reload tableView
             }
         }
+        
     }
     
     func submitReview(){
@@ -261,6 +257,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         self.navigationController?.pushViewController(submitReviewController, animated: true)
     }
     
+
     
     @IBAction func ReviewPressed(_ sender: AnyObject) {
         self.submitReview()

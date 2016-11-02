@@ -103,9 +103,6 @@ class SignUpViewController: UIViewController {
                 let defaults = UserDefaults.standard
                 defaults.set(jsonObject["user_id"].stringValue, forKey: "user_id")
                 
-                //read the data
-                 let userID = defaults.object(forKey: "user_id") as? String
-                print(userID!)
                 // Navigate to next page
             }
         }
