@@ -41,7 +41,7 @@ class SubmitReviewViewController: FormViewController {
     
     func setUpTitle() {
         // TODO make sure these are set in prepare for segue
-        //navigationItem.title = "\(course.id) by \n \(professor.name)"
+        navigationItem.title = "\(course.id!) by \(professor.name!)"
     }
     
     func buildForm() {
@@ -52,17 +52,18 @@ class SubmitReviewViewController: FormViewController {
                     rightText: "5",
                     title: "Rate Your Professor",
                     step: 1,
-                    lowerValue: 0,
-                    higherValue: 4,
-                    value: 2)
+                    lowerValue: 1,
+                    higherValue: 5,
+                    value: 3,
+                    showValue: true)
             }
             <<< StickySliderViewRow(fields.work_load.rawValue){
                 $0.value = StickySliderContent(
-                    leftText: "Lighter", rightText: "Heavier", title: "Workload compare to other classes", step: 1, lowerValue: 0, higherValue: 4, value: 2)
+                    leftText: "Lighter", rightText: "Heavier", title: "Workload compare to other classes", step: 1, lowerValue: 1, higherValue: 5, value: 3, showValue: false)
             }
             <<< StickySliderViewRow(fields.grading_difficulty.rawValue){
                 $0.value = StickySliderContent(
-                    leftText: "Easy", rightText: "Difficult", title: "Grading", step: 1, lowerValue: 0, higherValue: 4, value: 2)
+                    leftText: "Easy", rightText: "Difficult", title: "Grading", step: 1, lowerValue: 1, higherValue: 5, value: 3, showValue: false)
             }
             +++ Section("What would you like to tell somebody who wants to take this test?")
             <<< TextAreaRow(fields.comment.rawValue) {row in
@@ -102,13 +103,12 @@ class SubmitReviewViewController: FormViewController {
     }
     
     @IBAction func cancelButtonPressed(_ sender: AnyObject) {
-        print("Cancel button ")
+        self.navigationController!.popViewController(animated: true)
     }
     
     func save(){
         var params: [String: Any] = [
-//            fields.prof_id.rawValue : professor.id,
-//            fields.course_id.rawValue : course.id!,
+            fields.course_id.rawValue : course.db_id!,
             fields.rating.rawValue : (form.rowBy(tag: fields.rating.rawValue) as! StickySliderViewRow).value!.value,
             fields.work_load.rawValue : (form.rowBy(tag: fields.work_load.rawValue) as! StickySliderViewRow).value!.value,
             fields.grading_difficulty.rawValue : (form.rowBy(tag: fields.grading_difficulty.rawValue) as! StickySliderViewRow).value!.value,

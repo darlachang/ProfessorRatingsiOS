@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		292E2E891DA1ADE7005ECFFC /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E2E881DA1ADE7005ECFFC /* SearchTableViewController.swift */; };
 		292E2E8E1DA1B031005ECFFC /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E2E8D1DA1B031005ECFFC /* Course.swift */; };
+		29604FBC1DB59591005E240B /* CourseProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29604FBB1DB59591005E240B /* CourseProfileViewController.swift */; };
+		29604FBE1DB59AD3005E240B /* CourseProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29604FBD1DB59AD3005E240B /* CourseProfileTableViewCell.swift */; };
+		29604FC01DB5AA70005E240B /* CourseProfileCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29604FBF1DB5AA70005E240B /* CourseProfileCommentsTableViewCell.swift */; };
+		29658BA71DBEEF37005293FD /* CourseProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29658BA61DBEEF37005293FD /* CourseProfile.storyboard */; };
 		296F03661DA1C1CB00C4893B /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296F03651DA1C1CB00C4893B /* SearchTableViewCell.swift */; };
+		29BB5F7F1DC0496F00FA478F /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BB5F7E1DC0496F00FA478F /* Comments.swift */; };
 		FB0A6F3C1DA434F000E4F403 /* SubmitReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */; };
 		FB0AB7D91DB567120054C262 /* StickySliderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0AB7D71DB567120054C262 /* StickySliderViewCell.swift */; };
 		FB0AB7DA1DB567120054C262 /* StickySliderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB0AB7D81DB567120054C262 /* StickySliderViewCell.xib */; };
@@ -55,7 +60,12 @@
 /* Begin PBXFileReference section */
 		292E2E881DA1ADE7005ECFFC /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = Controllers/SearchTableViewController.swift; sourceTree = "<group>"; };
 		292E2E8D1DA1B031005ECFFC /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		29604FBB1DB59591005E240B /* CourseProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseProfileViewController.swift; path = Controllers/CourseProfileViewController.swift; sourceTree = "<group>"; };
+		29604FBD1DB59AD3005E240B /* CourseProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseProfileTableViewCell.swift; sourceTree = "<group>"; };
+		29604FBF1DB5AA70005E240B /* CourseProfileCommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseProfileCommentsTableViewCell.swift; sourceTree = "<group>"; };
+		29658BA61DBEEF37005293FD /* CourseProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CourseProfile.storyboard; path = ProfessorRatingsiOS/Views/CourseProfile.storyboard; sourceTree = SOURCE_ROOT; };
 		296F03651DA1C1CB00C4893B /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		29BB5F7E1DC0496F00FA478F /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comments.swift; path = Models/Comments.swift; sourceTree = "<group>"; };
 		FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitReviewViewController.swift; path = Controllers/SubmitReviewViewController.swift; sourceTree = "<group>"; };
 		FB0AB7D71DB567120054C262 /* StickySliderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StickySliderViewCell.swift; path = ProfessorRatingsiOS/Views/StickySliderViewCell.swift; sourceTree = SOURCE_ROOT; };
 		FB0AB7D81DB567120054C262 /* StickySliderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StickySliderViewCell.xib; path = ProfessorRatingsiOS/Views/StickySliderViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -122,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				296F03651DA1C1CB00C4893B /* SearchTableViewCell.swift */,
+				29604FBD1DB59AD3005E240B /* CourseProfileTableViewCell.swift */,
+				29604FBF1DB5AA70005E240B /* CourseProfileCommentsTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -129,6 +141,7 @@
 		FB1EF31C1DA5487E00361EC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				29658BA61DBEEF37005293FD /* CourseProfile.storyboard */,
 				FBFF53BD1DA552AA008E0407 /* StickySlider */,
 			);
 			name = Views;
@@ -212,6 +225,7 @@
 				FB9A51F51D9A1C880094BA53 /* ViewController.swift */,
 				FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */,
 				292E2E881DA1ADE7005ECFFC /* SearchTableViewController.swift */,
+				29604FBB1DB59591005E240B /* CourseProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -231,6 +245,7 @@
 				FBC526571D9A1F0000ED39D2 /* User.swift */,
 				FB84274D1DA44D0F009D4B5B /* Professor.swift */,
 				292E2E8D1DA1B031005ECFFC /* Course.swift */,
+				29BB5F7E1DC0496F00FA478F /* Comments.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -354,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB36E0691D9A0934002EC392 /* LaunchScreen.storyboard in Resources */,
+				29658BA71DBEEF37005293FD /* CourseProfile.storyboard in Resources */,
 				FB36E0A71D9A15CC002EC392 /* Main.storyboard in Resources */,
 				FBFF53C21DA593B5008E0407 /* submitReview.storyboard in Resources */,
 				FB0AB7DA1DB567120054C262 /* StickySliderViewCell.xib in Resources */,
@@ -412,11 +428,15 @@
 				FBC526581D9A1F0000ED39D2 /* User.swift in Sources */,
 				FBF8A3781D9EFBA100680370 /* Utils.swift in Sources */,
 				FB36E0641D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodeld in Sources */,
+				29BB5F7F1DC0496F00FA478F /* Comments.swift in Sources */,
 				FB84274E1DA44D0F009D4B5B /* Professor.swift in Sources */,
 				FB9A51F71D9A1C880094BA53 /* ViewController.swift in Sources */,
 				FB36E05C1D9A0934002EC392 /* AppDelegate.swift in Sources */,
 				292E2E891DA1ADE7005ECFFC /* SearchTableViewController.swift in Sources */,
 				296F03661DA1C1CB00C4893B /* SearchTableViewCell.swift in Sources */,
+				29604FBE1DB59AD3005E240B /* CourseProfileTableViewCell.swift in Sources */,
+				29604FC01DB5AA70005E240B /* CourseProfileCommentsTableViewCell.swift in Sources */,
+				29604FBC1DB59591005E240B /* CourseProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

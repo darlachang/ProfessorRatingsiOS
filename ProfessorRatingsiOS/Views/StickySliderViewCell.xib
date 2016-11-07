@@ -9,14 +9,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="110" id="mC9-hv-8sb" customClass="StickySliderViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="430" height="110"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="129" id="mC9-hv-8sb" customClass="StickySliderViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="430" height="129"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mC9-hv-8sb" id="ZGK-OS-ryT">
-                <frame key="frameInset" width="430" height="110"/>
+                <frame key="frameInset" width="430" height="128"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pW5-Ia-xf4" userLabel="Slider">
+                        <color key="tintColor" red="0.41347697377204895" green="0.89728426933288574" blue="0.79328405857086182" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
                             <action selector="sliderValueChanged:" destination="mC9-hv-8sb" eventType="valueChanged" id="vWw-2X-rtS"/>
                         </connections>
@@ -41,19 +42,30 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wun-UX-t4J">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="vV7-I4-KMK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.41347697377204895" green="0.89728426933288574" blue="0.79328405857086182" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="pW5-Ia-xf4" firstAttribute="top" secondItem="qzy-Vp-Lbv" secondAttribute="bottom" constant="8" id="2nX-rx-Sg5"/>
                     <constraint firstItem="pW5-Ia-xf4" firstAttribute="leading" secondItem="ZGK-OS-ryT" secondAttribute="leadingMargin" constant="12" id="4Mq-jD-qXU"/>
                     <constraint firstItem="ELA-AM-5Xa" firstAttribute="top" secondItem="pW5-Ia-xf4" secondAttribute="bottom" constant="-0.5" id="6nn-nF-c2h"/>
-                    <constraint firstAttribute="topMargin" secondItem="qzy-Vp-Lbv" secondAttribute="top" constant="-6" id="Nh0-lW-jfD"/>
-                    <constraint firstAttribute="topMargin" secondItem="CTm-Bt-g3e" secondAttribute="top" constant="-6" id="QTu-if-Pr0"/>
-                    <constraint firstItem="CTm-Bt-g3e" firstAttribute="leading" secondItem="qzy-Vp-Lbv" secondAttribute="trailing" constant="5" id="cyh-6V-w7a"/>
-                    <constraint firstItem="qzy-Vp-Lbv" firstAttribute="centerX" secondItem="ZGK-OS-ryT" secondAttribute="centerX" id="gX0-9r-fzy"/>
+                    <constraint firstItem="wun-UX-t4J" firstAttribute="centerX" secondItem="ZGK-OS-ryT" secondAttribute="centerX" id="8vf-WU-gHq"/>
+                    <constraint firstAttribute="topMargin" secondItem="qzy-Vp-Lbv" secondAttribute="top" id="IsS-4S-iKs"/>
+                    <constraint firstAttribute="topMargin" secondItem="CTm-Bt-g3e" secondAttribute="top" id="QTu-if-Pr0"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ELA-AM-5Xa" secondAttribute="bottom" id="Vbe-l9-xee"/>
+                    <constraint firstItem="CTm-Bt-g3e" firstAttribute="leading" secondItem="qzy-Vp-Lbv" secondAttribute="trailing" constant="0.5" id="eLH-Bm-tby"/>
                     <constraint firstAttribute="trailingMargin" secondItem="pW5-Ia-xf4" secondAttribute="trailing" constant="12" id="iOz-gR-HEH"/>
                     <constraint firstAttribute="trailingMargin" secondItem="SSk-cS-0iv" secondAttribute="trailing" constant="12" id="kHR-Gd-V4H"/>
                     <constraint firstItem="ELA-AM-5Xa" firstAttribute="leading" secondItem="ZGK-OS-ryT" secondAttribute="leadingMargin" constant="12" id="kzf-K0-TuV"/>
+                    <constraint firstItem="qzy-Vp-Lbv" firstAttribute="leading" secondItem="ZGK-OS-ryT" secondAttribute="leadingMargin" constant="12" id="shD-s2-U3i"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="SSk-cS-0iv" secondAttribute="bottom" id="xFy-Fb-fJK"/>
                     <constraint firstItem="SSk-cS-0iv" firstAttribute="top" secondItem="pW5-Ia-xf4" secondAttribute="bottom" constant="-0.5" id="y1m-bR-x8f"/>
+                    <constraint firstItem="pW5-Ia-xf4" firstAttribute="top" secondItem="wun-UX-t4J" secondAttribute="bottom" constant="8" id="zql-GW-De3"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -61,8 +73,9 @@
                 <outlet property="rightLabel" destination="SSk-cS-0iv" id="GzF-wL-cZF"/>
                 <outlet property="slider" destination="pW5-Ia-xf4" id="8NC-F5-JmH"/>
                 <outlet property="title" destination="qzy-Vp-Lbv" id="ZAn-Og-Yzb"/>
+                <outlet property="valueIndicator" destination="wun-UX-t4J" id="7q8-OE-Jah"/>
             </connections>
-            <point key="canvasLocation" x="-110" y="-134"/>
+            <point key="canvasLocation" x="-110" y="-143.5"/>
         </tableViewCell>
     </objects>
 </document>

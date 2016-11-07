@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QQS-Bu-aTh">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -8,30 +9,18 @@
         <!--Title-->
         <scene sceneID="s7e-GJ-ou0">
             <objects>
-                <viewController id="QQS-Bu-aTh" customClass="SubmitReviewViewController" customModule="ProfessorRatingsiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SubmitReviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QQS-Bu-aTh" customClass="SubmitReviewViewController" customModule="ProfessorRatingsiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pw2-Na-7WB"/>
                         <viewControllerLayoutGuide type="bottom" id="tcn-OI-uDT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zyF-fE-vXq" customClass="SubmitViewController">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="WhA-WV-NyS">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="qwF-aF-vYV">
-                            <connections>
-                                <action selector="cancelButtonPressed:" destination="QQS-Bu-aTh" id="m9A-8e-jP6"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XPC-q8-kx7">
-                            <connections>
-                                <action selector="saveButtonPressed:" destination="QQS-Bu-aTh" id="Jhs-WM-JxR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="WhA-WV-NyS"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59H-DH-bbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
