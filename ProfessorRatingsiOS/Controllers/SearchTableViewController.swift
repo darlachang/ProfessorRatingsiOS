@@ -19,6 +19,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     var searchResults:[Course] = []
     var searchString:String?
     var searchRequest: Alamofire.Request?
+    var skipProfessorName:String?
     
     
     override func viewDidLoad() {
@@ -186,6 +187,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                 // print("the course's avg review is ", jsonObject)
                 if let professors = jsonObject.array { //.array is the usage of swiftyjson's library.
                     for professor in professors {
+                        if professor["professor_name"].stringValue == self.skipProfessorName {
+                            continue
+                        }
                         let prof = Professor(name: professor["professor_name"].stringValue)
                         if let courses = professor["courses"].array{
                             if courses.isEmpty {

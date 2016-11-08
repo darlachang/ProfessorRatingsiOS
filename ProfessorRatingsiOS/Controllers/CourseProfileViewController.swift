@@ -273,6 +273,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let searchPage = storyboard.instantiateViewController(withIdentifier: "searchPage") as! SearchTableViewController
         searchPage.searchString = cidLabel.text!
+        searchPage.skipProfessorName = professorLabel.text!
         self.navigationController!.pushViewController(searchPage, animated: true)
     }
     
