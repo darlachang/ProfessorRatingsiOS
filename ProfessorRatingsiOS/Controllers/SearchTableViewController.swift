@@ -31,8 +31,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
-        
-        search(string: "")
+        if searchString != nil {
+            search(string: searchString!)
+        } else {
+            search(string: "")
+        }
         
         
         
