@@ -78,7 +78,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         cell.nameLabel.text = course.name
         cell.cidLabel.text = course.id
         cell.professorLabel.text = course.professor.name
-        cell.avgReviewLabel.text = String(course.avgReview)
+        cell.avgReviewLabel.text = String(describing: course.avgReview)
         
         //        if let isVisited = course.isVisited? .boolValue {
         //            cell.accessoryType = isVisited ? .checkmark : .none

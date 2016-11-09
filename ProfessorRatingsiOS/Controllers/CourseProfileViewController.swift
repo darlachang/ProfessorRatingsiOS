@@ -10,7 +10,12 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class CourseProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+protocol SortbyCellDelegate {
+    func sortbyClicked(button: UIButton)
+    
+}
+
+class CourseProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SortbyCellDelegate {
     
     var RatingsList:[String] = ["Overal Quality", "Workload", "Grading"]
     var RatingsNum:[String] = ["3.7", "4.2", "2.8"]
@@ -38,19 +43,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var courseSegmentedControl: UISegmentedControl!
     
     @IBOutlet weak var profileTableView: UITableView!
-    //    var state:cellstate = .rating
-    //
-    //    @IBOutlet weak var ratings: UIButton!
-    //    @IBOutlet weak var comments: UIButton!
-    //
-    //    @IBAction func ratingact(_ sender: AnyObject) {
-    //        comments.isSelected = false
-    //        ratings.isSelected = true
-    //    }
-    //    @IBAction func commentsact(_ sender: AnyObject) {
-    //
-    //        state = .comments
-    //    }
     
     //var courseinfo = []
     let SCORE = 0
@@ -120,8 +112,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             break
         case COMMENT:
             print("count of commentInfo = ", commentInfo.count)
-//            returnValue = 3 //commentInfo.count
-            returnValue = commentInfo.count
+            returnValue = commentInfo.count + 1
             break
         case QUOTE:
             returnValue = 3
@@ -160,7 +151,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                     cell.ratingNum.text = b
                 }
                 cell.ratingNum.text = self.courseInfo.gradingString
-                //cell.ratingAmt.text = "\(RatingsAmount[2]) ratings"
+
                 
             default:
                 break
@@ -169,11 +160,17 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             
             
         case COMMENT:
+            if indexPath.row == 0 {
+                let cellIdentifier = "SortByCell"
+                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SortbyCell
+                cell.delegate = self
+                return cell
+            }
             let cellIdentifier = "commentsCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileCommentsTableViewCell
             cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
             
-            let comment = self.commentInfo[indexPath.row]
+            let comment = self.commentInfo[indexPath.row - 1]
             cell.bindObject(comment)
             return cell
             
@@ -190,6 +187,9 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (courseSegmentedControl.selectedSegmentIndex == COMMENT && indexPath.row == 0){
+            return 100
+        }
         return 150
     }
     
@@ -207,7 +207,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             if let value = response.result.value {
                 print("getcourseinfo")
                 let jsonObject = JSON(value)
-                self.courseInfo.overalQual = jsonObject["quality"].double!
+                self.courseInfo.avgReview = jsonObject["average_review"].double!
                 self.courseInfo.overalQualCnt = jsonObject["quality_count"].arrayObject as! [Int]? //use arrayObject[Any] cuz the type inside is not JSON
                 self.courseInfo.workload = jsonObject["workload"].double!
                 self.courseInfo.workloadCnt = jsonObject["workload_count"].arrayObject as! [Int]?
@@ -261,6 +261,21 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBAction func ReviewPressed(_ sender: AnyObject) {
         self.submitReview()
+    }
+    
+    func sortbyClicked(button: UIButton) {
+        print("sort by button", button.titleLabel?.text)
+        if button.titleLabel!.text == "time" {
+            commentInfo = commentInfo.sorted(by: { $0.date > $1.date })
+            var paths = [NSIndexPath]()
+            for i in 1...commentInfo.count{
+                
+                let path = NSIndexPath.init(row: i, section: 0)
+                paths.append(path)
+            }
+            profileTableView.reloadRows(at: paths as [IndexPath], with: .fade)
+        }
+        
     }
     
     

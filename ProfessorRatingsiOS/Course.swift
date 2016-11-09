@@ -16,7 +16,7 @@ class Course {
     var id:String!
     var professor:Professor!
     var department:String!
-    var avgReview:Double!
+    var avgReview:Double?
     var numOfReview:Int!
     var overalQual:Double?
     var overalQualCnt:[Int]?

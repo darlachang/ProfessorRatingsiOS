@@ -23,8 +23,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vmH-el-QSl">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseprofileCell" rowHeight="101" id="CBK-G6-alO" customClass="CourseProfileTableViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SortByCell" id="aGC-7k-JCZ" customClass="SortbyCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="122" width="375" height="101"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aGC-7k-JCZ" id="RT3-Qu-GhW">
+                                            <frame key="frameInset" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseprofileCell" rowHeight="101" id="CBK-G6-alO" customClass="CourseProfileTableViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="223" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CBK-G6-alO" id="GPD-hu-XeP">
                                             <frame key="frameInset" width="375" height="100"/>
@@ -70,7 +78,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentsCell" rowHeight="150" id="Wn2-dM-xdG" customClass="CourseProfileCommentsTableViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="223" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="324" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wn2-dM-xdG" id="2dT-aY-uQY">
                                             <frame key="frameInset" width="375" height="149"/>
@@ -103,7 +111,7 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <state key="normal" title="AGREE">
-                                                        <color key="titleColor" red="0.94117647058823528" green="0.37647058823529411" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.070588235294117646" green="0.52156862745098043" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="likePressed:" destination="Wn2-dM-xdG" eventType="touchUpInside" id="UuD-o2-rUN"/>
@@ -115,7 +123,7 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <state key="normal" title="DISAGREE">
-                                                        <color key="titleColor" red="0.011764705882352941" green="0.52156862745098043" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.93725490196078431" green="0.35686274509803922" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="dislikePressed:" destination="Wn2-dM-xdG" eventType="touchUpInside" id="qDO-x5-jZ0"/>
@@ -126,7 +134,7 @@
                                                         <constraint firstAttribute="width" constant="30" id="T1q-tg-2Uu"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.93725490196078431" green="0.35686274509803922" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.070588235294117646" green="0.52156862745098043" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJ8-eD-Zfu">
@@ -134,7 +142,7 @@
                                                         <constraint firstAttribute="width" constant="30" id="kGL-uu-a4i"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.011764705882352941" green="0.52156862745098043" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.93725490196078431" green="0.35686274509803922" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKG-Bc-Iwj">

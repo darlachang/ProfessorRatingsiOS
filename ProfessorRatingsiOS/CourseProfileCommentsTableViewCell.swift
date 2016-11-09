@@ -40,10 +40,10 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
         //agreeLabel.isHidden = true
         //disagreeLabel.isHidden = true
         Agree.layer.borderWidth = 1.0
-        Agree.layer.borderColor = PR_Colors.brightOrange.cgColor
+        Agree.layer.borderColor = PR_Colors.lightGreen.cgColor
         Agree.layer.cornerRadius = 10
         Disagree.layer.borderWidth = 1.0
-        Disagree.layer.borderColor = PR_Colors.lightGreen.cgColor
+        Disagree.layer.borderColor = PR_Colors.brightOrange.cgColor
         Disagree.layer.cornerRadius = 10
         
         commentLabel.sizeToFit()
