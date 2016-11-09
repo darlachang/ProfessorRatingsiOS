@@ -261,22 +261,13 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     func sortbyClicked(button: UIButton) {
         switch button.titleLabel!.text! {
             case "time":
-                commentInfo = commentInfo.sorted(by: { $0.date > $1.date })
+                commentInfo.sort(by: { $0.date > $1.date })
+            case "popularity":
+                commentInfo.sort(by: { $0.popularity > $1.popularity })
             default:
                 print("Bug found at sortbyClicked. Unseen button was clicked \(button.titleLabel!.text!)")
         }
-//        profileTableView.reloadData()
-//        if button.titleLabel!.text == "time" {
-//            commentInfo = commentInfo.sorted(by: { $0.date > $1.date })
-//            var paths = [NSIndexPath]()
-//            for i in 1...commentInfo.count{
-//                
-//                let path = NSIndexPath.init(row: i, section: 0)
-//                paths.append(path)
-//            }
-//            profileTableView.reloadRows(at: paths as [IndexPath], with: .fade)
-//        }
-        
+        profileTableView.reloadData()
     }
     
     

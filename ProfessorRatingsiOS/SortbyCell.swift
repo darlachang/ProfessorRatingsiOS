@@ -16,17 +16,17 @@ class SortbyCell: UITableViewCell {
         super.awakeFromNib()
         
         self.selectionStyle = .none
-        var sortStr = ["time", "popular"]
+        var sortStr = ["time", "popularity"]
         
         var buttons = [UIButton]()
-        for i in 0..<2{
+        for i in 0..<sortStr.count{
             let button = UIButton()
             button.setTitle(sortStr[i], for: .normal)
             button.setTitleColor(PR_Colors.lightGreen, for: .normal)
             buttons.append(button)
             button.addTarget(self, action: #selector(sortbyClicked(button:)), for: .touchUpInside)
         }
-        
+
         toggleView = ToggleMenu.init(frame: CGRect.init(x: 20, y: 20, width: 100, height: 30), defaultTitle: "time", menuButtons: buttons)
         toggleView.tintColor = PR_Colors.lightGreen
         

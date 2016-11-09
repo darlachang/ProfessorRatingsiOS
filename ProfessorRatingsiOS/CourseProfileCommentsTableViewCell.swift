@@ -148,7 +148,7 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
     }
     
     func updateUI(updateStar :Bool){
-        commentLabel.text = commentObject!.comment
+        commentLabel.text = commentObject!.comment == "" ? "This student did not leave a message." : commentObject!.comment
         date.text = commentObject!.date
         student.text = "Senior, Electrical Engineer, A+"
         agreeLabel.text = String(commentObject!.agree)
