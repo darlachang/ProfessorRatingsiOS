@@ -22,11 +22,11 @@ class SubmitReviewViewController: FormViewController {
         prof_id = "prof_id",
         course_id = "course_id",
         comment = "comment",
-        grading_difficulty = "grading_difficulty",
+        grading_difficulty = "grading",
         grade_received = "grade_received",
-        rating = "rating",
+        rating = "quality",
         tags = "tags",
-        work_load = "work_load",
+        work_load = "workload",
         show_major = "show_major",
         show_year = "show_year"
     }
