@@ -98,10 +98,9 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         
         
         // ratings.isSelected  //is a boolean
-        otherProfessorView.addBorder(edges: .top, colour: PR_Colors.lightGreen, thickness: 1.0)
+        setUpOtherProfessorsView()
         getCommentInfo()
         
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -261,6 +260,21 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBAction func ReviewPressed(_ sender: AnyObject) {
         self.submitReview()
+    }
+    
+    func setUpOtherProfessorsView(){
+        otherProfessorView.addBorder(edges: .top, colour: PR_Colors.lightGreen, thickness: 1.0)
+        otherProfessorView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        otherProfessorView.addGestureRecognizer(tap)
+    }
+    
+    func handleTap(_ sender: UITapGestureRecognizer) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let searchPage = storyboard.instantiateViewController(withIdentifier: "searchPage") as! SearchTableViewController
+        searchPage.searchString = cidLabel.text!
+        searchPage.skipProfessorName = professorLabel.text!
+        self.navigationController!.pushViewController(searchPage, animated: true)
     }
     
     
