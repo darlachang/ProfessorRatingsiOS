@@ -24,7 +24,7 @@ class SubmitReviewViewController: FormViewController {
         comment = "comment",
         grading_difficulty = "grading",
         grade_received = "grade_received",
-        rating = "quality",
+        rating = "rating",
         tags = "tags",
         work_load = "workload",
         show_major = "show_major",
