@@ -62,7 +62,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("name of course is", courseInfo.name, "and its id is ", courseInfo.id, "the whole courseinfo is", courseInfo)
         getcourseinfo()
         // request method: http://mive.us/reviews?course_id=5807c8567ccbad2219679d50
         // http://mive.us/courses?course_id=5807c8567ccbad2219679d50
@@ -111,7 +110,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             returnValue = 3
             break
         case COMMENT:
-            print("count of commentInfo = ", commentInfo.count)
             returnValue = commentInfo.count + 1
             break
         case QUOTE:
@@ -205,7 +203,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         Alamofire.request(Config.courseURL, method: .get, parameters: params,encoding: URLEncoding.default).responseJSON {
             (response) in
             if let value = response.result.value {
-                print("getcourseinfo")
                 let jsonObject = JSON(value)
                 self.courseInfo.avgReview = jsonObject["average_review"].double!
                 self.courseInfo.overalQualCnt = jsonObject["quality_count"].arrayObject as! [Int]? //use arrayObject[Any] cuz the type inside is not JSON
@@ -221,17 +218,15 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     func getCommentInfo() {
         let params:[String: Any] = [
-            "courseID" : courseInfo.db_id
+            "course_id" : courseInfo.db_id
         ]
         Alamofire.request(Config.reviewURL, method: .get, parameters: params,encoding: URLEncoding.default).responseJSON {
             (response) in
             if let value = response.result.value {
-                print("get comment info")
                 self.commentInfo = []
                 let jsonObject = JSON(value)
                 if let commentinfos = jsonObject.array{
                     for cominfo in commentinfos{
-                        print("commentinfos ", commentinfos)
                         self.commentInfo.append(Comments.init(
                             commentID:cominfo["_id"].stringValue,
                             comment:cominfo["comment"].stringValue,
@@ -264,17 +259,23 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func sortbyClicked(button: UIButton) {
-        print("sort by button", button.titleLabel?.text)
-        if button.titleLabel!.text == "time" {
-            commentInfo = commentInfo.sorted(by: { $0.date > $1.date })
-            var paths = [NSIndexPath]()
-            for i in 1...commentInfo.count{
-                
-                let path = NSIndexPath.init(row: i, section: 0)
-                paths.append(path)
-            }
-            profileTableView.reloadRows(at: paths as [IndexPath], with: .fade)
+        switch button.titleLabel!.text! {
+            case "time":
+                commentInfo = commentInfo.sorted(by: { $0.date > $1.date })
+            default:
+                print("Bug found at sortbyClicked. Unseen button was clicked \(button.titleLabel!.text!)")
         }
+//        profileTableView.reloadData()
+//        if button.titleLabel!.text == "time" {
+//            commentInfo = commentInfo.sorted(by: { $0.date > $1.date })
+//            var paths = [NSIndexPath]()
+//            for i in 1...commentInfo.count{
+//                
+//                let path = NSIndexPath.init(row: i, section: 0)
+//                paths.append(path)
+//            }
+//            profileTableView.reloadRows(at: paths as [IndexPath], with: .fade)
+//        }
         
     }
     

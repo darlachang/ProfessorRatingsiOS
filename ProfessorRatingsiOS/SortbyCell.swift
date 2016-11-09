@@ -21,19 +21,16 @@ class SortbyCell: UITableViewCell {
         var buttons = [UIButton]()
         for i in 0..<2{
             let button = UIButton()
-            // button.setImage(UIImage(named: "menuButton"), for: .normal)
-            
             button.setTitle(sortStr[i], for: .normal)
-            button.setTitleColor(UIColor.green, for: .normal)
+            button.setTitleColor(PR_Colors.lightGreen, for: .normal)
             buttons.append(button)
             button.addTarget(self, action: #selector(sortbyClicked(button:)), for: .touchUpInside)
-            //button.addTarget(self, action: #selector(darkMenuButtonPressed), forControlEvents: .TouchUpInside)
         }
         
         toggleView = ToggleMenu.init(frame: CGRect.init(x: 20, y: 20, width: 100, height: 30), defaultTitle: "time", menuButtons: buttons)
+        toggleView.tintColor = PR_Colors.lightGreen
         
         self.contentView.addSubview(toggleView)
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

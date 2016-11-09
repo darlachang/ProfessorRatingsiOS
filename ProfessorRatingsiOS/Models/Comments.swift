@@ -30,7 +30,6 @@ class Comments: UITableViewCell {
     }
     
     func shorten(_ date: String) -> String{
-       // let string = date
         let index = date.characters.index(of: "T")
         if let i = index {
             return date.substring(to: i)

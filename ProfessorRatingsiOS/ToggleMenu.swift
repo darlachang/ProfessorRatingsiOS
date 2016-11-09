@@ -21,7 +21,7 @@ class ToggleMenu: UIView {
     init(frame: CGRect, defaultTitle: String, menuButtons: [UIButton]) {
         self.menuButtons = menuButtons
         toggleButton.setTitle(defaultTitle, for: .normal)
-        toggleButton.setTitleColor(UIColor.green, for: .normal)
+        toggleButton.setTitleColor(PR_Colors.lightGreen, for: .normal)
         super.init(frame: frame)
     }
     
@@ -60,7 +60,7 @@ class ToggleMenu: UIView {
             hasLayedOutView = true
             self.backgroundColor = UIColor.clear
             toggleButton.frame = CGRect.init(x: padding, y: padding, width: frame.width - 2 * padding, height: frame.height - 2 * padding)
-            toggleButton.layer.borderColor = UIColor.green.cgColor
+            toggleButton.layer.borderColor = PR_Colors.lightGreen.cgColor
             toggleButton.layer.borderWidth = 1
             toggleButton.addTarget(self, action: #selector(togglePressed), for: .touchUpInside)
             self.addSubview(toggleButton)
@@ -125,7 +125,7 @@ class ToggleMenu: UIView {
             currentButton.frame = CGRect.init(x: 0, y: 0, width: self.buttonSize.width, height: self.buttonSize.height)
             currentButton.center = CGPoint.init(x: self.toggleButton.frame.midX, y: 0)
             currentButton.alpha = 0.0
-            currentButton.layer.borderColor = UIColor.green.cgColor
+            currentButton.layer.borderColor = PR_Colors.lightGreen.cgColor
             currentButton.layer.borderWidth = 1
             self.addSubview(currentButton)
         }

@@ -68,7 +68,7 @@
 		29658BA61DBEEF37005293FD /* CourseProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CourseProfile.storyboard; path = ProfessorRatingsiOS/Views/CourseProfile.storyboard; sourceTree = SOURCE_ROOT; };
 		296F03651DA1C1CB00C4893B /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		29BB5F7E1DC0496F00FA478F /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comments.swift; path = Models/Comments.swift; sourceTree = "<group>"; };
-		29BB5F801DD1721500FA478F /* ToggleMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleMenu.swift; sourceTree = "<group>"; };
+		29BB5F801DD1721500FA478F /* ToggleMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToggleMenu.swift; path = ProfessorRatingsiOS/ToggleMenu.swift; sourceTree = SOURCE_ROOT; };
 		29BB5F821DD17AE700FA478F /* SortbyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortbyCell.swift; sourceTree = "<group>"; };
 		FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitReviewViewController.swift; path = Controllers/SubmitReviewViewController.swift; sourceTree = "<group>"; };
 		FB0AB7D71DB567120054C262 /* StickySliderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StickySliderViewCell.swift; path = ProfessorRatingsiOS/Views/StickySliderViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -146,6 +146,7 @@
 		FB1EF31C1DA5487E00361EC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				29BB5F801DD1721500FA478F /* ToggleMenu.swift */,
 				29658BA61DBEEF37005293FD /* CourseProfile.storyboard */,
 				FBFF53BD1DA552AA008E0407 /* StickySlider */,
 			);
@@ -184,7 +185,6 @@
 				FB36E05B1D9A0934002EC392 /* AppDelegate.swift */,
 				FB36E0651D9A0934002EC392 /* Assets.xcassets */,
 				FB36E0671D9A0934002EC392 /* LaunchScreen.storyboard */,
-				29BB5F801DD1721500FA478F /* ToggleMenu.swift */,
 				FB36E06A1D9A0934002EC392 /* Info.plist */,
 				FB36E0A61D9A15CC002EC392 /* Main.storyboard */,
 				FBFF53C11DA593B5008E0407 /* submitReview.storyboard */,
