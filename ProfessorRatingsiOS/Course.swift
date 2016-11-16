@@ -16,7 +16,7 @@ class Course {
     var id:String!
     var professor:Professor!
     var department:String!
-    var avgReview:Double!
+    var avgReview:Double?
     var numOfReview:Int!
     var overalQual:Double?
     var overalQualCnt:[Int]?
@@ -48,15 +48,15 @@ class Course {
         case 0:
             return "no data"
         case 1:
-            return "much greater"
+            return "very heavy"
         case 2:
-            return "greater"
+            return "heavy"
         case 3:
-            return "similar"
+            return "average"
         case 4:
-            return "less"
+            return "light"
         case 5:
-            return "much less"
+            return "very light"
         default:
             break
         }

@@ -17,6 +17,13 @@ class Comments: UITableViewCell {
     var agree:Int!
     var disagree:Int!
     var stdRating:Int!
+    
+    var popularity:Int {
+        get {
+            // TODO: Use our popularity algorithm here
+            return 3
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +37,6 @@ class Comments: UITableViewCell {
     }
     
     func shorten(_ date: String) -> String{
-       // let string = date
         let index = date.characters.index(of: "T")
         if let i = index {
             return date.substring(to: i)
@@ -49,4 +55,5 @@ class Comments: UITableViewCell {
         self.disagree = disagree
         self.stdRating = stdRating
     }
+    
 }

@@ -10,7 +10,12 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class CourseProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+protocol SortbyCellDelegate {
+    func sortbyClicked(button: UIButton)
+    
+}
+
+class CourseProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SortbyCellDelegate {
     
     var RatingsList:[String] = ["Overal Quality", "Workload", "Grading"]
     var RatingsNum:[String] = ["3.7", "4.2", "2.8"]
@@ -38,19 +43,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var courseSegmentedControl: UISegmentedControl!
     
     @IBOutlet weak var profileTableView: UITableView!
-    //    var state:cellstate = .rating
-    //
-    //    @IBOutlet weak var ratings: UIButton!
-    //    @IBOutlet weak var comments: UIButton!
-    //
-    //    @IBAction func ratingact(_ sender: AnyObject) {
-    //        comments.isSelected = false
-    //        ratings.isSelected = true
-    //    }
-    //    @IBAction func commentsact(_ sender: AnyObject) {
-    //
-    //        state = .comments
-    //    }
     
     //var courseinfo = []
     let SCORE = 0
@@ -70,7 +62,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("name of course is", courseInfo.name, "and its id is ", courseInfo.id, "the whole courseinfo is", courseInfo)
         getcourseinfo()
         // request method: http://mive.us/reviews?course_id=5807c8567ccbad2219679d50
         // http://mive.us/courses?course_id=5807c8567ccbad2219679d50
@@ -118,9 +109,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             returnValue = 3
             break
         case COMMENT:
-            print("count of commentInfo = ", commentInfo.count)
-//            returnValue = 3 //commentInfo.count
-            returnValue = commentInfo.count
+            returnValue = commentInfo.count + 1
             break
         case QUOTE:
             returnValue = 3
@@ -143,7 +132,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             switch indexPath.row {
             case 0:
                 cell.ratingTitle.text = RatingsList[0] //overal quality
-                cell.ratingNum.text = String(self.courseInfo.avgReview!)
+                cell.ratingNum.text = String(self.courseInfo.avgReview!.roundTo(places: 1))
                 cell.ratingAmt.text = String(self.courseInfo.numOfReview!)  + " ratings"
                 
             case 1:
@@ -159,7 +148,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                     cell.ratingNum.text = b
                 }
                 cell.ratingNum.text = self.courseInfo.gradingString
-                //cell.ratingAmt.text = "\(RatingsAmount[2]) ratings"
+
                 
             default:
                 break
@@ -168,11 +157,17 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             
             
         case COMMENT:
+            if indexPath.row == 0 {
+                let cellIdentifier = "SortByCell"
+                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SortbyCell
+                cell.delegate = self
+                return cell
+            }
             let cellIdentifier = "commentsCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileCommentsTableViewCell
             cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
             
-            let comment = self.commentInfo[indexPath.row]
+            let comment = self.commentInfo[indexPath.row - 1]
             cell.bindObject(comment)
             return cell
             
@@ -189,6 +184,9 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (courseSegmentedControl.selectedSegmentIndex == COMMENT && indexPath.row == 0){
+            return 100
+        }
         return 150
     }
     
@@ -204,14 +202,14 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         Alamofire.request(Config.courseURL, method: .get, parameters: params,encoding: URLEncoding.default).responseJSON {
             (response) in
             if let value = response.result.value {
-                print("getcourseinfo")
                 let jsonObject = JSON(value)
-                self.courseInfo.overalQual = jsonObject["quality"].double!
+                self.courseInfo.avgReview = jsonObject["average_review"].double!
                 self.courseInfo.overalQualCnt = jsonObject["quality_count"].arrayObject as! [Int]? //use arrayObject[Any] cuz the type inside is not JSON
                 self.courseInfo.workload = jsonObject["workload"].double!
                 self.courseInfo.workloadCnt = jsonObject["workload_count"].arrayObject as! [Int]?
                 self.courseInfo.grading = jsonObject["grading"].double!
                 self.courseInfo.gradingCnt = jsonObject["grading_count"].arrayObject as! [Int]?
+                self.courseInfo.numOfReview = jsonObject["number_of_reviews"].intValue
             }
             self.profileTableView.reloadData() //reload tableView
             
@@ -220,17 +218,15 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     func getCommentInfo() {
         let params:[String: Any] = [
-            "courseID" : courseInfo.db_id
+            "course_id" : courseInfo.db_id
         ]
         Alamofire.request(Config.reviewURL, method: .get, parameters: params,encoding: URLEncoding.default).responseJSON {
             (response) in
             if let value = response.result.value {
-                print("get comment info")
                 self.commentInfo = []
                 let jsonObject = JSON(value)
                 if let commentinfos = jsonObject.array{
                     for cominfo in commentinfos{
-                        print("commentinfos ", commentinfos)
                         self.commentInfo.append(Comments.init(
                             commentID:cominfo["_id"].stringValue,
                             comment:cominfo["comment"].stringValue,
@@ -260,6 +256,19 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBAction func ReviewPressed(_ sender: AnyObject) {
         self.submitReview()
+    }
+    
+
+    func sortbyClicked(button: UIButton) {
+        switch button.titleLabel!.text! {
+            case "time":
+                commentInfo.sort(by: { $0.date > $1.date })
+            case "popularity":
+                commentInfo.sort(by: { $0.popularity > $1.popularity })
+            default:
+                print("Bug found at sortbyClicked. Unseen button was clicked \(button.titleLabel!.text!)")
+        }
+        profileTableView.reloadData()
     }
     
     func setUpOtherProfessorsView(){
