@@ -31,6 +31,10 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
     var starCount = 0
     var commentObject:Comments?
     let starTag = 1000
+    let GREY_OUT_THRESHOLD = 0.6
+    let greyStar = convertImageToBW(image: #imageLiteral(resourceName: "filled_star"))
+    let greyEmptyStar = convertImageToBW(image: #imageLiteral(resourceName: "empty_star"))
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -88,19 +92,20 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
         newStar.tag = tag //every view has its tag.
         let rect = CGRect(origin: position, size: size)
         newStar.frame = rect
-//        UIGraphicsBeginImageContext(size)
-//
-//        if isFilled {
-//            #imageLiteral(resourceName: "filled_star").draw(in: rect)
-//        } else {
-//            #imageLiteral(resourceName: "empty_star").draw(in: rect)
-//        }
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        newStar.backgroundColor = UIColor(patternImage: image!)
+
         if isFilled {
-            newStar.layer.contents = #imageLiteral(resourceName: "filled_star").cgImage
+            if needGreyOut {
+                newStar.layer.contents = greyStar.cgImage
+            } else {
+                newStar.layer.contents = #imageLiteral(resourceName: "filled_star").cgImage
+            }
         } else {
-            newStar.layer.contents = #imageLiteral(resourceName: "empty_star").cgImage
+            if needGreyOut {
+                newStar.layer.contents = greyEmptyStar.cgImage
+            } else {
+                newStar.layer.contents = #imageLiteral(resourceName: "empty_star").cgImage
+            }
+        
         }
         self.addSubview(newStar)
         return newStar
@@ -124,7 +129,7 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
         
         Alamofire.request(Config.likeURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in
-        guard response.result.error == nil else {
+            guard response.result.error == nil else {
                 print("Error in adding like")
                 print(response.result.error)
                 return
@@ -156,6 +161,32 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
         starCount = commentObject!.stdRating
         if updateStar{
             displayStars()
+        }
+        if (needGreyOut) {
+            greyOut()
+        }
+    }
+    
+    func greyOut(){
+        commentLabel.textColor = UIColor.lightGray
+        let attributeString = NSMutableAttributedString(string: commentLabel.text!)
+        attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
+        commentLabel.attributedText = attributeString
+        agreeLabel.textColor = UIColor.lightGray
+        disagreeLabel.textColor = UIColor.lightGray
+        Agree.layer.borderColor = UIColor.lightGray.cgColor
+        Disagree.layer.borderColor = UIColor.lightGray.cgColor
+        Agree.titleLabel?.textColor = UIColor.lightGray
+        Disagree.titleLabel?.textColor = UIColor.lightGray
+    }
+    
+    var needGreyOut: Bool {
+        get {
+            if commentObject == nil {
+                return false
+            }
+            let totalLikeCount = Double(commentObject!.agree + commentObject!.disagree)
+            return totalLikeCount > 8 && (Double(commentObject!.disagree) / totalLikeCount > GREY_OUT_THRESHOLD)
         }
     }
 
