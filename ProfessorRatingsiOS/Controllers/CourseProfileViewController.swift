@@ -133,7 +133,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             switch indexPath.row {
             case 0:
                 cell.ratingTitle.text = RatingsList[0] //overal quality
-                cell.ratingNum.text = String(self.courseInfo.avgReview!)
+                cell.ratingNum.text = String(self.courseInfo.avgReview!.roundTo(places: 1))
                 cell.ratingAmt.text = String(self.courseInfo.numOfReview!)  + " ratings"
                 
             case 1:
@@ -210,6 +210,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                 self.courseInfo.workloadCnt = jsonObject["workload_count"].arrayObject as! [Int]?
                 self.courseInfo.grading = jsonObject["grading"].double!
                 self.courseInfo.gradingCnt = jsonObject["grading_count"].arrayObject as! [Int]?
+                self.courseInfo.numOfReview = jsonObject["number_of_reviews"].intValue
             }
             self.profileTableView.reloadData() //reload tableView
             

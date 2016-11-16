@@ -42,10 +42,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loT-4t-L0Q">
-                                                    <rect key="frame" x="17" y="0.0" width="130" height="33.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workload" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loT-4t-L0Q">
+                                                    <rect key="frame" x="17" y="0.0" width="148" height="34"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="130" id="ETG-Mu-Vet"/>
+                                                        <constraint firstAttribute="width" constant="148" id="ETG-Mu-Vet"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,8 +57,8 @@
                                                     <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEM-3k-pSn">
-                                                    <rect key="frame" x="17" y="30" width="130" height="50.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEM-3k-pSn">
+                                                    <rect key="frame" x="17" y="30" width="149" height="51"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                                     <color key="textColor" red="0.9137254901960784" green="0.35686274509803922" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -66,16 +66,16 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="loT-4t-L0Q" firstAttribute="leading" secondItem="GPD-hu-XeP" secondAttribute="leadingMargin" constant="9" id="1yP-oH-fJY"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="BEM-3k-pSn" secondAttribute="bottom" constant="12" id="8UW-IS-iaZ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BEM-3k-pSn" secondAttribute="bottom" constant="11" id="8UW-IS-iaZ"/>
                                                 <constraint firstItem="loT-4t-L0Q" firstAttribute="top" secondItem="GPD-hu-XeP" secondAttribute="top" id="H4S-O3-SUg"/>
                                                 <constraint firstItem="BEM-3k-pSn" firstAttribute="top" secondItem="GPD-hu-XeP" secondAttribute="topMargin" constant="22" id="NHW-bi-uIc"/>
-                                                <constraint firstItem="Nu5-Hi-7V4" firstAttribute="leading" secondItem="loT-4t-L0Q" secondAttribute="trailing" constant="26" id="Np0-oc-p4O"/>
+                                                <constraint firstItem="Nu5-Hi-7V4" firstAttribute="leading" secondItem="loT-4t-L0Q" secondAttribute="trailing" constant="8" id="Np0-oc-p4O"/>
                                                 <constraint firstItem="loT-4t-L0Q" firstAttribute="leading" secondItem="BEM-3k-pSn" secondAttribute="leading" id="QUF-AS-XSv"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="loT-4t-L0Q" secondAttribute="bottom" constant="59" id="Tke-TH-tQ9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="loT-4t-L0Q" secondAttribute="bottom" constant="58" id="Tke-TH-tQ9"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Nu5-Hi-7V4" secondAttribute="bottom" constant="63" id="sUq-at-xVd"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Nu5-Hi-7V4" secondAttribute="trailing" constant="23" id="tEW-a8-Gh9"/>
                                                 <constraint firstItem="Nu5-Hi-7V4" firstAttribute="top" secondItem="GPD-hu-XeP" secondAttribute="topMargin" id="tHV-Qy-t0c"/>
-                                                <constraint firstItem="loT-4t-L0Q" firstAttribute="trailing" secondItem="BEM-3k-pSn" secondAttribute="trailing" id="xaq-ox-ugc"/>
+                                                <constraint firstItem="loT-4t-L0Q" firstAttribute="trailing" secondItem="BEM-3k-pSn" secondAttribute="trailing" constant="-1" id="xaq-ox-ugc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
