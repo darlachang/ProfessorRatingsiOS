@@ -264,7 +264,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             case "time":
                 commentInfo.sort(by: { $0.date > $1.date })
             case "popularity":
-                commentInfo.sort(by: { $0.popularity > $1.popularity })
+                commentInfo.sort(by: { $0.compareToByPopularity($1) })
             default:
                 print("Bug found at sortbyClicked. Unseen button was clicked \(button.titleLabel!.text!)")
         }

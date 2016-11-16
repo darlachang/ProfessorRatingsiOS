@@ -18,10 +18,10 @@ class Comments: UITableViewCell {
     var disagree:Int!
     var stdRating:Int!
     
-    var popularity:Int {
+    var popularity:Double {
         get {
             // TODO: Use our popularity algorithm here
-            return 3
+            return Double(agree) / Double(agree + disagree)
         }
     }
 
@@ -54,6 +54,13 @@ class Comments: UITableViewCell {
         self.agree = agree
         self.disagree = disagree
         self.stdRating = stdRating
+    }
+    
+    func compareToByPopularity(_ anotherComment: Comments) -> Bool{
+        if self.popularity == anotherComment.popularity {
+            return self.agree > anotherComment.agree
+        }
+        return self.popularity > anotherComment.popularity
     }
     
 }
