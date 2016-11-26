@@ -58,9 +58,9 @@ class Comments: UITableViewCell {
     
     func compareToByPopularity(_ anotherComment: Comments) -> Bool{
         if self.popularity == anotherComment.popularity {
-            return self.agree > anotherComment.agree
+            return self.agree < anotherComment.agree
         }
-        return self.popularity > anotherComment.popularity
+        return self.popularity < anotherComment.popularity
     }
     
 }

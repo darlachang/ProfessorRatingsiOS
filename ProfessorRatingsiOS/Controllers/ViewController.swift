@@ -51,7 +51,7 @@ class ViewController: UIViewController {
                 // Save user id && access token locally
                 let defaults = UserDefaults.standard
                 defaults.set(jsonObject["user_id"].stringValue, forKey: "user_id")
-                print("Hongfei setting user ID as \(jsonObject["user_id"].stringValue)")
+                print("setting user ID as \(jsonObject["user_id"].stringValue)")
             }
 
             self.nextPage()
@@ -60,8 +60,10 @@ class ViewController: UIViewController {
 
     func nextPage(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let naviSearchController = storyboard.instantiateViewController(withIdentifier: "navisearch")
-        self.present(naviSearchController, animated: true, completion: nil)
+        let tabBarController = storyboard.instantiateViewController(withIdentifier: "tabBarController")
+        self.present(tabBarController, animated: true, completion: nil)
+       // let naviSearchController = storyboard.instantiateViewController(withIdentifier: "navisearch")
+       // self.present(naviSearchController, animated: true, completion: nil)
         //   self.navigationController?.pushViewController(naviSearchController, animated: true) //push是navi給到下一頁. popviewController是跳回上一頁
 
     }

@@ -24,8 +24,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //print("my course is", course)
+
         
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
@@ -66,6 +65,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         } else {
             return course.count
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 130.0;//Choose your custom row height
     }
     
     override func viewWillDisappear(_ animated: Bool) {
