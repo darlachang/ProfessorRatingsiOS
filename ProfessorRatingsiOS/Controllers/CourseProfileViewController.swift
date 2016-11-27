@@ -47,7 +47,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     //var courseinfo = []
     let SCORE = 0
     let COMMENT = 1
-    let QUOTE = 2
+    let SUGGESTION = 2
     
     
     func imageWithColor(_ color: UIColor) -> UIImage {
@@ -111,7 +111,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         case COMMENT:
             returnValue = commentInfo.count + 1
             break
-        case QUOTE:
+        case SUGGESTION:
             returnValue = 3
             break
         default:
@@ -171,7 +171,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             cell.bindObject(comment)
             return cell
             
-        case QUOTE:
+        case SUGGESTION:
             //            let cellIdentifier = "courseprofileCell"
             //            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
             //            cell.textLabel!.text = QuotesList[indexPath.row]
@@ -260,15 +260,36 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
 
     func sortbyClicked(button: UIButton) {
-        switch button.titleLabel!.text! {
-            case "time":
-                commentInfo.sort(by: { $0.date > $1.date })
-            case "popularity":
-                commentInfo.sort(by: { $0.compareToByPopularity($1) })
-            default:
-                print("Bug found at sortbyClicked. Unseen button was clicked \(button.titleLabel!.text!)")
+        let sortListController = UIAlertController(title: "sort by",message: "Swiftly Now! Choose an option!", preferredStyle: .actionSheet)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            //Just dismiss the action sheet
         }
-        profileTableView.reloadData()
+        sortListController.addAction(cancelAction)
+        let timeAction: UIAlertAction = UIAlertAction(title: "Time", style: .default) { action -> Void in
+            self.commentInfo.sort(by: { $0.date > $1.date })
+            button.setTitle("Time", for: .normal)
+            self.profileTableView.reloadData()
+        }
+        sortListController.addAction(timeAction)
+        let popularityAction: UIAlertAction = UIAlertAction(title: "Time", style: .default) { action -> Void in
+            self.commentInfo.sort(by: { $0.compareToByPopularity($1) })
+            button.setTitle("Popularity", for: .normal)
+            self.profileTableView.reloadData()
+        }
+        sortListController.addAction(popularityAction)
+        
+        self.present(sortListController, animated: true, completion: nil)
+        
+        
+//        switch button.titleLabel!.text! {
+//            case "time":
+//                commentInfo.sort(by: { $0.date > $1.date })
+//            case "popularity":
+//                commentInfo.sort(by: { $0.compareToByPopularity($1) })
+//            default:
+//                print("Bug found at sortbyClicked. Unseen button was clicked \(button.titleLabel!.text!)")
+//        }
+
     }
     
     func setUpOtherProfessorsView(){

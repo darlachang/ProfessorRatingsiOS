@@ -14,7 +14,7 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet var cidLabel: UILabel!
     @IBOutlet var professorLabel: UILabel!
     @IBOutlet var avgReviewLabel: UILabel!
-
+    @IBOutlet var ratingLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

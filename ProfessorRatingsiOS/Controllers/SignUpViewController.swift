@@ -12,15 +12,41 @@ import Alamofire
 import SwiftyJSON
 import CryptoSwift
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var confirmPasswordText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var emailText: UITextField!
+    @IBOutlet weak var studStatus: UITextField!
+    @IBOutlet weak var gradYear: UITextField!
+    
+    var gradYearToolBar = UIToolbar()
+    
+    var pickerData: [String] = ["2010", "2011", "2012","2015","2016","2017","2018"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        studStatus.delegate = self
+        
+        let gradYearPicker = UIPickerView(frame: CGRect.init(x: 0, y: 200, width: view.frame.width, height: 300))
+        gradYearPicker.backgroundColor = UIColor.white
+        gradYearPicker.showsSelectionIndicator = true
+        gradYearPicker.delegate = self
+        gradYearPicker.dataSource = self
+        gradYearToolBar.barStyle = UIBarStyle.default
+        gradYearToolBar.isTranslucent = true
+        gradYearToolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        gradYearToolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(SignUpViewController.picked))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(SignUpViewController.picked))
+        
+        gradYearToolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        gradYearToolBar.isUserInteractionEnabled = true
+        
+        gradYear.inputView = gradYearPicker
+        gradYear.inputAccessoryView = gradYearToolBar
     }
     
     override func didReceiveMemoryWarning() {
@@ -106,6 +132,66 @@ class SignUpViewController: UIViewController {
                 // Navigate to next page
             }
         }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == studStatus{
+            self.studentStatusSelected()
+            return false
+        }
+        return true
+    }
+    
+    func studentStatusSelected() {
+        let studStatusController = UIAlertController(title: "your status",message: nil, preferredStyle: .actionSheet)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            //Just dismiss the action sheet
+        }
+        studStatusController.addAction(cancelAction)
+        
+        let bachelorAction: UIAlertAction = UIAlertAction(title: "Bachelor", style: .default) { action -> Void in
+            self.studStatus.text = "Bachelor"
+        }
+        studStatusController.addAction(bachelorAction)
+        
+        let masterAction: UIAlertAction = UIAlertAction(title: "Master", style: .default) { action -> Void in
+            self.studStatus.text = "Master"
+        }
+        studStatusController.addAction(masterAction)
+        
+        let doctorAction: UIAlertAction = UIAlertAction(title: "Doctor", style: .default) { action -> Void in
+            self.studStatus.text = "Doctor"
+        }
+        studStatusController.addAction(doctorAction)
+ 
+        
+        self.present(studStatusController, animated: true, completion: nil)
+    }
+    
+    // The number of columns of data
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component:Int) -> Int {
+        return pickerData.count
+    }
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    // Catpure the picker view selection
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // This method is triggered whenever the user makes a change to the picker selection.
+        // The parameter named row and component represents what was selected.
+        gradYear.text = pickerData[row]
+    }
+    
+    func picked(){
+        self.view.endEditing(true)
     }
 }
 

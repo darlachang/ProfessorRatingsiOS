@@ -10,7 +10,7 @@ import UIKit
 
 class SortbyCell: UITableViewCell {
     
-    var toggleView: ToggleMenu!
+    var toggleButton: UIButton!
     var delegate: SortbyCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,19 +18,36 @@ class SortbyCell: UITableViewCell {
         self.selectionStyle = .none
         var sortStr = ["time", "popularity"]
         
-        var buttons = [UIButton]()
-        for i in 0..<sortStr.count{
-            let button = UIButton()
-            button.setTitle(sortStr[i], for: .normal)
-            button.setTitleColor(PR_Colors.lightGreen, for: .normal)
-            buttons.append(button)
-            button.addTarget(self, action: #selector(sortbyClicked(button:)), for: .touchUpInside)
-        }
-
-        toggleView = ToggleMenu.init(frame: CGRect.init(x: 20, y: 20, width: 100, height: 30), defaultTitle: "time", menuButtons: buttons)
-        toggleView.tintColor = PR_Colors.lightGreen
-        
-        self.contentView.addSubview(toggleView)
+        toggleButton = UIButton()
+        toggleButton.setTitle("time", for: .normal)
+        toggleButton.setTitleColor(PR_Colors.lightGreen, for: .normal)
+        toggleButton.layer.borderColor = PR_Colors.lightGreen.cgColor
+        toggleButton.layer.borderWidth = 1
+        toggleButton.frame = CGRect.init(x: 20, y: 20, width: 100, height: 30)
+        self.contentView.addSubview(toggleButton)
+    
+    
+    //var toggleView: ToggleMenu!
+//    var delegate: SortbyCellDelegate?
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        
+//        self.selectionStyle = .none
+//        var sortStr = ["time", "popularity"]
+//        
+//        var buttons = [UIButton]()
+//        for i in 0..<sortStr.count{
+//            let button = UIButton()
+//            button.setTitle(sortStr[i], for: .normal)
+//            button.setTitleColor(PR_Colors.lightGreen, for: .normal)
+//            buttons.append(button)
+//            button.addTarget(self, action: #selector(sortbyClicked(button:)), for: .touchUpInside)
+//        }
+//
+//        toggleView = ToggleMenu.init(frame: CGRect.init(x: 20, y: 20, width: 100, height: 30), defaultTitle: "time", menuButtons: buttons)
+//        toggleView.tintColor = PR_Colors.lightGreen
+//        
+//        self.contentView.addSubview(toggleView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,7 +58,7 @@ class SortbyCell: UITableViewCell {
     
     func sortbyClicked(button: UIButton){
         delegate?.sortbyClicked(button: button)
-        toggleView.animateUnToggle()
-        toggleView.toggleButton.setTitle(button.titleLabel!.text, for: .normal)
+//        toggleView.animateUnToggle()
+//        toggleView.toggleButton.setTitle(button.titleLabel!.text, for: .normal)
     }
 }

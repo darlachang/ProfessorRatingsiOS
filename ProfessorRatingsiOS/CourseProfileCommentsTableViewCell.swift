@@ -38,11 +38,7 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        //Agree.isHidden = true
-        //Disagree.isHidden = true
-        //agreeLabel.isHidden = true
-        //disagreeLabel.isHidden = true
+
         Agree.layer.borderWidth = 1.0
         Agree.layer.borderColor = PR_Colors.lightGreen.cgColor
         Agree.layer.cornerRadius = 10
