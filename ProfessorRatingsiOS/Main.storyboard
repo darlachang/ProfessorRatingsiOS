@@ -337,7 +337,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G17-j5-sJu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="6tv-m9-XEA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="6tv-m9-XEA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.27450980392156865" green="0.87058823529411766" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>

@@ -21,17 +21,11 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     var courseInfo: Course!
     var commentInfo: [Comments] = []
     
-    @IBOutlet var cidLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var professorLabel: UILabel!
-    
     @IBOutlet weak var otherProfessorView: UIView!
-    @IBOutlet weak var right_arrow: UIButton!
-    
     @IBOutlet weak var Review: UIButton!
-    
     @IBOutlet weak var courseSegmentedControl: UISegmentedControl!
-    
     @IBOutlet weak var profileTableView: UITableView!
     
     //var courseinfo = []
@@ -56,10 +50,10 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         // request method: http://mive.us/reviews?course_id=5807c8567ccbad2219679d50
         // http://mive.us/courses?course_id=5807c8567ccbad2219679d50
         
-        self.title = "CS2110"
+        self.title = courseInfo.id
         
-        cidLabel.text = courseInfo.id
-        cidLabel.textColor = PR_Colors.lightGreen
+//        cidLabel.text = courseInfo.id
+//        cidLabel.textColor = PR_Colors.lightGreen
         nameLabel.text = courseInfo.name
         professorLabel.text = courseInfo.professor.name
         
@@ -93,7 +87,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        
         var returnValue = 0
         switch(courseSegmentedControl.selectedSegmentIndex)
         {
@@ -113,8 +106,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         switch(courseSegmentedControl.selectedSegmentIndex){
             
         case SCORE:
@@ -294,7 +285,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     func handleTap(_ sender: UITapGestureRecognizer) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let searchPage = storyboard.instantiateViewController(withIdentifier: "searchPage") as! SearchTableViewController
-        searchPage.searchString = cidLabel.text!
+        searchPage.searchString = self.title
         searchPage.skipProfessorName = professorLabel.text!
         self.navigationController!.pushViewController(searchPage, animated: true)
     }
