@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HLU-IM-FiT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -166,7 +166,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3sU-c4-Bkl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1989.5999999999999" y="-620.23988005997012"/>
+            <point key="canvasLocation" x="2326" y="-777"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="JYB-n4-9Ni">
@@ -203,7 +203,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5a-x4-Bdu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751" y="165"/>
+            <point key="canvasLocation" x="841" y="37"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="rG6-Qg-1Vk">
@@ -238,8 +238,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Expected Year of Graduation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o54-13-lTg">
-                                <frame key="frameInset" minX="58" minY="281" width="259" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Expected Year of Graduation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o54-13-lTg">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="WSl-o4-PvB"/>
                                 </constraints>
@@ -247,8 +246,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IOp-8o-ZqK">
-                                <frame key="frameInset" minX="58" minY="241" width="259" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IOp-8o-ZqK">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0bi-fC-01O"/>
                                 </constraints>
@@ -264,8 +262,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHU-nk-6Mi">
-                                <frame key="frameInset" minX="150" minY="357" width="78" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHU-nk-6Mi">
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="0.27450980392156865" green="0.87058823529411766" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
@@ -283,24 +280,35 @@
                                     <action selector="exitButtonPressed:" destination="RIZ-dq-HD3" eventType="touchUpInside" id="Z4p-jI-5Lz"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Major" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Jb-Ko-xOr">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="NUV-wd-sYb"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IOp-8o-ZqK" firstAttribute="top" secondItem="5uO-6Z-u9Z" secondAttribute="bottom" constant="10" id="2la-ah-6PJ"/>
+                            <constraint firstItem="IOp-8o-ZqK" firstAttribute="top" secondItem="5uO-6Z-u9Z" secondAttribute="bottom" constant="8" id="2la-ah-6PJ"/>
+                            <constraint firstItem="6Jb-Ko-xOr" firstAttribute="trailing" secondItem="o54-13-lTg" secondAttribute="trailing" id="31Y-wM-9gm"/>
                             <constraint firstAttribute="leadingMargin" secondItem="tPd-TS-bRD" secondAttribute="leading" constant="16" id="36h-cL-Nmr"/>
                             <constraint firstItem="o54-13-lTg" firstAttribute="leading" secondItem="IOp-8o-ZqK" secondAttribute="leading" id="5jS-Fr-EcM"/>
                             <constraint firstItem="9yR-Wr-lsy" firstAttribute="trailing" secondItem="sxj-cQ-z67" secondAttribute="trailing" id="DAO-Tp-p8Z"/>
                             <constraint firstItem="sxj-cQ-z67" firstAttribute="top" secondItem="9yR-Wr-lsy" secondAttribute="bottom" constant="10" id="DVa-FA-sdQ"/>
                             <constraint firstItem="9bx-l1-gHJ" firstAttribute="top" secondItem="5uO-6Z-u9Z" secondAttribute="bottom" constant="434" id="E8o-1v-cVS"/>
                             <constraint firstItem="IOp-8o-ZqK" firstAttribute="trailing" secondItem="5uO-6Z-u9Z" secondAttribute="trailing" id="G9h-Kp-gPu"/>
-                            <constraint firstItem="kHU-nk-6Mi" firstAttribute="top" secondItem="o54-13-lTg" secondAttribute="bottom" constant="46" id="Isl-1U-nHF"/>
+                            <constraint firstItem="kHU-nk-6Mi" firstAttribute="top" secondItem="6Jb-Ko-xOr" secondAttribute="bottom" constant="48" id="Knj-M7-S6r"/>
                             <constraint firstItem="sxj-cQ-z67" firstAttribute="leading" secondItem="5uO-6Z-u9Z" secondAttribute="leading" id="P7F-zL-hu0"/>
                             <constraint firstItem="9yR-Wr-lsy" firstAttribute="leading" secondItem="ouV-ar-eSK" secondAttribute="leadingMargin" constant="42" id="Xpw-ES-EqQ"/>
+                            <constraint firstItem="6Jb-Ko-xOr" firstAttribute="leading" secondItem="o54-13-lTg" secondAttribute="leading" id="aCm-wI-KQc"/>
                             <constraint firstItem="o54-13-lTg" firstAttribute="trailing" secondItem="IOp-8o-ZqK" secondAttribute="trailing" id="aPX-io-p4q"/>
+                            <constraint firstItem="6Jb-Ko-xOr" firstAttribute="top" secondItem="o54-13-lTg" secondAttribute="bottom" constant="9" id="dN7-HO-sqA"/>
                             <constraint firstItem="o54-13-lTg" firstAttribute="top" secondItem="IOp-8o-ZqK" secondAttribute="bottom" constant="10" id="fn0-BN-Xqs"/>
                             <constraint firstItem="axd-2B-B6S" firstAttribute="leading" secondItem="ouV-ar-eSK" secondAttribute="leadingMargin" id="g9K-EM-cJN"/>
                             <constraint firstItem="9yR-Wr-lsy" firstAttribute="top" secondItem="axd-2B-B6S" secondAttribute="bottom" constant="8" symbolic="YES" id="hL9-WL-0Kh"/>
-                            <constraint firstItem="kHU-nk-6Mi" firstAttribute="centerX" secondItem="ouV-ar-eSK" secondAttribute="centerX" constant="1.5" id="peB-aR-AW2"/>
+                            <constraint firstItem="kHU-nk-6Mi" firstAttribute="centerX" secondItem="ouV-ar-eSK" secondAttribute="centerX" constant="-0.5" id="peB-aR-AW2"/>
                             <constraint firstItem="IOp-8o-ZqK" firstAttribute="leading" secondItem="5uO-6Z-u9Z" secondAttribute="leading" id="pmT-Cj-n6O"/>
                             <constraint firstItem="sxj-cQ-z67" firstAttribute="trailing" secondItem="5uO-6Z-u9Z" secondAttribute="trailing" id="tCe-9L-TvJ"/>
                             <constraint firstItem="9yR-Wr-lsy" firstAttribute="leading" secondItem="sxj-cQ-z67" secondAttribute="leading" id="uFE-Qm-Jze"/>
@@ -315,6 +323,7 @@
                         <outlet property="confirmPasswordText" destination="5uO-6Z-u9Z" id="a4p-TN-up9"/>
                         <outlet property="emailText" destination="9yR-Wr-lsy" id="tSu-mk-D4B"/>
                         <outlet property="gradYear" destination="o54-13-lTg" id="z1o-jh-A8u"/>
+                        <outlet property="major" destination="6Jb-Ko-xOr" id="k1T-lt-zqC"/>
                         <outlet property="passwordText" destination="sxj-cQ-z67" id="QXf-Wb-ytE"/>
                         <outlet property="studStatus" destination="IOp-8o-ZqK" id="tDS-Ir-3k6"/>
                     </connections>
@@ -361,7 +370,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVu-vh-Ldx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079" y="-622"/>
+            <point key="canvasLocation" x="1554" y="-776"/>
         </scene>
         <!--submitReview-->
         <scene sceneID="smk-aZ-VR2">
@@ -377,7 +386,7 @@
                 <viewControllerPlaceholder storyboardName="CourseProfile" id="1gV-CE-LKK" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pjQ-cl-pwJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2701" y="-622"/>
+            <point key="canvasLocation" x="3284" y="-777"/>
         </scene>
     </scenes>
     <resources>

@@ -38,13 +38,15 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        Agree.layer.borderWidth = 1.0
-        Agree.layer.borderColor = PR_Colors.lightGreen.cgColor
-        Agree.layer.cornerRadius = 10
-        Disagree.layer.borderWidth = 1.0
-        Disagree.layer.borderColor = PR_Colors.brightOrange.cgColor
-        Disagree.layer.cornerRadius = 10
+        
+        Agree.setImage(#imageLiteral(resourceName: "Thumbs up"), for: UIControlState.normal)
+        Disagree.setImage(#imageLiteral(resourceName: "Thumbs down"), for: UIControlState.normal)
+//        Agree.layer.borderWidth = 1.0
+//        Agree.layer.borderColor = PR_Colors.lightGreen.cgColor
+//        Agree.layer.cornerRadius = 10
+//        Disagree.layer.borderWidth = 1.0
+//        Disagree.layer.borderColor = PR_Colors.brightOrange.cgColor
+//        Disagree.layer.cornerRadius = 10
         
         commentLabel.sizeToFit()
         layoutIfNeeded()
@@ -108,6 +110,7 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
     }
     
     func likeComment(isLike: Bool){
+        
         let defaults = UserDefaults.standard
         
         print("user id in likeComment is ", defaults.string(forKey: "user_id"))
@@ -165,15 +168,17 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
     
     func greyOut(){
         commentLabel.textColor = UIColor.lightGray
-        let attributeString = NSMutableAttributedString(string: commentLabel.text!)
-        attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
-        commentLabel.attributedText = attributeString
+//        let attributeString = NSMutableAttributedString(string: commentLabel.text!)
+//        attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
+//        commentLabel.attributedText = attributeString
         agreeLabel.textColor = UIColor.lightGray
         disagreeLabel.textColor = UIColor.lightGray
-        Agree.layer.borderColor = UIColor.lightGray.cgColor
-        Disagree.layer.borderColor = UIColor.lightGray.cgColor
-        Agree.titleLabel?.textColor = UIColor.lightGray
-        Disagree.titleLabel?.textColor = UIColor.lightGray
+        Agree.setImage(#imageLiteral(resourceName: "grey thumbs up"), for: UIControlState.normal)
+        Disagree.setImage(#imageLiteral(resourceName: "grey thumbs down"), for: UIControlState.normal)
+//        Agree.layer.borderColor = UIColor.lightGray.cgColor
+//        Disagree.layer.borderColor = UIColor.lightGray.cgColor
+//        Agree.titleLabel?.textColor = UIColor.lightGray
+//        Disagree.titleLabel?.textColor = UIColor.lightGray
     }
     
     var needGreyOut: Bool {

@@ -18,16 +18,6 @@ protocol SortbyCellDelegate {
 class CourseProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SortbyCellDelegate {
     
     var RatingsList:[String] = ["Overal Quality", "Workload", "Grading"]
-    var RatingsNum:[String] = ["3.7", "4.2", "2.8"]
-    var RatingsAmount:[Int] = [382, 380, 260]
-    var CommentsDate:[String] = ["12/24/2016","12/8/2016","11/23/2016", "", "",""]
-    var CommentsList:[String] = ["This course is really intersting", "The professor is a brilliant, the assignments were challenging though", "This course is aweful"]
-    var CommentsStudent:[String] = ["Freshman, History major, Graded received: B+","Sophomore, Mechanical major, Graded received: A-","Senior, Animation major, Graded received: C+"]
-    var CommentsRating:[String] = ["5", "4", "1"]
-    var CommentsAgree:[Int] = [23, 25, 0]
-    var CommentsDisagree:[Int] = [7, 5, 10]
-    var QuotesList:[String] = ["Finish before deadline is impossible", "If you take the practicum"]
-    
     var courseInfo: Course!
     var commentInfo: [Comments] = []
     
@@ -65,6 +55,8 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         getcourseinfo()
         // request method: http://mive.us/reviews?course_id=5807c8567ccbad2219679d50
         // http://mive.us/courses?course_id=5807c8567ccbad2219679d50
+        
+        self.title = "CS2110"
         
         cidLabel.text = courseInfo.id
         cidLabel.textColor = PR_Colors.lightGreen
@@ -185,7 +177,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (courseSegmentedControl.selectedSegmentIndex == COMMENT && indexPath.row == 0){
-            return 100
+            return 50
         }
         return 150
     }
@@ -260,7 +252,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
 
     func sortbyClicked(button: UIButton) {
-        let sortListController = UIAlertController(title: "sort by",message: "Swiftly Now! Choose an option!", preferredStyle: .actionSheet)
+        let sortListController = UIAlertController(title: "sort by",message: nil, preferredStyle: .actionSheet)
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
             //Just dismiss the action sheet
         }
@@ -271,7 +263,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             self.profileTableView.reloadData()
         }
         sortListController.addAction(timeAction)
-        let popularityAction: UIAlertAction = UIAlertAction(title: "Time", style: .default) { action -> Void in
+        let popularityAction: UIAlertAction = UIAlertAction(title: "Popularity", style: .default) { action -> Void in
             self.commentInfo.sort(by: { $0.compareToByPopularity($1) })
             button.setTitle("Popularity", for: .normal)
             self.profileTableView.reloadData()

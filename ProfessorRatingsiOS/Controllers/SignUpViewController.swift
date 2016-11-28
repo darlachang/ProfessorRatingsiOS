@@ -19,34 +19,60 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var studStatus: UITextField!
     @IBOutlet weak var gradYear: UITextField!
+    @IBOutlet weak var major: UITextField!
+    
+    var gradYearPicker: UIPickerView!
+    var majorPicker: UIPickerView!
     
     var gradYearToolBar = UIToolbar()
+    var yearPickerData: [String] = ["2010","2011","2012","2013","2014","2015","2016","2017","2018", "2019", "2020"]
     
-    var pickerData: [String] = ["2010","2011","2012","2013","2014","2015","2016","2017","2018", "2019", "2020"]
+    var majorToolBar = UIToolbar()
+    var majorPickerData: [String] = ["Applied Economics & Management","Architecture","Art","Biological & Environmental Engineering","Biomedical Sciences","Civil & Environmental Engineering","Chemistry","Computer Science","Electrical & Computer Engineering", "Economics", "Food Science", "Hotel Administration","History","Information Science","Jewish Studies","Latin American Studies","Mechanical & Aerospace Engineering","Mathematics","Materials Science & Engineering","Music","Graduate Management Business Admin","Nutritional Science","Operations Research & Information Engineering","Philosophy","Physics","Plant Biology","Psychology","Sociology","Statistical Science","Veterinary Medicine Molecular Medicine"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         studStatus.delegate = self
-        
-        let gradYearPicker = UIPickerView(frame: CGRect.init(x: 0, y: 200, width: view.frame.width, height: 300))
+        gradYearPicker = UIPickerView(frame: CGRect.init(x: 0, y: 200, width: view.frame.width, height: 300))
+
         gradYearPicker.backgroundColor = UIColor.white
         gradYearPicker.showsSelectionIndicator = true
         gradYearPicker.delegate = self
         gradYearPicker.dataSource = self
         gradYearToolBar.barStyle = UIBarStyle.default
         gradYearToolBar.isTranslucent = true
-        gradYearToolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        gradYearToolBar.tintColor = PR_Colors.lightGreen
         gradYearToolBar.sizeToFit()
+        
+        majorPicker = UIPickerView(frame: CGRect.init(x: 0, y: 200, width: view.frame.width, height: 300))
+        majorPicker.backgroundColor = UIColor.white
+        majorPicker.showsSelectionIndicator = true
+        majorPicker.delegate = self
+        majorPicker.dataSource = self
+        majorToolBar.barStyle = UIBarStyle.default
+        majorToolBar.isTranslucent = true
+        majorToolBar.tintColor = PR_Colors.lightGreen
+        majorToolBar.sizeToFit()
+        
         
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(SignUpViewController.picked))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(SignUpViewController.picked))
         
+        let doneButton1 = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(SignUpViewController.picked))
+        let spaceButton1 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton1 = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(SignUpViewController.picked))
+        
+        
         gradYearToolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         gradYearToolBar.isUserInteractionEnabled = true
-        
         gradYear.inputView = gradYearPicker
         gradYear.inputAccessoryView = gradYearToolBar
+        
+        majorToolBar.setItems([cancelButton1, spaceButton1, doneButton1], animated: false)
+        majorToolBar.isUserInteractionEnabled = true
+        major.inputView = majorPicker
+        major.inputAccessoryView = majorToolBar
     }
     
     override func didReceiveMemoryWarning() {
@@ -176,18 +202,36 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     // The number of rows of data
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component:Int) -> Int {
-        return pickerData.count
+        if(pickerView == gradYearPicker){
+            return yearPickerData.count
+        }
+        else if(pickerView == majorPicker){
+            return majorPickerData.count
+        }
+        return 1
     }
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
+        if(pickerView == gradYearPicker){
+            return yearPickerData[row]
+        }
+        else if(pickerView == majorPicker){
+            return majorPickerData[row]
+        }
+        return nil
     }
     
     // Catpure the picker view selection
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
-        gradYear.text = pickerData[row]
+        if(pickerView == gradYearPicker){
+            gradYear.text = yearPickerData[row]
+        }
+        else if(pickerView == majorPicker){
+            major.text = majorPickerData[row]
+        }
+        
     }
     
     func picked(){
