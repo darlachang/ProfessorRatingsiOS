@@ -48,6 +48,9 @@
                                                     <frame key="frameInset" minX="140" minY="102" width="46" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="sugAgree"/>
+                                                    <connections>
+                                                        <action selector="sugLikePressed:" destination="yJ9-bM-gK1" eventType="touchUpInside" id="qVx-bg-zqj"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sugAgreeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wj-Ib-5f6">
                                                     <frame key="frameInset" minX="114" minY="107" width="30" height="15"/>
@@ -60,6 +63,9 @@
                                                     <frame key="frameInset" minX="227" minY="102" width="64" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="sugDisagree"/>
+                                                    <connections>
+                                                        <action selector="sugDislikePressed:" destination="yJ9-bM-gK1" eventType="touchUpInside" id="0l3-v1-P9h"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sugDisagreeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Baa-rR-rha">
                                                     <frame key="frameInset" minX="199" minY="107" width="30" height="15"/>
@@ -70,6 +76,14 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="sugAgree" destination="ZV7-cN-cel" id="N0Z-Ju-MBV"/>
+                                            <outlet property="sugAgreeLabel" destination="2wj-Ib-5f6" id="sZ3-2V-C4R"/>
+                                            <outlet property="sugDate" destination="bDM-Lz-xBf" id="dPw-0z-FU0"/>
+                                            <outlet property="sugDisagree" destination="2j4-cJ-RGv" id="qID-Vw-zOo"/>
+                                            <outlet property="sugDisagreeLabel" destination="Baa-rR-rha" id="eIn-QV-iBg"/>
+                                            <outlet property="suggestionLabel" destination="Sh0-xV-de4" id="Bj5-u1-k13"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseprofileCell" rowHeight="101" id="CBK-G6-alO" customClass="CourseProfileTableViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="326" width="375" height="101"/>

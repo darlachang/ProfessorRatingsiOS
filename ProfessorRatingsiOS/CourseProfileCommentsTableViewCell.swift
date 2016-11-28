@@ -20,13 +20,17 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
     @IBOutlet weak var disagreeLabel: UILabel!
     @IBOutlet weak var Disagree: UIButton!
     @IBOutlet weak var endStar: UIView!
-
     @IBAction func likePressed(_ sender: AnyObject) {
-        likeComment(isLike: true)
+        if (!liked && !disliked){
+            likeComment(isLike: true)
+        }
     }
     
     @IBAction func dislikePressed(_ sender: AnyObject) {
-        likeComment(isLike: false)
+        if(!disliked && !liked){
+            likeComment(isLike: false)
+        }
+        
     }
     var starCount = 0
     var commentObject:Comments?
@@ -34,20 +38,14 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
     let GREY_OUT_THRESHOLD = 0.6
     let greyStar = convertImageToBW(image: #imageLiteral(resourceName: "filled_star"))
     let greyEmptyStar = convertImageToBW(image: #imageLiteral(resourceName: "empty_star"))
-
+    var liked = false
+    var disliked = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         Agree.setImage(#imageLiteral(resourceName: "Thumbs up"), for: UIControlState.normal)
         Disagree.setImage(#imageLiteral(resourceName: "Thumbs down"), for: UIControlState.normal)
-//        Agree.layer.borderWidth = 1.0
-//        Agree.layer.borderColor = PR_Colors.lightGreen.cgColor
-//        Agree.layer.cornerRadius = 10
-//        Disagree.layer.borderWidth = 1.0
-//        Disagree.layer.borderColor = PR_Colors.brightOrange.cgColor
-//        Disagree.layer.cornerRadius = 10
-        
         commentLabel.sizeToFit()
         layoutIfNeeded()
         displayStars()
@@ -122,8 +120,10 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
         ]
         if isLike {
             commentObject!.agree = commentObject!.agree + Int(1)
+            liked = true
         } else {
             commentObject!.disagree = commentObject!.disagree + Int(1)
+            disliked = true
         }
         
         Alamofire.request(Config.likeURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
@@ -144,6 +144,7 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
 //                }
             }
         }
+        
     }
     
     func bindObject(_ comment:Comments) {
@@ -175,10 +176,6 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
         disagreeLabel.textColor = UIColor.lightGray
         Agree.setImage(#imageLiteral(resourceName: "grey thumbs up"), for: UIControlState.normal)
         Disagree.setImage(#imageLiteral(resourceName: "grey thumbs down"), for: UIControlState.normal)
-//        Agree.layer.borderColor = UIColor.lightGray.cgColor
-//        Disagree.layer.borderColor = UIColor.lightGray.cgColor
-//        Agree.titleLabel?.textColor = UIColor.lightGray
-//        Disagree.titleLabel?.textColor = UIColor.lightGray
     }
     
     var needGreyOut: Bool {
