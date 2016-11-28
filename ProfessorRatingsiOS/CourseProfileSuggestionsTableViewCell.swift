@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Alamofire
+import SwiftyJSON
 
 
 class CourseProfileSuggestionsTableViewCell: UITableViewCell {
@@ -37,6 +38,9 @@ class CourseProfileSuggestionsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func likeSuggestion(isLike: Bool){
     }
 
 }

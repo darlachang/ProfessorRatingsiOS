@@ -155,10 +155,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             return cell
             
         case SUGGESTION:
-            //            let cellIdentifier = "courseprofileCell"
-            //            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-            //            cell.textLabel!.text = QuotesList[indexPath.row]
-            //            return cell
             return UITableViewCell()
         default:
             return UITableViewCell()

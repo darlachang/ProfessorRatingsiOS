@@ -248,7 +248,7 @@
                                             <outlet property="student" destination="qnZ-Io-vCv" id="d5e-4T-sfl"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="writeSugCell" id="oaq-VL-i77">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="writeSuggestionCell" id="oaq-VL-i77">
                                         <rect key="frame" x="0.0" y="678" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oaq-VL-i77" id="RtN-FG-Ay4">
