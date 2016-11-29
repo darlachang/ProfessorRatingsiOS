@@ -187,12 +187,53 @@
         <!--User View Controller-->
         <scene sceneID="JYB-n4-9Ni">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Htd-k1-DhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="tw6-Ka-8jf" customClass="UserViewController" customModule="ProfessorRatingsiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vKC-B2-164"/>
+                        <viewControllerLayoutGuide type="bottom" id="GEC-7Z-vzO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1wM-29-oXH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rxM-Ci-qdZ">
+                                <rect key="frame" x="16" y="28" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Profile"/>
+                                    <segment title="My Posts"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControlValueChanged:" destination="tw6-Ka-8jf" eventType="valueChanged" id="wsq-mM-9Co"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="peH-P7-0zP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="tw6-Ka-8jf" id="A5r-G9-woj"/>
+                                    <outlet property="delegate" destination="tw6-Ka-8jf" id="Wc3-Cr-coB"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="peH-P7-0zP" secondAttribute="trailing" constant="-16" id="1Vl-q3-4aA"/>
+                            <constraint firstItem="peH-P7-0zP" firstAttribute="leading" secondItem="1wM-29-oXH" secondAttribute="leadingMargin" constant="-16" id="V2S-VV-Q04"/>
+                            <constraint firstItem="rxM-Ci-qdZ" firstAttribute="top" secondItem="vKC-B2-164" secondAttribute="bottom" constant="8" id="WnD-B2-3gd"/>
+                            <constraint firstItem="GEC-7Z-vzO" firstAttribute="top" secondItem="peH-P7-0zP" secondAttribute="bottom" id="Ymg-Wi-gJr"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="rxM-Ci-qdZ" secondAttribute="leading" id="d13-uj-QoX"/>
+                            <constraint firstItem="peH-P7-0zP" firstAttribute="top" secondItem="rxM-Ci-qdZ" secondAttribute="bottom" constant="8" id="jvH-Hm-Zqk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rxM-Ci-qdZ" secondAttribute="trailing" id="lwM-hI-DdA"/>
+                        </constraints>
+                    </view>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="XFb-bP-QSF"/>
+                    <connections>
+                        <outlet property="segmentControl" destination="rxM-Ci-qdZ" id="0Yu-k2-3t1"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Htd-k1-DhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2006" y="421"/>
+            <point key="canvasLocation" x="2005.5999999999999" y="419.64017991004499"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yUO-aj-jis">
@@ -500,4 +541,5 @@
     <resources>
         <image name="logo" width="876" height="806"/>
     </resources>
+    <color key="tintColor" red="0.41176470588235292" green="0.89803921568627454" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
 </document>
