@@ -14,6 +14,7 @@ import CryptoSwift
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var signUp: UIButton!
     @IBOutlet weak var confirmPasswordText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var emailText: UITextField!
@@ -32,6 +33,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        signUp.layer.borderColor = PR_Colors.brightOrange.cgColor
+        signUp.layer.borderWidth = 1.0
+        signUp.layer.cornerRadius = 10
         studStatus.delegate = self
         gradYearPicker = UIPickerView(frame: CGRect.init(x: 0, y: 200, width: view.frame.width, height: 300))
 

@@ -205,6 +205,8 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             }
             self.profileTableView.reloadData() //reload tableView
             print("overalQualCnt is ", self.courseInfo.overalQualCnt)
+            print("gradingCnt is ", self.courseInfo.gradingCnt)
+            print("workloadCnt is ", self.courseInfo.workloadCnt)
         }
     }
     

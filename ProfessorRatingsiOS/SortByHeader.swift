@@ -20,6 +20,7 @@ class SortByHeader: UIView {
         toggleButton.setTitleColor(PR_Colors.lightGreen, for: .normal)
         toggleButton.layer.borderColor = PR_Colors.lightGreen.cgColor
         toggleButton.layer.borderWidth = 1
+        toggleButton.layer.cornerRadius = 10.0
         toggleButton.frame = CGRect.init(x: 300, y: 3, width: 100, height: 30)
         toggleButton.addTarget(self, action: #selector(sortbyClicked), for: .touchDown)
         addSubview(toggleButton)
