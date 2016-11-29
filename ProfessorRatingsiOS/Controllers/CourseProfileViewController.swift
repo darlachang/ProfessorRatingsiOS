@@ -12,10 +12,10 @@ import SwiftyJSON
 
 protocol SortbyCellDelegate {
     func sortbyClicked(button: UIButton)
-    
 }
 
-class CourseProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SortbyCellDelegate {
+
+class CourseProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SortbyCellDelegate{
     
     var RatingsList:[String] = ["Overal Quality", "Workload", "Grading"]
     var courseInfo: Course!
@@ -85,15 +85,16 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         // Dispose of any resources that can be recreated.
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sortBy = SortByHeader()
-        //sortBy.backgroundColor = UIColor.red
+        let sortBy = SortByHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        sortBy.delegate = self
+        sortBy.backgroundColor = UIColor.white
         return sortBy
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if(courseSegmentedControl.selectedSegmentIndex == SCORE){
            return 0
         }
-        return 100
+        return 50
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -151,17 +152,18 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             
             
         case COMMENT:
-            if indexPath.row == 0 {
-                let cellIdentifier = "SortByCell"
-                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SortbyCell
-                cell.delegate = self
-                return cell
-            }
+//            if indexPath.row == 0 {
+//                let cellIdentifier = "SortByCell"
+//                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SortbyCell
+//                cell.delegate = self
+//                return cell
+//            }
             let cellIdentifier = "commentsCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileCommentsTableViewCell
             cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
             
-            let comment = self.commentInfo[indexPath.row - 1]
+           // let comment = self.commentInfo[indexPath.row - 1]
+            let comment = self.commentInfo[indexPath.row]
             cell.bindObject(comment)
             return cell
             
@@ -174,9 +176,9 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (courseSegmentedControl.selectedSegmentIndex == COMMENT && indexPath.row == 0){
-            return 50
-        }
+//        if (courseSegmentedControl.selectedSegmentIndex == COMMENT && indexPath.row == 0){
+//            return 50
+//        }
         return 150
     }
     
@@ -202,7 +204,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                 self.courseInfo.numOfReview = jsonObject["number_of_reviews"].intValue
             }
             self.profileTableView.reloadData() //reload tableView
-            
+            print("overalQualCnt is ", self.courseInfo.overalQualCnt)
         }
     }
     

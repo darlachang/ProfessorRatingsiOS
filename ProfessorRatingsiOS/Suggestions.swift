@@ -10,7 +10,7 @@ import UIKit
 
 class Suggestions: UITableViewCell {
     
-    var suggestionID:String!
+    var course:String!
     var suggestion:String!
     var date:String!
     var agree:Int!
@@ -35,9 +35,8 @@ class Suggestions: UITableViewCell {
         return date
     }
     
-    convenience init(suggestionID: String, suggestion: String, date: String, agree:Int, disagree:Int){
+    convenience init(suggestion: String, date: String, agree:Int, disagree:Int){
         self.init()
-        self.suggestionID = suggestionID
         self.suggestion = suggestion
         self.date = shorten(date)
         self.agree = agree
