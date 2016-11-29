@@ -24,8 +24,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //print("my course is", course)
+
         
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
@@ -68,6 +67,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 130.0;//Choose your custom row height
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         searchController.dismiss(animated: false, completion: nil)
     }
@@ -83,6 +87,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         cell.cidLabel.text = course.id
         cell.professorLabel.text = course.professor.name
         cell.avgReviewLabel.text = String(describing: course.avgReview!)
+        cell.ratingLabel.text = String(course.numOfReview!) + " ratings"
         
         //        if let isVisited = course.isVisited? .boolValue {
         //            cell.accessoryType = isVisited ? .checkmark : .none
@@ -201,6 +206,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                                     department: professor["department"].stringValue,
                                     avgReview: professor["average_review"].doubleValue,
                                     numOfReview: professor["number_of_reviews"].intValue
+//                                    overalQualCnt: (professor["quality_count"].arrayObject as! [Int]?)!,
+//                                    workloadCnt: (professor["workload_count"].arrayObject as! [Int]?)!,
+//                                    gradingCnt: (professor["grading_count"].arrayObject as! [Int]?)!
+
                                 ))
                             } else {
                                 for course in courses {
@@ -211,7 +220,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                                         professor: prof,
                                         department: professor["department"].stringValue,
                                         avgReview: professor["average_review"].doubleValue,
-                                        numOfReview: professor["number_of_reviews"].intValue))
+                                        numOfReview: professor["number_of_reviews"].intValue
+//                                        overalQualCnt: (professor["quality_count"].arrayObject as! [Int]?)!,
+//                                        workloadCnt: (professor["workload_count"].arrayObject as! [Int]?)!,
+//                                        gradingCnt: (professor["grading_count"].arrayObject as! [Int]?)!
+                                        ))
                                 }
                             }
                         }

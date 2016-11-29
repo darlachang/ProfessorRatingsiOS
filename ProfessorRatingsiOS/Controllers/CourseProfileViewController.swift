@@ -12,42 +12,26 @@ import SwiftyJSON
 
 protocol SortbyCellDelegate {
     func sortbyClicked(button: UIButton)
-    
 }
 
-class CourseProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SortbyCellDelegate {
+
+class CourseProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SortbyCellDelegate{
     
     var RatingsList:[String] = ["Overal Quality", "Workload", "Grading"]
-    var RatingsNum:[String] = ["3.7", "4.2", "2.8"]
-    var RatingsAmount:[Int] = [382, 380, 260]
-    var CommentsDate:[String] = ["12/24/2016","12/8/2016","11/23/2016", "", "",""]
-    var CommentsList:[String] = ["This course is really intersting", "The professor is a brilliant, the assignments were challenging though", "This course is aweful"]
-    var CommentsStudent:[String] = ["Freshman, History major, Graded received: B+","Sophomore, Mechanical major, Graded received: A-","Senior, Animation major, Graded received: C+"]
-    var CommentsRating:[String] = ["5", "4", "1"]
-    var CommentsAgree:[Int] = [23, 25, 0]
-    var CommentsDisagree:[Int] = [7, 5, 10]
-    var QuotesList:[String] = ["Finish before deadline is impossible", "If you take the practicum"]
-    
     var courseInfo: Course!
     var commentInfo: [Comments] = []
     
-    @IBOutlet var cidLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var professorLabel: UILabel!
-    
     @IBOutlet weak var otherProfessorView: UIView!
-    @IBOutlet weak var right_arrow: UIButton!
-    
     @IBOutlet weak var Review: UIButton!
-    
     @IBOutlet weak var courseSegmentedControl: UISegmentedControl!
-    
     @IBOutlet weak var profileTableView: UITableView!
     
     //var courseinfo = []
     let SCORE = 0
     let COMMENT = 1
-    let QUOTE = 2
+    let SUGGESTION = 2
     
     
     func imageWithColor(_ color: UIColor) -> UIImage {
@@ -66,8 +50,10 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         // request method: http://mive.us/reviews?course_id=5807c8567ccbad2219679d50
         // http://mive.us/courses?course_id=5807c8567ccbad2219679d50
         
-        cidLabel.text = courseInfo.id
-        cidLabel.textColor = PR_Colors.lightGreen
+        self.title = courseInfo.id
+        
+//        cidLabel.text = courseInfo.id
+//        cidLabel.textColor = PR_Colors.lightGreen
         nameLabel.text = courseInfo.name
         professorLabel.text = courseInfo.professor.name
         
@@ -98,10 +84,21 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sortBy = SortByHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        sortBy.delegate = self
+        sortBy.backgroundColor = UIColor.white
+        return sortBy
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if(courseSegmentedControl.selectedSegmentIndex == SCORE){
+           return 0
+        }
+        return 50
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        
         var returnValue = 0
         switch(courseSegmentedControl.selectedSegmentIndex)
         {
@@ -111,7 +108,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         case COMMENT:
             returnValue = commentInfo.count + 1
             break
-        case QUOTE:
+        case SUGGESTION:
             returnValue = 3
             break
         default:
@@ -121,8 +118,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         switch(courseSegmentedControl.selectedSegmentIndex){
             
         case SCORE:
@@ -157,25 +152,22 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             
             
         case COMMENT:
-            if indexPath.row == 0 {
-                let cellIdentifier = "SortByCell"
-                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SortbyCell
-                cell.delegate = self
-                return cell
-            }
+//            if indexPath.row == 0 {
+//                let cellIdentifier = "SortByCell"
+//                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SortbyCell
+//                cell.delegate = self
+//                return cell
+//            }
             let cellIdentifier = "commentsCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileCommentsTableViewCell
             cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
             
-            let comment = self.commentInfo[indexPath.row - 1]
+           // let comment = self.commentInfo[indexPath.row - 1]
+            let comment = self.commentInfo[indexPath.row]
             cell.bindObject(comment)
             return cell
             
-        case QUOTE:
-            //            let cellIdentifier = "courseprofileCell"
-            //            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-            //            cell.textLabel!.text = QuotesList[indexPath.row]
-            //            return cell
+        case SUGGESTION:
             return UITableViewCell()
         default:
             return UITableViewCell()
@@ -184,9 +176,9 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (courseSegmentedControl.selectedSegmentIndex == COMMENT && indexPath.row == 0){
-            return 100
-        }
+//        if (courseSegmentedControl.selectedSegmentIndex == COMMENT && indexPath.row == 0){
+//            return 50
+//        }
         return 150
     }
     
@@ -212,7 +204,9 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                 self.courseInfo.numOfReview = jsonObject["number_of_reviews"].intValue
             }
             self.profileTableView.reloadData() //reload tableView
-            
+            print("overalQualCnt is ", self.courseInfo.overalQualCnt)
+            print("gradingCnt is ", self.courseInfo.gradingCnt)
+            print("workloadCnt is ", self.courseInfo.workloadCnt)
         }
     }
     
@@ -260,15 +254,36 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
 
     func sortbyClicked(button: UIButton) {
-        switch button.titleLabel!.text! {
-            case "time":
-                commentInfo.sort(by: { $0.date > $1.date })
-            case "popularity":
-                commentInfo.sort(by: { $0.popularity > $1.popularity })
-            default:
-                print("Bug found at sortbyClicked. Unseen button was clicked \(button.titleLabel!.text!)")
+        let sortListController = UIAlertController(title: "sort by",message: nil, preferredStyle: .actionSheet)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            //Just dismiss the action sheet
         }
-        profileTableView.reloadData()
+        sortListController.addAction(cancelAction)
+        let timeAction: UIAlertAction = UIAlertAction(title: "Time", style: .default) { action -> Void in
+            self.commentInfo.sort(by: { $0.date > $1.date })
+            button.setTitle("Time", for: .normal)
+            self.profileTableView.reloadData()
+        }
+        sortListController.addAction(timeAction)
+        let popularityAction: UIAlertAction = UIAlertAction(title: "Popularity", style: .default) { action -> Void in
+            self.commentInfo.sort(by: { $0.compareToByPopularity($1) })
+            button.setTitle("Popularity", for: .normal)
+            self.profileTableView.reloadData()
+        }
+        sortListController.addAction(popularityAction)
+        
+        self.present(sortListController, animated: true, completion: nil)
+        
+        
+//        switch button.titleLabel!.text! {
+//            case "time":
+//                commentInfo.sort(by: { $0.date > $1.date })
+//            case "popularity":
+//                commentInfo.sort(by: { $0.compareToByPopularity($1) })
+//            default:
+//                print("Bug found at sortbyClicked. Unseen button was clicked \(button.titleLabel!.text!)")
+//        }
+
     }
     
     func setUpOtherProfessorsView(){
@@ -281,7 +296,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     func handleTap(_ sender: UITapGestureRecognizer) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let searchPage = storyboard.instantiateViewController(withIdentifier: "searchPage") as! SearchTableViewController
-        searchPage.searchString = cidLabel.text!
+        searchPage.searchString = self.title
         searchPage.skipProfessorName = professorLabel.text!
         self.navigationController!.pushViewController(searchPage, animated: true)
     }

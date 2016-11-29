@@ -59,7 +59,7 @@ class SubmitReviewViewController: FormViewController {
             }
             <<< StickySliderViewRow(fields.work_load.rawValue){
                 $0.value = StickySliderContent(
-                    leftText: "Lighter", rightText: "Heavier", title: "Workload compare to other classes", step: 1, lowerValue: 1, higherValue: 5, value: 3, showValue: false)
+                    leftText: "Light", rightText: "Heavy", title: "Workload", step: 1, lowerValue: 1, higherValue: 5, value: 3, showValue: false)
             }
             <<< StickySliderViewRow(fields.grading_difficulty.rawValue){
                 $0.value = StickySliderContent(

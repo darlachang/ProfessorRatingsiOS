@@ -17,6 +17,10 @@
 		29BB5F7F1DC0496F00FA478F /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BB5F7E1DC0496F00FA478F /* Comments.swift */; };
 		29BB5F811DD1721500FA478F /* ToggleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BB5F801DD1721500FA478F /* ToggleMenu.swift */; };
 		29BB5F831DD17AE700FA478F /* SortbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BB5F821DD17AE700FA478F /* SortbyCell.swift */; };
+		29C04A451DEA66CB0096CE1C /* CourseProfileSuggestionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A441DEA66CB0096CE1C /* CourseProfileSuggestionsTableViewCell.swift */; };
+		29C04A471DEA94250096CE1C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A461DEA94250096CE1C /* TabBarController.swift */; };
+		29C04A4B1DEBEE7B0096CE1C /* Suggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A4A1DEBEE7B0096CE1C /* Suggestions.swift */; };
+		29C04A4D1DECF7510096CE1C /* SortByHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A4C1DECF7510096CE1C /* SortByHeader.swift */; };
 		FB0A6F3C1DA434F000E4F403 /* SubmitReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */; };
 		FB0AB7D91DB567120054C262 /* StickySliderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0AB7D71DB567120054C262 /* StickySliderViewCell.swift */; };
 		FB0AB7DA1DB567120054C262 /* StickySliderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB0AB7D81DB567120054C262 /* StickySliderViewCell.xib */; };
@@ -70,6 +74,10 @@
 		29BB5F7E1DC0496F00FA478F /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comments.swift; path = Models/Comments.swift; sourceTree = "<group>"; };
 		29BB5F801DD1721500FA478F /* ToggleMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToggleMenu.swift; path = ProfessorRatingsiOS/ToggleMenu.swift; sourceTree = SOURCE_ROOT; };
 		29BB5F821DD17AE700FA478F /* SortbyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortbyCell.swift; sourceTree = "<group>"; };
+		29C04A441DEA66CB0096CE1C /* CourseProfileSuggestionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseProfileSuggestionsTableViewCell.swift; sourceTree = "<group>"; };
+		29C04A461DEA94250096CE1C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		29C04A4A1DEBEE7B0096CE1C /* Suggestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Suggestions.swift; sourceTree = "<group>"; };
+		29C04A4C1DECF7510096CE1C /* SortByHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortByHeader.swift; sourceTree = "<group>"; };
 		FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitReviewViewController.swift; path = Controllers/SubmitReviewViewController.swift; sourceTree = "<group>"; };
 		FB0AB7D71DB567120054C262 /* StickySliderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StickySliderViewCell.swift; path = ProfessorRatingsiOS/Views/StickySliderViewCell.swift; sourceTree = SOURCE_ROOT; };
 		FB0AB7D81DB567120054C262 /* StickySliderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StickySliderViewCell.xib; path = ProfessorRatingsiOS/Views/StickySliderViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -139,6 +147,8 @@
 				29604FBD1DB59AD3005E240B /* CourseProfileTableViewCell.swift */,
 				29604FBF1DB5AA70005E240B /* CourseProfileCommentsTableViewCell.swift */,
 				29BB5F821DD17AE700FA478F /* SortbyCell.swift */,
+				29C04A441DEA66CB0096CE1C /* CourseProfileSuggestionsTableViewCell.swift */,
+				29C04A4C1DECF7510096CE1C /* SortByHeader.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -232,6 +242,7 @@
 				FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */,
 				292E2E881DA1ADE7005ECFFC /* SearchTableViewController.swift */,
 				29604FBB1DB59591005E240B /* CourseProfileViewController.swift */,
+				29C04A461DEA94250096CE1C /* TabBarController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -252,6 +263,7 @@
 				FB84274D1DA44D0F009D4B5B /* Professor.swift */,
 				292E2E8D1DA1B031005ECFFC /* Course.swift */,
 				29BB5F7E1DC0496F00FA478F /* Comments.swift */,
+				29C04A4A1DEBEE7B0096CE1C /* Suggestions.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -429,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29C04A4D1DECF7510096CE1C /* SortByHeader.swift in Sources */,
 				FB0A6F3C1DA434F000E4F403 /* SubmitReviewViewController.swift in Sources */,
 				292E2E8E1DA1B031005ECFFC /* Course.swift in Sources */,
 				FBC526561D9A1EF500ED39D2 /* Constants.swift in Sources */,
@@ -443,11 +456,14 @@
 				FB9A51F71D9A1C880094BA53 /* ViewController.swift in Sources */,
 				FB36E05C1D9A0934002EC392 /* AppDelegate.swift in Sources */,
 				29BB5F831DD17AE700FA478F /* SortbyCell.swift in Sources */,
+				29C04A451DEA66CB0096CE1C /* CourseProfileSuggestionsTableViewCell.swift in Sources */,
 				292E2E891DA1ADE7005ECFFC /* SearchTableViewController.swift in Sources */,
 				296F03661DA1C1CB00C4893B /* SearchTableViewCell.swift in Sources */,
 				29604FBE1DB59AD3005E240B /* CourseProfileTableViewCell.swift in Sources */,
+				29C04A471DEA94250096CE1C /* TabBarController.swift in Sources */,
 				29604FC01DB5AA70005E240B /* CourseProfileCommentsTableViewCell.swift in Sources */,
 				29604FBC1DB59591005E240B /* CourseProfileViewController.swift in Sources */,
+				29C04A4B1DEBEE7B0096CE1C /* Suggestions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

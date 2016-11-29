@@ -27,6 +27,7 @@ class Course {
 
     
     convenience init(db_id: String, name:String, id:String, professor:Professor, department:String, avgReview:Double, numOfReview:Int) {
+//    convenience init(db_id: String, name:String, id:String, professor:Professor, department:String, avgReview:Double, numOfReview:Int, overalQualCnt:[Int], workloadCnt:[Int], gradingCnt:[Int]) {
 
             self.init()
             self.db_id = db_id
@@ -36,6 +37,10 @@ class Course {
             self.department = department
             self.avgReview = avgReview
             self.numOfReview = numOfReview
+//            self.overalQualCnt = overalQualCnt
+//            self.workloadCnt = workloadCnt
+//            self.gradingCnt = gradingCnt
+        
         }
     
     var workloadString:String? {
