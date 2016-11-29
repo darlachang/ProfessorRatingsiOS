@@ -136,14 +136,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         let params:[String: Any] = [
             "name" : "",
             "email" : emailText.text!,
-            "password" : passwordText.text!
+            "password" : passwordText.text!,
+            "year" : gradYear.text!,
+            "major" : major.text!
+            
         ]
         Alamofire.request(Config.registrationURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in
             guard response.result.error == nil else {
                 print("Error while registering")
                 print(response.result.error)
-                
                 return
                 
                 // TODO Handle registration fail
@@ -173,7 +175,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     }
     
     func studentStatusSelected() {
-        let studStatusController = UIAlertController(title: "your status",message: nil, preferredStyle: .actionSheet)
+        let studStatusController = UIAlertController(title: "Your academic degree",message: nil, preferredStyle: .actionSheet)
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
             //Just dismiss the action sheet
         }
