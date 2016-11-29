@@ -38,6 +38,7 @@
 		FB84274E1DA44D0F009D4B5B /* Professor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84274D1DA44D0F009D4B5B /* Professor.swift */; };
 		FB9A51F61D9A1C880094BA53 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A51F41D9A1C880094BA53 /* SignUpViewController.swift */; };
 		FB9A51F71D9A1C880094BA53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A51F51D9A1C880094BA53 /* ViewController.swift */; };
+		FBA85F0A1DED57080081BD45 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA85F091DED57080081BD45 /* UserViewController.swift */; };
 		FBC526561D9A1EF500ED39D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC526551D9A1EF500ED39D2 /* Constants.swift */; };
 		FBC526581D9A1F0000ED39D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC526571D9A1F0000ED39D2 /* User.swift */; };
 		FBEA6F811D9C0A5F00C653EA /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBEA6F801D9C0A5F00C653EA /* CryptoSwift.framework */; };
@@ -101,6 +102,7 @@
 		FB84274D1DA44D0F009D4B5B /* Professor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Professor.swift; path = Models/Professor.swift; sourceTree = "<group>"; };
 		FB9A51F41D9A1C880094BA53 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controllers/SignUpViewController.swift; sourceTree = "<group>"; };
 		FB9A51F51D9A1C880094BA53 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
+		FBA85F091DED57080081BD45 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = Controllers/UserViewController.swift; sourceTree = "<group>"; };
 		FBC526551D9A1EF500ED39D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Helpers/Constants.swift; sourceTree = "<group>"; };
 		FBC526571D9A1F0000ED39D2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		FBEA6F801D9C0A5F00C653EA /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				292E2E881DA1ADE7005ECFFC /* SearchTableViewController.swift */,
 				29604FBB1DB59591005E240B /* CourseProfileViewController.swift */,
 				29C04A461DEA94250096CE1C /* TabBarController.swift */,
+				FBA85F091DED57080081BD45 /* UserViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29C04A4D1DECF7510096CE1C /* SortByHeader.swift in Sources */,
+				FBA85F0A1DED57080081BD45 /* UserViewController.swift in Sources */,
 				FB0A6F3C1DA434F000E4F403 /* SubmitReviewViewController.swift in Sources */,
 				292E2E8E1DA1B031005ECFFC /* Course.swift in Sources */,
 				FBC526561D9A1EF500ED39D2 /* Constants.swift in Sources */,
