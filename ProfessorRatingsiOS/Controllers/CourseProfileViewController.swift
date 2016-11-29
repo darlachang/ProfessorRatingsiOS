@@ -84,6 +84,17 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sortBy = SortByHeader()
+        //sortBy.backgroundColor = UIColor.red
+        return sortBy
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if(courseSegmentedControl.selectedSegmentIndex == SCORE){
+           return 0
+        }
+        return 100
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.

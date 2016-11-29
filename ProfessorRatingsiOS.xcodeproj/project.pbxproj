@@ -20,6 +20,7 @@
 		29C04A451DEA66CB0096CE1C /* CourseProfileSuggestionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A441DEA66CB0096CE1C /* CourseProfileSuggestionsTableViewCell.swift */; };
 		29C04A471DEA94250096CE1C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A461DEA94250096CE1C /* TabBarController.swift */; };
 		29C04A4B1DEBEE7B0096CE1C /* Suggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A4A1DEBEE7B0096CE1C /* Suggestions.swift */; };
+		29C04A4D1DECF7510096CE1C /* SortByHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A4C1DECF7510096CE1C /* SortByHeader.swift */; };
 		FB0A6F3C1DA434F000E4F403 /* SubmitReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */; };
 		FB0AB7D91DB567120054C262 /* StickySliderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0AB7D71DB567120054C262 /* StickySliderViewCell.swift */; };
 		FB0AB7DA1DB567120054C262 /* StickySliderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB0AB7D81DB567120054C262 /* StickySliderViewCell.xib */; };
@@ -76,6 +77,7 @@
 		29C04A441DEA66CB0096CE1C /* CourseProfileSuggestionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseProfileSuggestionsTableViewCell.swift; sourceTree = "<group>"; };
 		29C04A461DEA94250096CE1C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		29C04A4A1DEBEE7B0096CE1C /* Suggestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Suggestions.swift; sourceTree = "<group>"; };
+		29C04A4C1DECF7510096CE1C /* SortByHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortByHeader.swift; sourceTree = "<group>"; };
 		FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitReviewViewController.swift; path = Controllers/SubmitReviewViewController.swift; sourceTree = "<group>"; };
 		FB0AB7D71DB567120054C262 /* StickySliderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StickySliderViewCell.swift; path = ProfessorRatingsiOS/Views/StickySliderViewCell.swift; sourceTree = SOURCE_ROOT; };
 		FB0AB7D81DB567120054C262 /* StickySliderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StickySliderViewCell.xib; path = ProfessorRatingsiOS/Views/StickySliderViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -146,6 +148,7 @@
 				29604FBF1DB5AA70005E240B /* CourseProfileCommentsTableViewCell.swift */,
 				29BB5F821DD17AE700FA478F /* SortbyCell.swift */,
 				29C04A441DEA66CB0096CE1C /* CourseProfileSuggestionsTableViewCell.swift */,
+				29C04A4C1DECF7510096CE1C /* SortByHeader.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29C04A4D1DECF7510096CE1C /* SortByHeader.swift in Sources */,
 				FB0A6F3C1DA434F000E4F403 /* SubmitReviewViewController.swift in Sources */,
 				292E2E8E1DA1B031005ECFFC /* Course.swift in Sources */,
 				FBC526561D9A1EF500ED39D2 /* Constants.swift in Sources */,
