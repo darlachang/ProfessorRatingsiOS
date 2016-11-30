@@ -126,7 +126,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             returnValue = 3
             break
         case COMMENT:
-            returnValue = commentInfo.count + 1
+            returnValue = commentInfo.count
             break
         case SUGGESTION:
             returnValue = 3
