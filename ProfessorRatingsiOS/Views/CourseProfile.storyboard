@@ -53,7 +53,7 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="850-fB-2vW">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="46" id="33X-Lb-Jkq"/>
+                                                        <constraint firstAttribute="width" constant="30" id="33X-Lb-Jkq"/>
                                                     </constraints>
                                                     <state key="normal">
                                                         <color key="titleColor" red="0.070588235294117646" green="0.52156862745098043" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
@@ -64,7 +64,7 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ds-FO-CJp">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="64" id="iBu-27-zcT"/>
+                                                        <constraint firstAttribute="width" constant="30" id="iBu-27-zcT"/>
                                                     </constraints>
                                                     <state key="normal">
                                                         <color key="titleColor" red="0.93725490196078431" green="0.35686274509803922" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>

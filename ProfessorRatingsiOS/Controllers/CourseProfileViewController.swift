@@ -96,7 +96,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         case COMMENT:
             let sortBy = SortByHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
             sortBy.delegate = self
-            sortBy.backgroundColor = UIColor.blue
+            sortBy.backgroundColor = UIColor.white
             return sortBy
         case SUGGESTION:
             let writeSuggestion = writeSuggestionHeader.init(frame: CGRect(x: 3, y: 3, width: 300, height: 100))

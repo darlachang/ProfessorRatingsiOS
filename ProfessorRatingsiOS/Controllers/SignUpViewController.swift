@@ -21,7 +21,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     @IBOutlet weak var studStatus: UITextField!
     @IBOutlet weak var gradYear: UITextField!
     @IBOutlet weak var major: UITextField!
-    
+    @IBOutlet weak var cancel: UIButton!
     var gradYearPicker: UIPickerView!
     var majorPicker: UIPickerView!
     
@@ -96,11 +96,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     @IBAction func SignUpPressed(_ sender: AnyObject) {
         let verifyResult = verifyFields()
         if verifyResult == RegistrationVerificationResult.success {
-            // TODO - jump to next page
             registerUser()
+            nextPage()
         } else {
             showMessage(verifyResult.rawValue, type: .error, options: [.textNumberOfLines(2)])
         }
+    }
+    @IBAction func cancelPressed(_ sender: AnyObject) {
+        nextPage()
     }
     
     func verifyFields() -> RegistrationVerificationResult {
@@ -165,6 +168,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             }
         }
     }
+    func nextPage(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let enterPage = storyboard.instantiateViewController(withIdentifier: "enterPage")
+        self.present(enterPage, animated: true, completion: nil)
+    }
+    
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == studStatus{
