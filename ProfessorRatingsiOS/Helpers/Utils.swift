@@ -15,6 +15,9 @@ class Utils {
         let encryptedPW: String = try! s.encrypt(cipher: AES(key: Config.encryptionKey, iv: Config.iv))
         return encryptedPW
     }
+    static func currentUserId() -> String {
+        return UserDefaults.standard.string(forKey: "user_id")!
+    }
 }
 
 extension UIView {
