@@ -24,10 +24,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     @IBOutlet weak var cancel: UIButton!
     var gradYearPicker: UIPickerView!
     var majorPicker: UIPickerView!
-    
     var gradYearToolBar = UIToolbar()
-
-    
     var majorToolBar = UIToolbar()
 
     
