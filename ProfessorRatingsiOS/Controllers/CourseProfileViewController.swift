@@ -283,7 +283,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                         self.suggestionsInfo.append(Suggestions.init(
                             suggestionID:suginfo["_id"].stringValue,
                             suggestion:suginfo["content"].stringValue,
-                            date:"",
+                            date:suginfo["date"].stringValue,
                             agree:suginfo["up_votes"].int!
                         ))
                     }
@@ -316,7 +316,9 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         sortListController.addAction(cancelAction)
         let timeAction: UIAlertAction = UIAlertAction(title: "Time", style: .default) { action -> Void in
             self.commentInfo.sort(by: { $0.date > $1.date })
+           
             button.setTitle("Time", for: .normal)
+            
             self.profileTableView.reloadData()
             
         }
