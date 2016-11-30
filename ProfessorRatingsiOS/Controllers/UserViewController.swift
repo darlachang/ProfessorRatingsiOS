@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-
+import GSMessages
 
 class UserViewController: UIViewController {
     
@@ -178,10 +178,41 @@ class UserViewController: UIViewController {
 
 }
 
+
 extension UserViewController: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return isUnderProfile() ? 6 : myPosts.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isUnderProfile() && indexPath.row == RESET_PASSWORD {
+            let alertController = UIAlertController(title: "Reset Password", message: "Enter your new password", preferredStyle: .alert)
+            alertController.addTextField(configurationHandler: { (textField) in
+                textField.isSecureTextEntry = true
+                textField.placeholder = "Enter your new password"
+            })
+            alertController.addTextField(configurationHandler: { (textField) in
+                textField.isSecureTextEntry = true
+                textField.placeholder = "Repeat your new password"
+            })
+            
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            alertController.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action) in
+                let p1 = alertController.textFields?[0]
+                let p2 = alertController.textFields?[1]
+                if p1!.text != p2!.text {
+                    self.showMessage("Password does not match", type: .error)
+                } else if (p1!.text!.characters.count < 6) {
+                    self.showMessage("Password too short", type: .error)
+                } else {
+                    self.user.password = p1!.text!
+                    self.updateUserData()
+                }
+            }))
+            present(alertController, animated: true, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -190,6 +221,7 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
             if indexPath.row == LOGOUT {
                 identifier = "logOutCell"
                 let logoutCell = tableView.dequeueReusableCell(withIdentifier: identifier) as! LogOutTableViewCell
+                logoutCell.selectionStyle = .none
                 logoutCell.button.addTarget(self, action: #selector(logOut), for: .touchUpInside)
                 return logoutCell
             } else {
@@ -200,6 +232,7 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! UserProfileTableViewCell
+        cell.selectionStyle = .none
         cell.editButton.addTarget(self, action: #selector(editButtonClicked), for: .touchUpInside)
 
         switch indexPath.row {
@@ -217,6 +250,7 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
             cell.content.inputAccessoryView = majorToolBar
         case RESET_PASSWORD:
             cell.bindContent(titleText: "Reset Password", contentText: nil, showEditButton: false)
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         case LOGOUT: break
         default: break
             
@@ -230,12 +264,16 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func updateUserData(){
-        let params:[String: Any] = [
+        var params:[String: Any] = [
             "_id" : user.id!,
             "year" : user.yearOfGraduation != nil ? user.yearOfGraduation! : "",
             "major" : user.major != nil ? user.major! : "",
             "status" : user.status != nil ? user.status! : "",
         ]
+        
+        if user.password != ""{
+            params["password"] = user.password
+        }
         
         Alamofire.request(Config.registrationURL+"/"+Utils.currentUserId()!, method: .put, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in
@@ -252,6 +290,8 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
                     self.showMessage(jsonObject["message"].string!, type: .error)
                     return
                 }
+                
+                self.showMessage("Your information is updated successfully", type: .success)
             }
         }
     
