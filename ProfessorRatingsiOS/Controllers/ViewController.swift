@@ -14,15 +14,20 @@ import SwiftyJSON
 class ViewController: UIViewController {
 
     @IBOutlet weak var emailText: UITextField!
-
     @IBOutlet weak var passwordText: UITextField!
-
     @IBOutlet weak var SignInPressed: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if(Utils.currentUserId() != nil){
+            nextPage()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -69,7 +74,5 @@ class ViewController: UIViewController {
     }
     @IBAction func SignInPressed(_ sender: AnyObject) {
         loginUser()
-
     }
-
 }

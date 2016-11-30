@@ -25,8 +25,4 @@ class LogOutTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
-    @IBAction func LogOutButtonClicked(_ sender: Any) {
-        // Log out
-    }
 }

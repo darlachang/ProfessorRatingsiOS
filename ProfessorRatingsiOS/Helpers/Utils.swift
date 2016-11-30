@@ -15,8 +15,14 @@ class Utils {
         let encryptedPW: String = try! s.encrypt(cipher: AES(key: Config.encryptionKey, iv: Config.iv))
         return encryptedPW
     }
-    static func currentUserId() -> String {
-        return UserDefaults.standard.string(forKey: "user_id")!
+    static func currentUserId() -> String? {
+        return UserDefaults.standard.string(forKey: "user_id")
+    }
+    
+    static func removeCurrentUserId() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "user_id")
+        defaults.synchronize()
     }
 }
 

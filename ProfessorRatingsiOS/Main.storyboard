@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -217,21 +220,27 @@
                                                     </constraints>
                                                     <state key="normal" title="Edit"/>
                                                 </button>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xbz-aG-k8e">
+                                                    <rect key="frame" x="8" y="41" width="314" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="leadingMargin" secondItem="71Q-LA-BHE" secondAttribute="leading" constant="-8" id="3D0-eW-kbz"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="71Q-LA-BHE" secondAttribute="trailing" constant="-8" id="R22-Cc-j7Y"/>
+                                                <constraint firstItem="Xbz-aG-k8e" firstAttribute="leading" secondItem="9DT-9m-bpv" secondAttribute="leadingMargin" id="QX2-Ko-6jD"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="b9u-Qx-Xzg" secondAttribute="trailing" constant="-8" id="YQ7-lG-rhh"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="b9u-Qx-Xzg" secondAttribute="leading" constant="-8" id="aQq-ac-lIB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Xbz-aG-k8e" secondAttribute="trailing" constant="45" id="ebc-id-HQn"/>
                                                 <constraint firstItem="7Yp-yv-dRX" firstAttribute="top" secondItem="9DT-9m-bpv" secondAttribute="topMargin" id="fNh-mP-c9s"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7Yp-yv-dRX" secondAttribute="trailing" constant="14" id="ghA-ta-S6n"/>
+                                                <constraint firstItem="Xbz-aG-k8e" firstAttribute="top" secondItem="9DT-9m-bpv" secondAttribute="topMargin" constant="33" id="jv2-ye-8hj"/>
                                                 <constraint firstAttribute="topMargin" secondItem="b9u-Qx-Xzg" secondAttribute="top" id="nGe-eI-pvd"/>
-                                                <constraint firstItem="71Q-LA-BHE" firstAttribute="top" secondItem="b9u-Qx-Xzg" secondAttribute="bottom" constant="22" id="rsl-Ha-csN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="Title" destination="b9u-Qx-Xzg" id="iSF-o6-sdh"/>
-                                            <outlet property="content" destination="71Q-LA-BHE" id="Gak-Uf-Ukf"/>
+                                            <outlet property="content" destination="Xbz-aG-k8e" id="vGe-NM-PW7"/>
                                             <outlet property="editButton" destination="7Yp-yv-dRX" id="Hlx-Mc-4vt"/>
                                         </connections>
                                     </tableViewCell>
@@ -246,9 +255,6 @@
                                                     <frame key="frameInset" minX="138" minY="24" width="98" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Log Out"/>
-                                                    <connections>
-                                                        <action selector="LogOutButtonClicked:" destination="qy8-TW-MPh" eventType="touchUpInside" id="3Sd-4o-OgI"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>

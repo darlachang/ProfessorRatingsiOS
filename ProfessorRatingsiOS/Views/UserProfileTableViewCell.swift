@@ -11,9 +11,8 @@ import UIKit
 class UserProfileTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var content: UILabel!
     @IBOutlet weak var editButton: UIButton!
-    
+    @IBOutlet weak var content: UITextField!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
