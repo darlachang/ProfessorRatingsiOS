@@ -41,16 +41,15 @@ class writeSuggestionViewController: UIViewController {
     }
     
     func submitSuggestion(){
-      //  suggestionCommit()
+        suggestionCommit()
         self.previousPage()
     }
     func suggestionCommit(){
-        
         let defaults = UserDefaults.standard
         let params:[String: Any] = [
             "course":courseID,
-            "content":writeSuggestionTextField,
-            "provider": defaults.string(forKey: "user_id")!
+            "content":writeSuggestionTextField.text,
+            "user_id": defaults.string(forKey: "user_id")!
         ]
         
         Alamofire.request(Config.suggestionURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {

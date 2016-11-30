@@ -20,12 +20,13 @@ protocol WriteSuggestionDelegte {
 
 
 class CourseProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SortbyCellDelegate, WriteSuggestionDelegte{
-
-
+    
+    
     
     var RatingsList:[String] = ["Overal Quality", "Workload", "Grading"]
     var courseInfo: Course!
     var commentInfo: [Comments] = []
+    var suggestionsInfo: [Suggestions] = []
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var professorLabel: UILabel!
@@ -58,15 +59,15 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         
         self.title = courseInfo.id
         
-//        cidLabel.text = courseInfo.id
-//        cidLabel.textColor = PR_Colors.lightGreen
+        //        cidLabel.text = courseInfo.id
+        //        cidLabel.textColor = PR_Colors.lightGreen
         nameLabel.text = courseInfo.name
         professorLabel.text = courseInfo.professor.name
         
         Review.layer.borderColor = PR_Colors.brightOrange.cgColor
         Review.layer.borderWidth = 1.0
         Review.layer.cornerRadius = 10
-              
+        
         
         //        let courseSegmentControl = UISegmentedControl (items: ["Ratings & Tag", "Comments", "Quotes"])
         //        courseSegmentControl.frame = CGRect.init(x: 10, y: 150, width: 300, height: 30)
@@ -83,6 +84,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         // ratings.isSelected  //is a boolean
         setUpOtherProfessorsView()
         getCommentInfo()
+        getsuggestionInfo()
         
     }
     
@@ -94,16 +96,14 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         switch(courseSegmentedControl.selectedSegmentIndex)
         {
         case COMMENT:
-            let sortBy = SortByHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+            let sortBy = SortByHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 150))
             sortBy.delegate = self
             sortBy.backgroundColor = UIColor.white
             return sortBy
+            
         case SUGGESTION:
-            let writeSuggestion = writeSuggestionHeader.init(frame: CGRect(x: 3, y: 3, width: 300, height: 100))
+            let writeSuggestion = writeSuggestionHeader.init(frame: CGRect(x: 0, y: 0, width: 300, height: 150))
             writeSuggestion.delegate = self
-            writeSuggestion.backgroundColor = UIColor.white
-            writeSuggestion.layer.cornerRadius = 10
-            writeSuggestion.layer.borderColor = UIColor.gray.cgColor
             return writeSuggestion
         default:
             break
@@ -111,10 +111,17 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         return nil
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if(courseSegmentedControl.selectedSegmentIndex == SCORE){
-           return 0
+        switch(courseSegmentedControl.selectedSegmentIndex)
+        {
+        case SCORE:
+            return 0
+        case COMMENT:
+            return 50
+        case SUGGESTION:
+            return 70
+        default: break
         }
-        return 50
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -129,7 +136,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             returnValue = commentInfo.count
             break
         case SUGGESTION:
-            returnValue = 3
+            returnValue = suggestionsInfo.count
             break
         default:
             break
@@ -163,7 +170,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                     cell.ratingNum.text = b
                 }
                 cell.ratingNum.text = self.courseInfo.gradingString
-
+                
                 
             default:
                 break
@@ -172,22 +179,27 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             
             
         case COMMENT:
-//            if indexPath.row == 0 {
-//                let cellIdentifier = "SortByCell"
-//                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SortbyCell
-//                cell.delegate = self
-//                return cell
-//            }
+            //            if indexPath.row == 0 {
+            //                let cellIdentifier = "SortByCell"
+            //                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SortbyCell
+            //                cell.delegate = self
+            //                return cell
+            //            }
             let cellIdentifier = "commentsCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileCommentsTableViewCell
             cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
-           // let comment = self.commentInfo[indexPath.row - 1]
+            // let comment = self.commentInfo[indexPath.row - 1]
             let comment = self.commentInfo[indexPath.row]
             cell.bindObject(comment)
             return cell
             
         case SUGGESTION:
-            return UITableViewCell()
+            let cellIdentifier = "suggestionsCell"
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileSuggestionsTableViewCell
+           // cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
+            let suggestion = self.suggestionsInfo[indexPath.row]
+            cell.bindObject(suggestion)
+            return cell
         default:
             return UITableViewCell()
             
@@ -195,9 +207,9 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if (courseSegmentedControl.selectedSegmentIndex == COMMENT && indexPath.row == 0){
-//            return 50
-//        }
+        //        if (courseSegmentedControl.selectedSegmentIndex == COMMENT && indexPath.row == 0){
+        //            return 50
+        //        }
         return 150
     }
     
@@ -257,6 +269,32 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         
     }
     
+    func getsuggestionInfo(){
+        let params:[String: Any] = [
+            "course_id" : courseInfo.db_id
+        ]
+        Alamofire.request(Config.suggestionURL, method: .get, parameters: params,encoding: URLEncoding.default).responseJSON {
+            (response) in
+            if let value = response.result.value {
+                self.suggestionsInfo = []
+                let jsonObject = JSON(value)
+                if let suggestioninfos = jsonObject.array{
+                    for suginfo in suggestioninfos{
+                        self.suggestionsInfo.append(Suggestions.init(
+                            suggestionID:suginfo["_id"].stringValue,
+                            suggestion:suginfo["content"].stringValue,
+                            date:suginfo["date"].stringValue,
+                            agree:suginfo["up_votes"].int!
+                        ))
+                    }
+                }
+                self.profileTableView.reloadData() //reload tableView
+            }//(suggestionID: String, suggestion: String, date: String, agree:Int)
+        }
+
+        
+    }
+    
     func submitReview(){
         let storyboard = UIStoryboard(name: "submitReview", bundle: nil)
         let submitReviewController = storyboard.instantiateViewController(withIdentifier: "SubmitReviewViewController") as! SubmitReviewViewController
@@ -265,13 +303,11 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         self.navigationController?.pushViewController(submitReviewController, animated: true)
     }
     
-
-    
     @IBAction func ReviewPressed(_ sender: AnyObject) {
         self.submitReview()
     }
     
-
+    
     func sortbyClicked(button: UIButton) {
         let sortListController = UIAlertController(title: "sort by",message: nil, preferredStyle: .actionSheet)
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
@@ -280,11 +316,15 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         sortListController.addAction(cancelAction)
         let timeAction: UIAlertAction = UIAlertAction(title: "Time", style: .default) { action -> Void in
             self.commentInfo.sort(by: { $0.date > $1.date })
+           
             button.setTitle("Time", for: .normal)
+            
             self.profileTableView.reloadData()
+            
         }
         sortListController.addAction(timeAction)
         let popularityAction: UIAlertAction = UIAlertAction(title: "Popularity", style: .default) { action -> Void in
+            print("sortbypopularity")
             self.commentInfo.sort(by: { $0.compareToByPopularity($1) })
             button.setTitle("Popularity", for: .normal)
             self.profileTableView.reloadData()
