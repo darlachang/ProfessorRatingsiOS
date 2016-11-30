@@ -20,11 +20,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="professor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhG-ZP-RTd">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dd5-ls-Uca"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5H5-xj-LSV">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3Py-22-pzk"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Ratings&amp;Tag"/>
+                                    <segment title="Comments"/>
+                                    <segment title="Suggestions"/>
+                                </segments>
+                                <connections>
+                                    <action selector="SegmentedValueChanged:" destination="uKe-Hz-SjB" eventType="valueChanged" id="CVg-eX-M4I"/>
+                                </connections>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vmH-el-QSl">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentsCell" rowHeight="150" id="Wn2-dM-xdG" customClass="CourseProfileCommentsTableViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="122" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wn2-dM-xdG" id="2dT-aY-uQY">
                                             <frame key="frameInset" width="375" height="149"/>
@@ -133,7 +155,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="suggestionsCell" rowHeight="204" id="yJ9-bM-gK1" customClass="CourseProfileSuggestionsTableViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="272" width="375" height="204"/>
+                                        <rect key="frame" x="0.0" y="178" width="375" height="204"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yJ9-bM-gK1" id="Rkv-fv-thN">
                                             <frame key="frameInset" width="375" height="203"/>
@@ -168,34 +190,17 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2j4-cJ-RGv">
-                                                    <frame key="frameInset" minX="227" minY="102" width="64" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="sugDisagree"/>
-                                                    <connections>
-                                                        <action selector="sugDislikePressed:" destination="yJ9-bM-gK1" eventType="touchUpInside" id="0l3-v1-P9h"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sugDisagreeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Baa-rR-rha">
-                                                    <frame key="frameInset" minX="199" minY="107" width="30" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="sugAgree" destination="ZV7-cN-cel" id="N0Z-Ju-MBV"/>
                                             <outlet property="sugAgreeLabel" destination="2wj-Ib-5f6" id="sZ3-2V-C4R"/>
                                             <outlet property="sugDate" destination="bDM-Lz-xBf" id="dPw-0z-FU0"/>
-                                            <outlet property="sugDisagree" destination="2j4-cJ-RGv" id="qID-Vw-zOo"/>
-                                            <outlet property="sugDisagreeLabel" destination="Baa-rR-rha" id="eIn-QV-iBg"/>
                                             <outlet property="suggestionLabel" destination="Sh0-xV-de4" id="Bj5-u1-k13"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseprofileCell" rowHeight="101" id="CBK-G6-alO" customClass="CourseProfileTableViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="476" width="375" height="101"/>
+                                        <rect key="frame" x="0.0" y="382" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CBK-G6-alO" id="GPD-hu-XeP">
                                             <frame key="frameInset" width="375" height="100"/>
@@ -241,7 +246,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SortByCell" id="aGC-7k-JCZ" customClass="SortbyCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="577" width="375" height="101"/>
+                                        <rect key="frame" x="0.0" y="483" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aGC-7k-JCZ" id="RT3-Qu-GhW">
                                             <frame key="frameInset" width="375" height="100"/>
@@ -249,7 +254,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="writeSuggestionCell" id="oaq-VL-i77">
-                                        <rect key="frame" x="0.0" y="678" width="375" height="101"/>
+                                        <rect key="frame" x="0.0" y="584" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oaq-VL-i77" id="RtN-FG-Ay4">
                                             <frame key="frameInset" width="375" height="100"/>
@@ -271,28 +276,6 @@
                                     <outlet property="delegate" destination="uKe-Hz-SjB" id="A0U-Nj-BQL"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="professor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhG-ZP-RTd">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="dd5-ls-Uca"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5H5-xj-LSV">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="3Py-22-pzk"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Ratings&amp;Tag"/>
-                                    <segment title="Comments"/>
-                                    <segment title="Suggestions"/>
-                                </segments>
-                                <connections>
-                                    <action selector="SegmentedValueChanged:" destination="uKe-Hz-SjB" eventType="valueChanged" id="CVg-eX-M4I"/>
-                                </connections>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="coursename" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZu-dU-kP1">
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -335,7 +318,7 @@
                             <constraint firstItem="mhG-ZP-RTd" firstAttribute="leading" secondItem="FpQ-bD-xJ6" secondAttribute="leading" constant="35" id="4XK-Kg-Sde"/>
                             <constraint firstItem="0V7-np-E8Z" firstAttribute="leading" secondItem="FpQ-bD-xJ6" secondAttribute="leadingMargin" constant="-16" id="99z-Wy-Q1e"/>
                             <constraint firstItem="mhG-ZP-RTd" firstAttribute="top" secondItem="vZu-dU-kP1" secondAttribute="bottom" constant="5" id="DP7-jY-UY0"/>
-                            <constraint firstItem="vmH-el-QSl" firstAttribute="top" secondItem="5H5-xj-LSV" secondAttribute="bottom" constant="-50" id="Gm5-2y-MTg"/>
+                            <constraint firstItem="vmH-el-QSl" firstAttribute="top" secondItem="5H5-xj-LSV" secondAttribute="bottom" constant="1" id="Gm5-2y-MTg"/>
                             <constraint firstItem="vZu-dU-kP1" firstAttribute="leading" secondItem="FpQ-bD-xJ6" secondAttribute="leading" constant="35" id="GsU-f2-AGV"/>
                             <constraint firstItem="fAi-6j-Opf" firstAttribute="top" secondItem="vmH-el-QSl" secondAttribute="bottom" id="KcQ-oB-dHF"/>
                             <constraint firstItem="vmH-el-QSl" firstAttribute="leading" secondItem="FpQ-bD-xJ6" secondAttribute="leadingMargin" constant="-16" id="L3W-Fs-y9N"/>
