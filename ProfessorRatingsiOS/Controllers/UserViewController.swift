@@ -33,16 +33,16 @@ class UserViewController: UIViewController {
     func editButtonClicked(_ sender: AnyObject?) {
         let position = sender?.convert(CGPoint.zero, to: self.tableView)
         var index = self.tableView.indexPathForRow(at: position!)!
+        let cell = self.tableView.cellForRow(at: index) as! UserProfileTableViewCell
         switch index.row {
         case STUDENT_STATUS:
             editStatus()
-            break
         case MAJOR:
+            cell.content.becomeFirstResponder()
             editMajor()
-            break
         case EXPECTED_YEAR_OF_GRADUATION:
+            cell.content.becomeFirstResponder()
             editYear()
-            break
         default:
             break
         }
@@ -58,18 +58,21 @@ class UserViewController: UIViewController {
         let bachelorAction: UIAlertAction = UIAlertAction(title: "Bachelor", style: .default) { action -> Void in
             self.user.status = "Bachelor"
             self.tableView.reloadData()
+            self.updateUserData()
         }
         studStatusController.addAction(bachelorAction)
         
         let masterAction: UIAlertAction = UIAlertAction(title: "Master", style: .default) { action -> Void in
             self.user.status = "Master"
             self.tableView.reloadData()
+            self.updateUserData()
         }
         studStatusController.addAction(masterAction)
         
         let doctorAction: UIAlertAction = UIAlertAction(title: "Doctor", style: .default) { action -> Void in
             self.user.status = "Doctor"
             self.tableView.reloadData()
+            self.updateUserData()
         }
         studStatusController.addAction(doctorAction)
         
@@ -78,7 +81,7 @@ class UserViewController: UIViewController {
     }
     
     func editMajor() {
-        self.view.addSubview(majorPicker)
+        
     }
     
     func editYear() {
@@ -160,18 +163,16 @@ class UserViewController: UIViewController {
         
         gradYearToolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         gradYearToolBar.isUserInteractionEnabled = true
-//        gradYear.inputView = gradYearPicker
-//        gradYear.inputAccessoryView = gradYearToolBar
         
         majorToolBar.setItems([cancelButton1, spaceButton1, doneButton1], animated: false)
         majorToolBar.isUserInteractionEnabled = true
-//        major.inputView = majorPicker
-//        major.inputAccessoryView = majorToolBar
     }
     
     
     func picked(){
+        self.tableView.reloadData()
         self.view.endEditing(true)
+        updateUserData()
     }
 
 }
@@ -196,17 +197,21 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! UserProfileTableViewCell
-        
+        cell.editButton.addTarget(self, action: #selector(editButtonClicked), for: .touchUpInside)
+
         switch indexPath.row {
         case EMAIL:
             cell.bindContent(titleText: "Logged In As", contentText: user.email, showEditButton: false)
         case STUDENT_STATUS:
             cell.bindContent(titleText: "Student Status", contentText: user.status, showEditButton: true)
-            cell.editButton.addTarget(self, action: #selector(editButtonClicked), for: .touchUpInside)
         case EXPECTED_YEAR_OF_GRADUATION:
             cell.bindContent(titleText: "Expected Year of Graduation", contentText: user.yearOfGraduation, showEditButton: true)
+            cell.content.inputView = gradYearPicker
+            cell.content.inputAccessoryView = gradYearToolBar
         case MAJOR:
             cell.bindContent(titleText: "Major & Minor", contentText: user.major, showEditButton: true)
+            cell.content.inputView = majorPicker
+            cell.content.inputAccessoryView = majorToolBar
         case RESET_PASSWORD:
             cell.bindContent(titleText: "Reset Password", contentText: nil, showEditButton: false)
         case LOGOUT: break
@@ -214,6 +219,34 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
             
         }
         return cell
+    }
+    
+    func updateUserData(){
+        let params:[String: Any] = [
+            "_id" : user.id!,
+            "year" : user.yearOfGraduation != nil ? user.yearOfGraduation! : "",
+            "major" : user.major != nil ? user.major! : "",
+            "status" : user.status != nil ? user.status! : "",
+        ]
+        
+        Alamofire.request(Config.registrationURL+"/"+Utils.currentUserId(), method: .put, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
+            (response) in
+            guard response.result.error == nil else {
+                print("Error while updating user data")
+                print(response.result.error)
+                return
+                
+                // TODO Handle registration fail
+            }
+            if let value = response.result.value {
+                let jsonObject = JSON(value)
+                if !jsonObject["success"].bool!{
+                    self.showMessage(jsonObject["message"].string!, type: .error)
+                    return
+                }
+            }
+        }
+    
     }
 
 }
@@ -251,7 +284,6 @@ extension UserViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         else if(pickerView == majorPicker){
             user.major = majorPickerData[row]
         }
-        self.tableView.reloadData()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
