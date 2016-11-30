@@ -110,7 +110,7 @@ class UserViewController: UIViewController {
     }
     
     func getUserInfo() {
-        Alamofire.request(Config.registrationURL+"/"+Utils.currentUserId(), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON {
+        Alamofire.request(Config.registrationURL+"/"+Utils.currentUserId()!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in
             guard response.result.error == nil else {
                 print("Error while retrieving user info")
@@ -121,6 +121,7 @@ class UserViewController: UIViewController {
                 let jsonObject = JSON(value)
                 self.user.major = jsonObject["major"].stringValue
                 self.user.email = jsonObject["email"].stringValue
+                self.user.status = jsonObject["status"].stringValue
                 self.user.yearOfGraduation = jsonObject["year"].stringValue
                 self.tableView.reloadData()
                 print("data reloaded")
@@ -188,7 +189,9 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
         if isUnderProfile() {
             if indexPath.row == LOGOUT {
                 identifier = "logOutCell"
-                return tableView.dequeueReusableCell(withIdentifier: identifier) as! LogOutTableViewCell
+                let logoutCell = tableView.dequeueReusableCell(withIdentifier: identifier) as! LogOutTableViewCell
+                logoutCell.button.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+                return logoutCell
             } else {
                 identifier = "profileCell"
             }
@@ -221,6 +224,11 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func logOut(){
+        Utils.removeCurrentUserId()
+        dismiss(animated: true, completion:nil)
+    }
+    
     func updateUserData(){
         let params:[String: Any] = [
             "_id" : user.id!,
@@ -229,7 +237,7 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
             "status" : user.status != nil ? user.status! : "",
         ]
         
-        Alamofire.request(Config.registrationURL+"/"+Utils.currentUserId(), method: .put, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
+        Alamofire.request(Config.registrationURL+"/"+Utils.currentUserId()!, method: .put, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in
             guard response.result.error == nil else {
                 print("Error while updating user data")
