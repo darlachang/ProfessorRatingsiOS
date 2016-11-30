@@ -140,7 +140,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             "year" : gradYear.text!,
             "major" : major.text!,
             "status" : studStatus.text!
-            
         ]
         Alamofire.request(Config.registrationURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in
