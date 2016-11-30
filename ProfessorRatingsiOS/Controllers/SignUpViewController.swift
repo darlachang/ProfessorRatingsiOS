@@ -26,10 +26,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     var majorPicker: UIPickerView!
     
     var gradYearToolBar = UIToolbar()
-    var yearPickerData: [String] = ["2010","2011","2012","2013","2014","2015","2016","2017","2018", "2019", "2020"]
+
     
     var majorToolBar = UIToolbar()
-    var majorPickerData: [String] = ["Applied Economics & Management","Architecture","Art","Biological & Environmental Engineering","Biomedical Sciences","Civil & Environmental Engineering","Chemistry","Computer Science","Electrical & Computer Engineering", "Economics", "Food Science", "Hotel Administration","History","Information Science","Jewish Studies","Latin American Studies","Mechanical & Aerospace Engineering","Mathematics","Materials Science & Engineering","Music","Graduate Management Business Admin","Nutritional Science","Operations Research & Information Engineering","Philosophy","Physics","Plant Biology","Psychology","Sociology","Statistical Science","Veterinary Medicine Molecular Medicine"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

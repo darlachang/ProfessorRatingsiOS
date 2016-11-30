@@ -62,6 +62,18 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
 
+    func editButtonClicked(_ sender: AnyObject?) {
+        switch tableView.indexPathForSelectedRow!.row {
+        case STUDENT_STATUS:
+            break
+        case MAJOR:
+            break
+        case EXPECTED_YEAR_OF_GRADUATION:
+            break
+        default:
+            break
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
