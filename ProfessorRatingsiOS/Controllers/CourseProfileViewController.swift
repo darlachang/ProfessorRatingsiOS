@@ -84,6 +84,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         // ratings.isSelected  //is a boolean
         setUpOtherProfessorsView()
         getCommentInfo()
+        getsuggestionInfo()
         
     }
     
@@ -101,9 +102,8 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             return sortBy
             
         case SUGGESTION:
-            let writeSuggestion = writeSuggestionHeader.init(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
+            let writeSuggestion = writeSuggestionHeader.init(frame: CGRect(x: 0, y: 0, width: 300, height: 150))
             writeSuggestion.delegate = self
-            writeSuggestion.backgroundColor = UIColor.white
             return writeSuggestion
         default:
             break
@@ -111,10 +111,17 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         return nil
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if(courseSegmentedControl.selectedSegmentIndex == SCORE){
+        switch(courseSegmentedControl.selectedSegmentIndex)
+        {
+        case SCORE:
             return 0
+        case COMMENT:
+            return 50
+        case SUGGESTION:
+            return 70
+        default: break
         }
-        return 50
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -189,7 +196,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         case SUGGESTION:
             let cellIdentifier = "suggestionsCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileSuggestionsTableViewCell
-            cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
+           // cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
             let suggestion = self.suggestionsInfo[indexPath.row]
             cell.bindObject(suggestion)
             return cell
@@ -259,6 +266,32 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                 self.profileTableView.reloadData() //reload tableView
             }
         }
+        
+    }
+    
+    func getsuggestionInfo(){
+        let params:[String: Any] = [
+            "course_id" : courseInfo.db_id
+        ]
+        Alamofire.request(Config.suggestionURL, method: .get, parameters: params,encoding: URLEncoding.default).responseJSON {
+            (response) in
+            if let value = response.result.value {
+                self.suggestionsInfo = []
+                let jsonObject = JSON(value)
+                if let suggestioninfos = jsonObject.array{
+                    for suginfo in suggestioninfos{
+                        self.suggestionsInfo.append(Suggestions.init(
+                            suggestionID:suginfo["_id"].stringValue,
+                            suggestion:suginfo["content"].stringValue,
+                            date:"",
+                            agree:suginfo["up_votes"].int!
+                        ))
+                    }
+                }
+                self.profileTableView.reloadData() //reload tableView
+            }//(suggestionID: String, suggestion: String, date: String, agree:Int)
+        }
+
         
     }
     

@@ -204,8 +204,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                                     id:"",
                                     professor: prof,
                                     department: professor["department"].stringValue,
-                                    avgReview: professor["average_review"].doubleValue,
-                                    numOfReview: professor["number_of_reviews"].intValue
+                                    avgReview: professor["course_average_review"].doubleValue,
+                                    numOfReview: professor["course_number_of_reviews"].intValue
 //                                    overalQualCnt: (professor["quality_count"].arrayObject as! [Int]?)!,
 //                                    workloadCnt: (professor["workload_count"].arrayObject as! [Int]?)!,
 //                                    gradingCnt: (professor["grading_count"].arrayObject as! [Int]?)!
@@ -219,8 +219,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                                         id: course["course_id"].stringValue,
                                         professor: prof,
                                         department: professor["department"].stringValue,
-                                        avgReview: professor["average_review"].doubleValue,
-                                        numOfReview: professor["number_of_reviews"].intValue
+                                        avgReview: course["course_average_review"].doubleValue,
+                                        numOfReview: course["course_number_of_reviews"].intValue
 //                                        overalQualCnt: (professor["quality_count"].arrayObject as! [Int]?)!,
 //                                        workloadCnt: (professor["workload_count"].arrayObject as! [Int]?)!,
 //                                        gradingCnt: (professor["grading_count"].arrayObject as! [Int]?)!
