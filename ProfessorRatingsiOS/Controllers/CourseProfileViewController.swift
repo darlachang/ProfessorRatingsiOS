@@ -14,8 +14,14 @@ protocol SortbyCellDelegate {
     func sortbyClicked(button: UIButton)
 }
 
+protocol WriteSuggestionDelegte {
+    func toWriteSuggestionPage(textfield : UITextField)
+}
 
-class CourseProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SortbyCellDelegate{
+
+class CourseProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SortbyCellDelegate, WriteSuggestionDelegte{
+
+
     
     var RatingsList:[String] = ["Overal Quality", "Workload", "Grading"]
     var courseInfo: Course!
@@ -85,10 +91,24 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         // Dispose of any resources that can be recreated.
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sortBy = SortByHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        sortBy.delegate = self
-        sortBy.backgroundColor = UIColor.white
-        return sortBy
+        switch(courseSegmentedControl.selectedSegmentIndex)
+        {
+        case COMMENT:
+            let sortBy = SortByHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+            sortBy.delegate = self
+            sortBy.backgroundColor = UIColor.white
+            return sortBy
+        case SUGGESTION:
+            let writeSuggestion = writeSuggestionHeader.init(frame: CGRect(x: 3, y: 3, width: 300, height: 100))
+            writeSuggestion.delegate = self
+            writeSuggestion.backgroundColor = UIColor.white
+            writeSuggestion.layer.cornerRadius = 10
+            writeSuggestion.layer.borderColor = UIColor.gray.cgColor
+            return writeSuggestion
+        default:
+            break
+        }
+        return nil
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if(courseSegmentedControl.selectedSegmentIndex == SCORE){
@@ -106,7 +126,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             returnValue = 3
             break
         case COMMENT:
-            returnValue = commentInfo.count + 1
+            returnValue = commentInfo.count
             break
         case SUGGESTION:
             returnValue = 3
@@ -161,7 +181,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             let cellIdentifier = "commentsCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileCommentsTableViewCell
             cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
-            
            // let comment = self.commentInfo[indexPath.row - 1]
             let comment = self.commentInfo[indexPath.row]
             cell.bindObject(comment)
@@ -273,17 +292,13 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         sortListController.addAction(popularityAction)
         
         self.present(sortListController, animated: true, completion: nil)
-        
-        
-//        switch button.titleLabel!.text! {
-//            case "time":
-//                commentInfo.sort(by: { $0.date > $1.date })
-//            case "popularity":
-//                commentInfo.sort(by: { $0.compareToByPopularity($1) })
-//            default:
-//                print("Bug found at sortbyClicked. Unseen button was clicked \(button.titleLabel!.text!)")
-//        }
-
+    }
+    
+    func toWriteSuggestionPage(textfield: UITextField) {
+        let storyboard = UIStoryboard(name: "CourseProfile", bundle: nil)
+        let writeSuggestionViewController = storyboard.instantiateViewController(withIdentifier: "writeSuggestion") as! writeSuggestionViewController
+        writeSuggestionViewController.courseID = courseInfo.db_id
+        self.navigationController!.pushViewController(writeSuggestionViewController, animated: true)
     }
     
     func setUpOtherProfessorsView(){

@@ -11,6 +11,7 @@ struct Config {
     static let reviewURL = "\(baseURL)/reviews"
     static let courseURL = "\(baseURL)/courses"
     static let likeURL = "\(baseURL)/likes"
+    static let suggestionURL = "\(baseURL)/suggestions"
 }
 
 struct PR_Colors {

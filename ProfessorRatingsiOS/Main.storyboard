@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="G17-j5-sJu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HLU-IM-FiT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ProfessorRatingsiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="enterPage" id="BYZ-38-t0r" customClass="ViewController" customModule="ProfessorRatingsiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -265,9 +265,6 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axd-2B-B6S">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="axd-2B-B6S" secondAttribute="height" multiplier="343:92" id="x0N-IL-XNh"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -281,15 +278,6 @@
                                 </state>
                                 <connections>
                                     <action selector="SignUpPressed:" destination="RIZ-dq-HD3" eventType="touchUpInside" id="9Uy-Ij-81q"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPd-TS-bRD">
-                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
-                                <state key="normal" title="X">
-                                    <color key="titleColor" red="0.27450980392156865" green="0.87058823529411766" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="exitButtonPressed:" destination="RIZ-dq-HD3" eventType="touchUpInside" id="Z4p-jI-5Lz"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Indicates required field" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Q7-pL-a8O">
@@ -343,16 +331,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IzC-IK-Z6V">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="MBQ-No-HTb"/>
+                                </constraints>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.94509803921568625" green="0.34901960784313724" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="RIZ-dq-HD3" eventType="touchUpInside" id="SGq-aP-JKw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gbK-V4-tZn" firstAttribute="top" secondItem="o54-13-lTg" secondAttribute="bottom" constant="13" id="07L-5o-BDP"/>
                             <constraint firstItem="sxj-cQ-z67" firstAttribute="top" secondItem="Sb0-mu-Dd3" secondAttribute="bottom" constant="3" id="1Xs-bI-Yuo"/>
                             <constraint firstItem="6Jb-Ko-xOr" firstAttribute="trailing" secondItem="o54-13-lTg" secondAttribute="trailing" id="31Y-wM-9gm"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="tPd-TS-bRD" secondAttribute="leading" constant="16" id="36h-cL-Nmr"/>
                             <constraint firstItem="Sb0-mu-Dd3" firstAttribute="baseline" secondItem="R1b-Ud-pcy" secondAttribute="baseline" id="3rL-UM-IH7"/>
                             <constraint firstItem="o54-13-lTg" firstAttribute="leading" secondItem="IOp-8o-ZqK" secondAttribute="leading" id="5jS-Fr-EcM"/>
                             <constraint firstItem="7Q7-pL-a8O" firstAttribute="leading" secondItem="hRH-Bd-pXW" secondAttribute="trailing" constant="3" id="8Qg-Jh-64a"/>
+                            <constraint firstItem="IzC-IK-Z6V" firstAttribute="top" secondItem="kHU-nk-6Mi" secondAttribute="bottom" constant="8" id="8Xm-ah-QqA"/>
                             <constraint firstItem="IOp-8o-ZqK" firstAttribute="top" secondItem="XXE-4r-vab" secondAttribute="bottom" constant="5" id="9Oe-e6-0ZO"/>
                             <constraint firstItem="XXE-4r-vab" firstAttribute="top" secondItem="5uO-6Z-u9Z" secondAttribute="bottom" constant="13" id="CTX-tT-0L3"/>
                             <constraint firstItem="9yR-Wr-lsy" firstAttribute="trailing" secondItem="sxj-cQ-z67" secondAttribute="trailing" id="DAO-Tp-p8Z"/>
@@ -371,6 +370,7 @@
                             <constraint firstItem="Dw7-EJ-7hY" firstAttribute="leading" secondItem="ouV-ar-eSK" secondAttribute="leadingMargin" constant="90" id="Tx5-u3-xjc"/>
                             <constraint firstItem="9yR-Wr-lsy" firstAttribute="leading" secondItem="ouV-ar-eSK" secondAttribute="leadingMargin" constant="42" id="Xpw-ES-EqQ"/>
                             <constraint firstItem="R1b-Ud-pcy" firstAttribute="top" secondItem="9yR-Wr-lsy" secondAttribute="bottom" constant="14" id="Zg4-12-YeQ"/>
+                            <constraint firstItem="IzC-IK-Z6V" firstAttribute="centerX" secondItem="ouV-ar-eSK" secondAttribute="centerX" id="Zoq-GC-0CN"/>
                             <constraint firstItem="6Jb-Ko-xOr" firstAttribute="leading" secondItem="o54-13-lTg" secondAttribute="leading" id="aCm-wI-KQc"/>
                             <constraint firstItem="o54-13-lTg" firstAttribute="trailing" secondItem="IOp-8o-ZqK" secondAttribute="trailing" id="aPX-io-p4q"/>
                             <constraint firstItem="5uO-6Z-u9Z" firstAttribute="top" secondItem="sxj-cQ-z67" secondAttribute="bottom" constant="8" id="aRB-ps-XsX"/>
@@ -398,12 +398,12 @@
                             <constraint firstItem="axd-2B-B6S" firstAttribute="trailing" secondItem="ouV-ar-eSK" secondAttribute="trailingMargin" id="xOI-lY-Cih"/>
                             <constraint firstItem="sxj-cQ-z67" firstAttribute="top" secondItem="9yR-Wr-lsy" secondAttribute="bottom" constant="35" id="xgj-wT-zUJ"/>
                             <constraint firstItem="j5L-Z5-ik9" firstAttribute="top" secondItem="IOp-8o-ZqK" secondAttribute="bottom" constant="13" id="z9R-Yf-Qvz"/>
-                            <constraint firstItem="tPd-TS-bRD" firstAttribute="top" secondItem="VJB-FE-Gci" secondAttribute="bottom" constant="8" id="zwZ-E0-2FF"/>
                             <constraint firstItem="axd-2B-B6S" firstAttribute="centerX" secondItem="9yR-Wr-lsy" secondAttribute="centerX" id="zxm-HX-jWw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="xak-Vy-DHR"/>
                     <connections>
+                        <outlet property="cancel" destination="IzC-IK-Z6V" id="FTb-eB-TNf"/>
                         <outlet property="confirmPasswordText" destination="5uO-6Z-u9Z" id="a4p-TN-up9"/>
                         <outlet property="emailText" destination="9yR-Wr-lsy" id="tSu-mk-D4B"/>
                         <outlet property="gradYear" destination="o54-13-lTg" id="z1o-jh-A8u"/>
@@ -415,7 +415,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fm-u9-psb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="1139"/>
+            <point key="canvasLocation" x="885.60000000000002" y="1138.3808095952024"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wFc-cV-3kP">

@@ -11,7 +11,7 @@
         <!--Course Profile View Controller-->
         <scene sceneID="7A9-gB-Tfl">
             <objects>
-                <viewController id="uKe-Hz-SjB" customClass="CourseProfileViewController" customModule="ProfessorRatingsiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="courseProfilePage" id="uKe-Hz-SjB" customClass="CourseProfileViewController" customModule="ProfessorRatingsiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xrd-se-Ps3"/>
                         <viewControllerLayoutGuide type="bottom" id="fAi-6j-Opf"/>
@@ -53,7 +53,7 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="850-fB-2vW">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="46" id="33X-Lb-Jkq"/>
+                                                        <constraint firstAttribute="width" constant="30" id="33X-Lb-Jkq"/>
                                                     </constraints>
                                                     <state key="normal">
                                                         <color key="titleColor" red="0.070588235294117646" green="0.52156862745098043" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
@@ -64,7 +64,7 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ds-FO-CJp">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="64" id="iBu-27-zcT"/>
+                                                        <constraint firstAttribute="width" constant="30" id="iBu-27-zcT"/>
                                                     </constraints>
                                                     <state key="normal">
                                                         <color key="titleColor" red="0.93725490196078431" green="0.35686274509803922" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -370,6 +370,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ukv-kN-dEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2700" y="-622.03898050974522"/>
+        </scene>
+        <!--Write Suggestion View Controller-->
+        <scene sceneID="HVr-Zw-Gmg">
+            <objects>
+                <viewController storyboardIdentifier="writeSuggestion" id="MAN-B6-Uu3" customClass="writeSuggestionViewController" customModule="ProfessorRatingsiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DF2-PM-CKW"/>
+                        <viewControllerLayoutGuide type="bottom" id="GMd-Lw-p0P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ngh-Bk-za2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZ2-0b-Q2e">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="Hm8-vf-vSB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.94117647058823528" green="0.37647058823529411" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="writeSugSubmitPressed:" destination="MAN-B6-Uu3" eventType="touchUpInside" id="bhp-kC-kHZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write your suggestion: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F50-Pa-qHT">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUq-Mo-ZBi">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="322" id="Af4-w1-CFE"/>
+                                    <constraint firstAttribute="height" constant="450" id="dUh-LK-riX"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nUq-Mo-ZBi" firstAttribute="centerX" secondItem="ngh-Bk-za2" secondAttribute="centerX" id="22E-5I-H4a"/>
+                            <constraint firstItem="F50-Pa-qHT" firstAttribute="top" secondItem="DF2-PM-CKW" secondAttribute="bottom" constant="33" id="FQW-TK-odd"/>
+                            <constraint firstItem="uZ2-0b-Q2e" firstAttribute="centerX" secondItem="ngh-Bk-za2" secondAttribute="centerX" id="L1D-1j-3IM"/>
+                            <constraint firstItem="F50-Pa-qHT" firstAttribute="leading" secondItem="nUq-Mo-ZBi" secondAttribute="leading" id="WSg-mQ-tRQ"/>
+                            <constraint firstItem="nUq-Mo-ZBi" firstAttribute="top" secondItem="DF2-PM-CKW" secondAttribute="bottom" constant="70" id="a5x-TG-bbK"/>
+                            <constraint firstItem="F50-Pa-qHT" firstAttribute="top" secondItem="DF2-PM-CKW" secondAttribute="bottom" constant="33" id="bjW-SJ-9bF"/>
+                            <constraint firstItem="uZ2-0b-Q2e" firstAttribute="top" secondItem="nUq-Mo-ZBi" secondAttribute="bottom" constant="35" id="iRz-EH-IIL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="writeSugSubmit" destination="uZ2-0b-Q2e" id="0GT-yJ-0kX"/>
+                        <outlet property="writeSuggestionTextField" destination="nUq-Mo-ZBi" id="4jv-Pd-tUv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lT0-LX-hGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3644" y="-625.63718140929541"/>
         </scene>
     </scenes>
     <resources>

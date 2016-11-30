@@ -21,6 +21,8 @@
 		29C04A471DEA94250096CE1C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A461DEA94250096CE1C /* TabBarController.swift */; };
 		29C04A4B1DEBEE7B0096CE1C /* Suggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A4A1DEBEE7B0096CE1C /* Suggestions.swift */; };
 		29C04A4D1DECF7510096CE1C /* SortByHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A4C1DECF7510096CE1C /* SortByHeader.swift */; };
+		29C04A4F1DEE5D8A0096CE1C /* writeSuggestionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A4E1DEE5D8A0096CE1C /* writeSuggestionHeader.swift */; };
+		29C04A511DEE6AAC0096CE1C /* writeSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C04A501DEE6AAC0096CE1C /* writeSuggestionViewController.swift */; };
 		FB0A6F3C1DA434F000E4F403 /* SubmitReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */; };
 		FB0AB7D91DB567120054C262 /* StickySliderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0AB7D71DB567120054C262 /* StickySliderViewCell.swift */; };
 		FB0AB7DA1DB567120054C262 /* StickySliderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB0AB7D81DB567120054C262 /* StickySliderViewCell.xib */; };
@@ -78,6 +80,8 @@
 		29C04A461DEA94250096CE1C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		29C04A4A1DEBEE7B0096CE1C /* Suggestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Suggestions.swift; sourceTree = "<group>"; };
 		29C04A4C1DECF7510096CE1C /* SortByHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortByHeader.swift; sourceTree = "<group>"; };
+		29C04A4E1DEE5D8A0096CE1C /* writeSuggestionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = writeSuggestionHeader.swift; sourceTree = "<group>"; };
+		29C04A501DEE6AAC0096CE1C /* writeSuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = writeSuggestionViewController.swift; sourceTree = "<group>"; };
 		FB0A6F3B1DA434F000E4F403 /* SubmitReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitReviewViewController.swift; path = Controllers/SubmitReviewViewController.swift; sourceTree = "<group>"; };
 		FB0AB7D71DB567120054C262 /* StickySliderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StickySliderViewCell.swift; path = ProfessorRatingsiOS/Views/StickySliderViewCell.swift; sourceTree = SOURCE_ROOT; };
 		FB0AB7D81DB567120054C262 /* StickySliderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StickySliderViewCell.xib; path = ProfessorRatingsiOS/Views/StickySliderViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -149,6 +153,7 @@
 				29BB5F821DD17AE700FA478F /* SortbyCell.swift */,
 				29C04A441DEA66CB0096CE1C /* CourseProfileSuggestionsTableViewCell.swift */,
 				29C04A4C1DECF7510096CE1C /* SortByHeader.swift */,
+				29C04A4E1DEE5D8A0096CE1C /* writeSuggestionHeader.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				292E2E881DA1ADE7005ECFFC /* SearchTableViewController.swift */,
 				29604FBB1DB59591005E240B /* CourseProfileViewController.swift */,
 				29C04A461DEA94250096CE1C /* TabBarController.swift */,
+				29C04A501DEE6AAC0096CE1C /* writeSuggestionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -459,10 +465,12 @@
 				29C04A451DEA66CB0096CE1C /* CourseProfileSuggestionsTableViewCell.swift in Sources */,
 				292E2E891DA1ADE7005ECFFC /* SearchTableViewController.swift in Sources */,
 				296F03661DA1C1CB00C4893B /* SearchTableViewCell.swift in Sources */,
+				29C04A4F1DEE5D8A0096CE1C /* writeSuggestionHeader.swift in Sources */,
 				29604FBE1DB59AD3005E240B /* CourseProfileTableViewCell.swift in Sources */,
 				29C04A471DEA94250096CE1C /* TabBarController.swift in Sources */,
 				29604FC01DB5AA70005E240B /* CourseProfileCommentsTableViewCell.swift in Sources */,
 				29604FBC1DB59591005E240B /* CourseProfileViewController.swift in Sources */,
+				29C04A511DEE6AAC0096CE1C /* writeSuggestionViewController.swift in Sources */,
 				29C04A4B1DEBEE7B0096CE1C /* Suggestions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
