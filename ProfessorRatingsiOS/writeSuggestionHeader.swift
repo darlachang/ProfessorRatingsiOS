@@ -15,12 +15,13 @@ class writeSuggestionHeader: UIView, UITextFieldDelegate {
         super.init(frame: frame)
         writeSuggestionTextField = UITextField()
         writeSuggestionTextField.delegate = self
-        writeSuggestionTextField.frame = CGRect.init(x: 10, y: 0, width: 375, height: 50)
+        writeSuggestionTextField.frame = CGRect.init(x: 10, y: 10, width: 385, height: 50)
         //writeSuggestionTextField.textAlignment = NSTextAlignment.center
         writeSuggestionTextField.placeholder = "  Do you have a suggestion for the course?"
         writeSuggestionTextField.layer.borderColor = UIColor.lightGray.cgColor
         writeSuggestionTextField.layer.borderWidth = 1
         writeSuggestionTextField.layer.cornerRadius = 10.0
+        self.backgroundColor = UIColor.white
         addSubview(writeSuggestionTextField)
     }
     

@@ -24,10 +24,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     @IBOutlet weak var cancel: UIButton!
     var gradYearPicker: UIPickerView!
     var majorPicker: UIPickerView!
-    
     var gradYearToolBar = UIToolbar()
-
-    
     var majorToolBar = UIToolbar()
 
     
@@ -141,8 +138,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             "email" : emailText.text!,
             "password" : passwordText.text!,
             "year" : gradYear.text!,
-            "major" : major.text!
-            
+            "major" : major.text!,
+            "status" :studStatus.text!
         ]
         Alamofire.request(Config.registrationURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
             (response) in
