@@ -98,7 +98,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         case COMMENT:
             let sortBy = SortByHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 150))
             sortBy.sortbyTitle = isSortedBy
-            print("IS SORTED BY", isSortedBy)
             sortBy.delegate = self
             sortBy.backgroundColor = UIColor.white
             return sortBy
