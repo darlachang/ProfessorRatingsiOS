@@ -28,6 +28,8 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     var commentInfo: [Comments] = []
     var suggestionsInfo: [Suggestions] = []
     
+    var isSortedBy: String! = "Time"
+    
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var professorLabel: UILabel!
     @IBOutlet weak var otherProfessorView: UIView!
@@ -58,7 +60,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         // http://mive.us/courses?course_id=5807c8567ccbad2219679d50
         
         self.title = courseInfo.id
-        
         //        cidLabel.text = courseInfo.id
         //        cidLabel.textColor = PR_Colors.lightGreen
         nameLabel.text = courseInfo.name
@@ -67,7 +68,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         Review.layer.borderColor = PR_Colors.brightOrange.cgColor
         Review.layer.borderWidth = 1.0
         Review.layer.cornerRadius = 10
-        
         
         //        let courseSegmentControl = UISegmentedControl (items: ["Ratings & Tag", "Comments", "Quotes"])
         //        courseSegmentControl.frame = CGRect.init(x: 10, y: 150, width: 300, height: 30)
@@ -97,6 +97,8 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         {
         case COMMENT:
             let sortBy = SortByHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 150))
+            sortBy.sortbyTitle = isSortedBy
+            print("IS SORTED BY", isSortedBy)
             sortBy.delegate = self
             sortBy.backgroundColor = UIColor.white
             return sortBy
@@ -255,11 +257,12 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                         self.commentInfo.append(Comments.init(
                             commentID:cominfo["_id"].stringValue,
                             comment:cominfo["comment"].stringValue,
-                            student:cominfo["user"].stringValue,
                             date:cominfo["date"].stringValue,
                             agree:cominfo["like_count"].int!,
                             disagree:cominfo["dislike_count"].int!,
-                            stdRating:cominfo["rating"].int!
+                            stdRating:cominfo["rating"].int!,
+                            stdMajor:cominfo["user"]["major"].stringValue,
+                            stdYear:cominfo["user"]["year"].stringValue
                         ))
                     }
                 }
@@ -307,7 +310,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         self.submitReview()
     }
     
-    
     func sortbyClicked(button: UIButton) {
         let sortListController = UIAlertController(title: "sort by",message: nil, preferredStyle: .actionSheet)
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
@@ -316,9 +318,8 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         sortListController.addAction(cancelAction)
         let timeAction: UIAlertAction = UIAlertAction(title: "Time", style: .default) { action -> Void in
             self.commentInfo.sort(by: { $0.date > $1.date })
-           
+            self.isSortedBy = "Time"
             button.setTitle("Time", for: .normal)
-            
             self.profileTableView.reloadData()
             
         }
@@ -326,6 +327,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         let popularityAction: UIAlertAction = UIAlertAction(title: "Popularity", style: .default) { action -> Void in
             print("sortbypopularity")
             self.commentInfo.sort(by: { $0.compareToByPopularity($1) })
+            self.isSortedBy = "Popularity"
             button.setTitle("Popularity", for: .normal)
             self.profileTableView.reloadData()
         }

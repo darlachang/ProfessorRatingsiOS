@@ -20,7 +20,7 @@ class SubmitReviewViewController: FormViewController {
     enum fields:String {
         case
         prof_id = "prof_id",
-        course_id = "course_id",
+        course_id = "course",
         comment = "comment",
         grading_difficulty = "grading",
         grade_received = "grade_received",

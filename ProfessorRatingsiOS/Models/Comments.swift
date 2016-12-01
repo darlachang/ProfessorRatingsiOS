@@ -12,11 +12,12 @@ class Comments: UITableViewCell {
     
     var commentID:String!
     var comment:String!
-    var student:String!
     var date:String!
     var agree:Int!
     var disagree:Int!
     var stdRating:Int!
+    var stdMajor:String!
+    var stdYear:String!
     
     var popularity:Double {
         get {
@@ -44,16 +45,17 @@ class Comments: UITableViewCell {
         return date
     }
     
-    convenience init(commentID: String, comment: String, student:String, date:String, agree:Int, disagree:Int, stdRating:Int) {
+    convenience init(commentID: String, comment: String, date:String, agree:Int, disagree:Int, stdRating:Int, stdMajor:String, stdYear:String) {
         
         self.init()
         self.commentID = commentID
         self.comment = comment
-        self.student = student
         self.date = shorten(date)
         self.agree = agree
         self.disagree = disagree
         self.stdRating = stdRating
+        self.stdMajor = stdMajor
+        self.stdYear = stdYear
     }
     
     func compareToByPopularity(_ anotherComment: Comments) -> Bool{
