@@ -86,7 +86,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         cell.nameLabel.text = course.name
         cell.cidLabel.text = course.id
         cell.professorLabel.text = course.professor.name
-        cell.avgReviewLabel.text = String(describing: course.avgReview!)
+        cell.avgReviewLabel.text = String(describing: course.avgReview!.roundTo(places: 1))
         cell.ratingLabel.text = String(course.numOfReview!) + " ratings"
         
         print("avgReview", cell.avgReviewLabel.text)
