@@ -23,7 +23,6 @@ class CourseProfileSuggestionsTableViewCell: UITableViewCell {
     @IBOutlet weak var sugAgree: UIButton!
     var suggestionObject: Suggestions?
     var liked = false
-    
     @IBAction func sugLikePressed(_ sender: AnyObject) {
         if(!liked){
             print("like Button pressed 😃")

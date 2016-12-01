@@ -234,7 +234,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="BEM-3k-pSn" secondAttribute="bottom" constant="11" id="8UW-IS-iaZ"/>
                                                 <constraint firstItem="loT-4t-L0Q" firstAttribute="top" secondItem="GPD-hu-XeP" secondAttribute="top" id="H4S-O3-SUg"/>
                                                 <constraint firstItem="BEM-3k-pSn" firstAttribute="top" secondItem="GPD-hu-XeP" secondAttribute="topMargin" constant="22" id="NHW-bi-uIc"/>
-                                                <constraint firstItem="Nu5-Hi-7V4" firstAttribute="leading" secondItem="loT-4t-L0Q" secondAttribute="trailing" constant="8" id="Np0-oc-p4O"/>
+                                                <constraint firstItem="Nu5-Hi-7V4" firstAttribute="leading" secondItem="loT-4t-L0Q" secondAttribute="trailing" constant="12" id="Np0-oc-p4O"/>
                                                 <constraint firstItem="loT-4t-L0Q" firstAttribute="leading" secondItem="BEM-3k-pSn" secondAttribute="leading" id="QUF-AS-XSv"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="loT-4t-L0Q" secondAttribute="bottom" constant="58" id="Tke-TH-tQ9"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Nu5-Hi-7V4" secondAttribute="bottom" constant="63" id="sUq-at-xVd"/>

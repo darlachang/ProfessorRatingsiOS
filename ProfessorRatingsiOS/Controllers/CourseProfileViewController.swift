@@ -24,7 +24,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     
     var RatingsList:[String] = ["Overal Quality", "Workload", "Grading"]
-    var courseInfo: Course!
+    var courseInfo = Course()
     var commentInfo: [Comments] = []
     var suggestionsInfo: [Suggestions] = []
     
@@ -151,18 +151,19 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         case SCORE:
             let cellIdentifier = "courseprofileCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileTableViewCell
-            
+            cell.ratingObject = self.courseInfo
             switch indexPath.row {
             case 0:
                 cell.ratingTitle.text = RatingsList[0] //overal quality
                 cell.ratingNum.text = String(self.courseInfo.avgReview!.roundTo(places: 1))
                 cell.ratingAmt.text = String(self.courseInfo.numOfReview!)  + " ratings"
-                
+                cell.selectRow = .overalQual
             case 1:
                 cell.ratingTitle.text = RatingsList[1] //workload
                 if let a = self.courseInfo.workloadString {
                     cell.ratingNum.text =  a
                 }
+                cell.selectRow = .workLoad
                 //cell.ratingAmt.text = "\(RatingsAmount[1]) ratings"
                 
             case 2:
@@ -170,6 +171,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                 if let b = self.courseInfo.gradingString{
                     cell.ratingNum.text = b
                 }
+                cell.selectRow = .grading
                 cell.ratingNum.text = self.courseInfo.gradingString
                 
                 
@@ -318,7 +320,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         let timeAction: UIAlertAction = UIAlertAction(title: "Time", style: .default) { action -> Void in
             self.commentInfo.sort(by: { $0.date > $1.date })
             self.isSortedBy = "Time"
-            button.setTitle("Time", for: .normal)
+            //button.setTitle("Time", for: .normal)
             self.profileTableView.reloadData()
             
         }
@@ -327,7 +329,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             print("sortbypopularity")
             self.commentInfo.sort(by: { $0.compareToByPopularity($1) })
             self.isSortedBy = "Popularity"
-            button.setTitle("Popularity", for: .normal)
+            //button.setTitle("Popularity", for: .normal)
             self.profileTableView.reloadData()
         }
         sortListController.addAction(popularityAction)
