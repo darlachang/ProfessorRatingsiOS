@@ -182,7 +182,8 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
                 return false
             }
             let totalLikeCount = Double(commentObject!.agree + commentObject!.disagree)
-            return totalLikeCount > 8 && (Double(commentObject!.disagree) / totalLikeCount > GREY_OUT_THRESHOLD)
+            let percentage = (totalLikeCount == 0) ? 0 : (Double(commentObject!.disagree)) / totalLikeCount
+            return totalLikeCount > 8 && percentage > GREY_OUT_THRESHOLD
         }
     }
 

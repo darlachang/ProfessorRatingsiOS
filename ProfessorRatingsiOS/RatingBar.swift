@@ -29,9 +29,10 @@ class RatingBar: UIView {
         var yOffset = space
         for i in 0..<values.count {
             
+            let percentage = CGFloat(largest) == 0 ? 0 : CGFloat(values[i]) / CGFloat(largest)
             let view = UIView()
             view.backgroundColor = color
-            view.frame = CGRect.init(origin: CGPoint.init(x: 20, y: yOffset), size: CGSize.init(width: fullWidth * CGFloat(values[i]) / CGFloat(largest), height: fullHeight))
+            view.frame = CGRect.init(origin: CGPoint.init(x: 20, y: yOffset), size: CGSize.init(width: fullWidth * percentage, height: fullHeight))
             self.addSubview(view)
             
             let label = UILabel()
