@@ -12,7 +12,12 @@ class Comments: UITableViewCell {
     
     var commentID:String!
     var comment:String!
-    var date:String!
+    var date:String! {
+        get {
+            return shorten(timestamp)
+        }
+    }
+    var timestamp:String!
     var agree:Int!
     var disagree:Int!
     var stdRating:Int!
@@ -50,7 +55,7 @@ class Comments: UITableViewCell {
         self.init()
         self.commentID = commentID
         self.comment = comment
-        self.date = shorten(date)
+        self.timestamp = date
         self.agree = agree
         self.disagree = disagree
         self.stdRating = stdRating

@@ -199,7 +199,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         case SUGGESTION:
             let cellIdentifier = "suggestionsCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CourseProfileSuggestionsTableViewCell
-           // cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
+            // cell.addBorder(edges: .top, colour: PR_Colors.lightGreen)
             let suggestion = self.suggestionsInfo[indexPath.row]
             cell.bindObject(suggestion)
             return cell
@@ -238,9 +238,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                 self.courseInfo.numOfReview = jsonObject["number_of_reviews"].intValue
             }
             self.profileTableView.reloadData() //reload tableView
-            print("overalQualCnt is ", self.courseInfo.overalQualCnt)
-            print("gradingCnt is ", self.courseInfo.gradingCnt)
-            print("workloadCnt is ", self.courseInfo.workloadCnt)
         }
     }
     
@@ -267,7 +264,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                         ))
                     }
                 }
-                self.profileTableView.reloadData() //reload tableView
+                self.sortByPopularity()
             }
         }
         
@@ -295,7 +292,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                 self.profileTableView.reloadData() //reload tableView
             }//(suggestionID: String, suggestion: String, date: String, agree:Int)
         }
-
+        
         
     }
     
@@ -318,19 +315,11 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         }
         sortListController.addAction(cancelAction)
         let timeAction: UIAlertAction = UIAlertAction(title: "Time", style: .default) { action -> Void in
-            self.commentInfo.sort(by: { $0.date > $1.date })
-            self.isSortedBy = "Time"
-            //button.setTitle("Time", for: .normal)
-            self.profileTableView.reloadData()
-            
+            self.sortByTime()
         }
         sortListController.addAction(timeAction)
         let popularityAction: UIAlertAction = UIAlertAction(title: "Popularity", style: .default) { action -> Void in
-            print("sortbypopularity")
-            self.commentInfo.sort(by: { $0.compareToByPopularity($1) })
-            self.isSortedBy = "Popularity"
-            //button.setTitle("Popularity", for: .normal)
-            self.profileTableView.reloadData()
+            self.sortByPopularity()
         }
         sortListController.addAction(popularityAction)
         
@@ -344,7 +333,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         self.navigationController!.pushViewController(writeSuggestionViewController, animated: true)
     }
     
-    func setUpOtherProfessorsView(){
+    func setUpOtherProfessorsView() {
         otherProfessorView.addBorder(edges: .top, colour: PR_Colors.lightGreen, thickness: 1.0)
         otherProfessorView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
@@ -359,6 +348,17 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         self.navigationController!.pushViewController(searchPage, animated: true)
     }
     
+    func sortByTime() {
+        self.commentInfo.sort(by: { $0.timestamp > $1.timestamp })
+        self.isSortedBy = "Time"
+        self.profileTableView.reloadData()
+    }
+    
+    func sortByPopularity() {
+        self.commentInfo.sort(by: { $0.compareToByPopularity($1) })
+        self.isSortedBy = "Popularity"
+        self.profileTableView.reloadData()
+    }
     
     /*
      // MARK: - Navigation
@@ -369,5 +369,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
      // Pass the selected object to the new view controller.
      }
      */
+    
 }
 
