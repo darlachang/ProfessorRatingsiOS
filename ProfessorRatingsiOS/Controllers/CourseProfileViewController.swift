@@ -316,17 +316,11 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         }
         sortListController.addAction(cancelAction)
         let timeAction: UIAlertAction = UIAlertAction(title: "Time", style: .default) { action -> Void in
-            self.commentInfo.sort(by: { $0.date > $1.date })
-            self.isSortedBy = "Time"
-            self.profileTableView.reloadData()
-            
+            self.sortByTime()
         }
         sortListController.addAction(timeAction)
         let popularityAction: UIAlertAction = UIAlertAction(title: "Popularity", style: .default) { action -> Void in
-            print("sortbypopularity")
-            self.commentInfo.sort(by: { $0.compareToByPopularity($1) })
-            self.isSortedBy = "Popularity"
-            self.profileTableView.reloadData()
+            self.sortByPopularity()
         }
         sortListController.addAction(popularityAction)
         
@@ -376,6 +370,5 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
      // Pass the selected object to the new view controller.
      }
      */
-    
 }
 
