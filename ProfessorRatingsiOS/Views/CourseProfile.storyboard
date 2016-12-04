@@ -193,7 +193,7 @@
                                                 <constraint firstItem="Sh0-xV-de4" firstAttribute="top" secondItem="Rkv-fv-thN" secondAttribute="topMargin" constant="18" id="KWy-1G-KX6"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Sh0-xV-de4" secondAttribute="trailing" constant="6" id="eZ4-nL-Zh3"/>
                                                 <constraint firstItem="Sh0-xV-de4" firstAttribute="leading" secondItem="Rkv-fv-thN" secondAttribute="leadingMargin" constant="8" id="mSY-A5-qZL"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Sh0-xV-de4" secondAttribute="bottom" constant="96" id="uPV-W5-dIR"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Sh0-xV-de4" secondAttribute="bottom" constant="20" id="uPV-W5-dIR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
