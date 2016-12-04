@@ -38,6 +38,7 @@
 		FB8427491DA448E9009D4B5B /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8427471DA448E9009D4B5B /* Eureka.framework */; };
 		FB84274A1DA448E9009D4B5B /* TagListView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8427481DA448E9009D4B5B /* TagListView.framework */; };
 		FB84274E1DA44D0F009D4B5B /* Professor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84274D1DA44D0F009D4B5B /* Professor.swift */; };
+		FB98731D1DF4D14F00DBFD45 /* RatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB98731C1DF4D14F00DBFD45 /* RatingBar.swift */; };
 		FB9A51F61D9A1C880094BA53 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A51F41D9A1C880094BA53 /* SignUpViewController.swift */; };
 		FB9A51F71D9A1C880094BA53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A51F51D9A1C880094BA53 /* ViewController.swift */; };
 		FBA85F0A1DED57080081BD45 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA85F091DED57080081BD45 /* UserViewController.swift */; };
@@ -106,6 +107,7 @@
 		FB8427471DA448E9009D4B5B /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		FB8427481DA448E9009D4B5B /* TagListView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TagListView.framework; path = Carthage/Build/iOS/TagListView.framework; sourceTree = "<group>"; };
 		FB84274D1DA44D0F009D4B5B /* Professor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Professor.swift; path = Models/Professor.swift; sourceTree = "<group>"; };
+		FB98731C1DF4D14F00DBFD45 /* RatingBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RatingBar.swift; path = ProfessorRatingsiOS/RatingBar.swift; sourceTree = SOURCE_ROOT; };
 		FB9A51F41D9A1C880094BA53 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controllers/SignUpViewController.swift; sourceTree = "<group>"; };
 		FB9A51F51D9A1C880094BA53 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
 		FBA85F091DED57080081BD45 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = Controllers/UserViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		FB1EF31C1DA5487E00361EC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FB98731C1DF4D14F00DBFD45 /* RatingBar.swift */,
 				29BB5F801DD1721500FA478F /* ToggleMenu.swift */,
 				29658BA61DBEEF37005293FD /* CourseProfile.storyboard */,
 				FBFF53BD1DA552AA008E0407 /* StickySlider */,
@@ -465,6 +468,7 @@
 				FB9A51F61D9A1C880094BA53 /* SignUpViewController.swift in Sources */,
 				29BB5F811DD1721500FA478F /* ToggleMenu.swift in Sources */,
 				FB0AB7D91DB567120054C262 /* StickySliderViewCell.swift in Sources */,
+				FB98731D1DF4D14F00DBFD45 /* RatingBar.swift in Sources */,
 				FBC526581D9A1F0000ED39D2 /* User.swift in Sources */,
 				FBF8A3781D9EFBA100680370 /* Utils.swift in Sources */,
 				FB36E0641D9A0934002EC392 /* ProfessorRatingsiOS.xcdatamodeld in Sources */,
