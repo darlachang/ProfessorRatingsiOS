@@ -210,9 +210,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //        if (courseSegmentedControl.selectedSegmentIndex == COMMENT && indexPath.row == 0){
-        //            return 50
-        //        }
         return 150
     }
     
