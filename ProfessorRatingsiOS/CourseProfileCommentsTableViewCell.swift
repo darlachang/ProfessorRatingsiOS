@@ -164,14 +164,22 @@ class CourseProfileCommentsTableViewCell: UITableViewCell {
         }
         if (needGreyOut) {
             greyOut()
+        } else {
+            normalColor()
         }
+    }
+    
+    func normalColor() {
+        
+        commentLabel.textColor = UIColor.black
+        agreeLabel.textColor = PR_Colors.lightGreen
+        disagreeLabel.textColor = PR_Colors.brightOrange
+        Agree.setImage(#imageLiteral(resourceName: "Thumbs up"), for: UIControlState.normal)
+        Disagree.setImage(#imageLiteral(resourceName: "Thumbs down"), for: UIControlState.normal)
     }
     
     func greyOut(){
         commentLabel.textColor = UIColor.lightGray
-//        let attributeString = NSMutableAttributedString(string: commentLabel.text!)
-//        attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
-//        commentLabel.attributedText = attributeString
         agreeLabel.textColor = UIColor.lightGray
         disagreeLabel.textColor = UIColor.lightGray
         Agree.setImage(#imageLiteral(resourceName: "grey thumbs up"), for: UIControlState.normal)
