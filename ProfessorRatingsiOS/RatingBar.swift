@@ -19,19 +19,17 @@ class RatingBar: UIView {
         let fullHeight = (height - (CGFloat(values.count) + 1) * space) / CGFloat(values.count)
         let fullWidth = width - 2 * 5 - 15
         
-        //var total: Int = 0
-        var largest: Int = 0
-        for value in values {
-            //total = total + value
-            largest = (value > largest) ? value : largest
-        }
+        let largest = values.max()!
+//        for value in values {
+//            largest = (value > largest) ? value : largest
+//        }
         
         var yOffset = space
         for i in 0..<values.count {
-            
+            let percentage = largest == 0 ? 0 : CGFloat(values[i]) / CGFloat(largest)
             let view = UIView()
             view.backgroundColor = color
-            view.frame = CGRect.init(origin: CGPoint.init(x: 20, y: yOffset), size: CGSize.init(width: fullWidth * CGFloat(values[i]) / CGFloat(largest), height: fullHeight))
+            view.frame = CGRect.init(origin: CGPoint.init(x: 20, y: yOffset), size: CGSize.init(width: fullWidth * percentage, height: fullHeight))
             self.addSubview(view)
             
             let label = UILabel()

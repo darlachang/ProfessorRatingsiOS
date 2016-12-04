@@ -263,7 +263,8 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                             disagree:cominfo["dislike_count"].int!,
                             stdRating:cominfo["rating"].int!,
                             stdMajor:cominfo["user"]["major"].stringValue,
-                            stdYear:cominfo["user"]["year"].stringValue
+                            stdYear:cominfo["user"]["year"].stringValue,
+                            stdStatus:cominfo["user"]["status"].stringValue
                         ))
                     }
                 }
@@ -320,7 +321,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         let timeAction: UIAlertAction = UIAlertAction(title: "Time", style: .default) { action -> Void in
             self.commentInfo.sort(by: { $0.date > $1.date })
             self.isSortedBy = "Time"
-            //button.setTitle("Time", for: .normal)
             self.profileTableView.reloadData()
             
         }
@@ -329,7 +329,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             print("sortbypopularity")
             self.commentInfo.sort(by: { $0.compareToByPopularity($1) })
             self.isSortedBy = "Popularity"
-            //button.setTitle("Popularity", for: .normal)
             self.profileTableView.reloadData()
         }
         sortListController.addAction(popularityAction)
