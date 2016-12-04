@@ -19,7 +19,6 @@ class CourseProfileTableViewCell: UITableViewCell {
     }
     var selectRow: ratingRow = .overalQual
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,7 +29,6 @@ class CourseProfileTableViewCell: UITableViewCell {
         super.layoutSubviews()
         if let course = ratingObject{
             print("ratingObject's object", ratingObject.overalQualCnt)
-            
             switch selectRow{
             case .overalQual:
                 if let rating = course.overalQualCnt{
@@ -54,10 +52,7 @@ class CourseProfileTableViewCell: UITableViewCell {
                 break
                 
             }
-            
-
         }
-
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

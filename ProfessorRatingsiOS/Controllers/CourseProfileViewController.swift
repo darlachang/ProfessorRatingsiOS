@@ -263,7 +263,8 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                             disagree:cominfo["dislike_count"].int!,
                             stdRating:cominfo["rating"].int!,
                             stdMajor:cominfo["user"]["major"].stringValue,
-                            stdYear:cominfo["user"]["year"].stringValue
+                            stdYear:cominfo["user"]["year"].stringValue,
+                            stdStatus:cominfo["user"]["status"].stringValue
                         ))
                     }
                 }
