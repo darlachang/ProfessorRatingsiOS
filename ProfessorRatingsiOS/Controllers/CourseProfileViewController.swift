@@ -74,22 +74,13 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         Review.layer.borderWidth = 1.0
         Review.layer.cornerRadius = 10
         
-        //        let courseSegmentControl = UISegmentedControl (items: ["Ratings & Tag", "Comments", "Quotes"])
         //        courseSegmentControl.frame = CGRect.init(x: 10, y: 150, width: 300, height: 30)
         courseSegmentedControl.selectedSegmentIndex = 0
         courseSegmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: .selected)
         courseSegmentedControl.tintColor = PR_Colors.lightGreen
         //        courseSegmentedControl.backgroundColor = PR_Colors.lightGreen
         
-        //        ratings.setTitleColor(UIColor.green, for: .normal)
-        //        ratings.setTitleColor(UIColor.blue, for: .selected)
-        //        ratings.setBackgroundImage(self.imageWithColor(UIColor.gray), for: .selected)
-        
-        
-        // ratings.isSelected  //is a boolean
         setUpOtherProfessorsView()
-        //getCommentInfo()
-        //getsuggestionInfo()
         refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: #selector(doSomething(Sender:)), for: UIControlEvents.valueChanged)
         profileTableView.addSubview(refreshControl)
@@ -187,7 +178,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                     cell.ratingNum.text =  a
                 }
                 cell.selectRow = .workLoad
-                //cell.ratingAmt.text = "\(RatingsAmount[1]) ratings"
                 
             case 2:
                 cell.ratingTitle.text = RatingsList[2] //grading
