@@ -95,6 +95,12 @@ class UserViewController: UIViewController {
         user = User()
         user.id = Utils.currentUserId()
         getUserInfo()
+        let gesture = UITapGestureRecognizer.init(target: self, action: #selector(click))
+        self.view.addGestureRecognizer(gesture)
+    }
+    
+    func click(){
+        self.view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {

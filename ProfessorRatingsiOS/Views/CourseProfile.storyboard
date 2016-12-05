@@ -45,8 +45,54 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vmH-el-QSl">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseprofileCell" rowHeight="101" id="CBK-G6-alO" customClass="CourseProfileTableViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="101"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CBK-G6-alO" id="GPD-hu-XeP">
+                                            <frame key="frameInset" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workload" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loT-4t-L0Q">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="148" id="ETG-Mu-Vet"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nu5-Hi-7V4">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEM-3k-pSn">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                                    <color key="textColor" red="0.9137254901960784" green="0.35686274509803922" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="loT-4t-L0Q" firstAttribute="leading" secondItem="GPD-hu-XeP" secondAttribute="leadingMargin" constant="9" id="1yP-oH-fJY"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BEM-3k-pSn" secondAttribute="bottom" constant="5" id="8UW-IS-iaZ"/>
+                                                <constraint firstItem="loT-4t-L0Q" firstAttribute="top" secondItem="GPD-hu-XeP" secondAttribute="top" id="H4S-O3-SUg"/>
+                                                <constraint firstItem="BEM-3k-pSn" firstAttribute="top" secondItem="GPD-hu-XeP" secondAttribute="topMargin" constant="27" id="NHW-bi-uIc"/>
+                                                <constraint firstItem="Nu5-Hi-7V4" firstAttribute="leading" secondItem="loT-4t-L0Q" secondAttribute="trailing" constant="12" id="Np0-oc-p4O"/>
+                                                <constraint firstItem="loT-4t-L0Q" firstAttribute="leading" secondItem="BEM-3k-pSn" secondAttribute="leading" id="QUF-AS-XSv"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="loT-4t-L0Q" secondAttribute="bottom" constant="58" id="Tke-TH-tQ9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Nu5-Hi-7V4" secondAttribute="bottom" constant="63" id="sUq-at-xVd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Nu5-Hi-7V4" secondAttribute="trailing" constant="23" id="tEW-a8-Gh9"/>
+                                                <constraint firstItem="Nu5-Hi-7V4" firstAttribute="top" secondItem="GPD-hu-XeP" secondAttribute="topMargin" id="tHV-Qy-t0c"/>
+                                                <constraint firstItem="loT-4t-L0Q" firstAttribute="trailing" secondItem="BEM-3k-pSn" secondAttribute="trailing" constant="-1" id="xaq-ox-ugc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ratingAmt" destination="Nu5-Hi-7V4" id="6Lb-Kh-EtQ"/>
+                                            <outlet property="ratingNum" destination="BEM-3k-pSn" id="Cst-bf-efF"/>
+                                            <outlet property="ratingTitle" destination="loT-4t-L0Q" id="s3z-lt-8GI"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentsCell" rowHeight="150" id="Wn2-dM-xdG" customClass="CourseProfileCommentsTableViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="129" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wn2-dM-xdG" id="2dT-aY-uQY">
                                             <frame key="frameInset" width="375" height="149"/>
@@ -130,7 +176,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="lJ8-eD-Zfu" secondAttribute="bottom" constant="19.5" id="RAI-Ie-clc"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="850-fB-2vW" secondAttribute="bottom" constant="15.5" id="UqH-RO-myb"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="WKG-Bc-Iwj" secondAttribute="trailing" constant="6" id="Wc2-f3-RO6"/>
-                                                <constraint firstItem="3Ds-FO-CJp" firstAttribute="leading" secondItem="lJ8-eD-Zfu" secondAttribute="trailing" constant="-2" id="XTT-c5-Phc"/>
+                                                <constraint firstItem="3Ds-FO-CJp" firstAttribute="leading" secondItem="lJ8-eD-Zfu" secondAttribute="trailing" constant="-4" id="XTT-c5-Phc"/>
                                                 <constraint firstItem="WKG-Bc-Iwj" firstAttribute="top" secondItem="2dT-aY-uQY" secondAttribute="topMargin" id="XWG-t7-9Au"/>
                                                 <constraint firstItem="lJ8-eD-Zfu" firstAttribute="leading" secondItem="850-fB-2vW" secondAttribute="trailing" constant="13" id="Y4i-vJ-JTu"/>
                                                 <constraint firstItem="acX-Gf-YnZ" firstAttribute="top" secondItem="WKG-Bc-Iwj" secondAttribute="bottom" id="ahI-Gp-Gh4"/>
@@ -155,7 +201,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="suggestionsCell" rowHeight="204" id="yJ9-bM-gK1" customClass="CourseProfileSuggestionsTableViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="178" width="375" height="204"/>
+                                        <rect key="frame" x="0.0" y="279" width="375" height="204"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yJ9-bM-gK1" id="Rkv-fv-thN">
                                             <frame key="frameInset" width="375" height="203"/>
@@ -174,7 +220,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZV7-cN-cel">
-                                                    <frame key="frameInset" minX="140" minY="102" width="46" height="24"/>
+                                                    <frame key="frameInset" minX="140" minY="102" width="30" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="sugAgree"/>
                                                     <connections>
@@ -201,52 +247,6 @@
                                             <outlet property="sugAgreeLabel" destination="2wj-Ib-5f6" id="sZ3-2V-C4R"/>
                                             <outlet property="sugDate" destination="bDM-Lz-xBf" id="dPw-0z-FU0"/>
                                             <outlet property="suggestionLabel" destination="Sh0-xV-de4" id="Bj5-u1-k13"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseprofileCell" rowHeight="101" id="CBK-G6-alO" customClass="CourseProfileTableViewCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="382" width="375" height="101"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CBK-G6-alO" id="GPD-hu-XeP">
-                                            <frame key="frameInset" width="375" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workload" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loT-4t-L0Q">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="148" id="ETG-Mu-Vet"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nu5-Hi-7V4">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEM-3k-pSn">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="39"/>
-                                                    <color key="textColor" red="0.9137254901960784" green="0.35686274509803922" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="loT-4t-L0Q" firstAttribute="leading" secondItem="GPD-hu-XeP" secondAttribute="leadingMargin" constant="9" id="1yP-oH-fJY"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="BEM-3k-pSn" secondAttribute="bottom" constant="11" id="8UW-IS-iaZ"/>
-                                                <constraint firstItem="loT-4t-L0Q" firstAttribute="top" secondItem="GPD-hu-XeP" secondAttribute="top" id="H4S-O3-SUg"/>
-                                                <constraint firstItem="BEM-3k-pSn" firstAttribute="top" secondItem="GPD-hu-XeP" secondAttribute="topMargin" constant="22" id="NHW-bi-uIc"/>
-                                                <constraint firstItem="Nu5-Hi-7V4" firstAttribute="leading" secondItem="loT-4t-L0Q" secondAttribute="trailing" constant="12" id="Np0-oc-p4O"/>
-                                                <constraint firstItem="loT-4t-L0Q" firstAttribute="leading" secondItem="BEM-3k-pSn" secondAttribute="leading" id="QUF-AS-XSv"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="loT-4t-L0Q" secondAttribute="bottom" constant="58" id="Tke-TH-tQ9"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Nu5-Hi-7V4" secondAttribute="bottom" constant="63" id="sUq-at-xVd"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Nu5-Hi-7V4" secondAttribute="trailing" constant="23" id="tEW-a8-Gh9"/>
-                                                <constraint firstItem="Nu5-Hi-7V4" firstAttribute="top" secondItem="GPD-hu-XeP" secondAttribute="topMargin" id="tHV-Qy-t0c"/>
-                                                <constraint firstItem="loT-4t-L0Q" firstAttribute="trailing" secondItem="BEM-3k-pSn" secondAttribute="trailing" constant="-1" id="xaq-ox-ugc"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="ratingAmt" destination="Nu5-Hi-7V4" id="6Lb-Kh-EtQ"/>
-                                            <outlet property="ratingNum" destination="BEM-3k-pSn" id="Cst-bf-efF"/>
-                                            <outlet property="ratingTitle" destination="loT-4t-L0Q" id="s3z-lt-8GI"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SortByCell" id="aGC-7k-JCZ" customClass="SortbyCell" customModule="ProfessorRatingsiOS" customModuleProvider="target">
