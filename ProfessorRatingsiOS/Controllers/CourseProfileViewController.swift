@@ -55,6 +55,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        getcourseinfo()
         getCommentInfo()
         getsuggestionInfo()
     }
