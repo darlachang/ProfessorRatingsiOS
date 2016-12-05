@@ -30,7 +30,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     var isSortedBy: String! = "Time"
     var refreshControl: UIRefreshControl!
-    var timer: Timer!
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var professorLabel: UILabel!
@@ -87,10 +86,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         
     }
     func doSomething(Sender:AnyObject) {
-        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(CourseProfileViewController.endOfWork), userInfo: nil, repeats: true)
-    }
-    
-    func endOfWork() {
         if courseSegmentedControl.selectedSegmentIndex == COMMENT{
             getCommentInfo()
         }
@@ -98,8 +93,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             getsuggestionInfo()
         }
         refreshControl.endRefreshing()
-        timer.invalidate()
-        timer = nil
     }
     
     override func didReceiveMemoryWarning() {
