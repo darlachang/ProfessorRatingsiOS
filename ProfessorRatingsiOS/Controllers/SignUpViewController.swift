@@ -246,6 +246,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         
     }
     
+    
     func picked(){
         self.view.endEditing(true)
     }

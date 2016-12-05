@@ -155,11 +155,11 @@ class UserViewController: UIViewController {
         
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(picked))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(picked))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelPicked))
         
         let doneButton1 = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(picked))
         let spaceButton1 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton1 = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(picked))
+        let cancelButton1 = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelPicked))
         
         
         gradYearToolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
@@ -174,6 +174,10 @@ class UserViewController: UIViewController {
         self.tableView.reloadData()
         self.view.endEditing(true)
         updateUserData()
+    }
+    
+    func cancelPicked(){
+        self.view.endEditing(true)
     }
 
 }
