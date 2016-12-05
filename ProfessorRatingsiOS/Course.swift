@@ -52,15 +52,15 @@ class Course {
          
         case 0:
             return "no data"
-        case 1:
+        case 5:
             return "very heavy"
-        case 2:
+        case 4:
             return "heavy"
         case 3:
             return "average"
-        case 4:
+        case 2:
             return "light"
-        case 5:
+        case 1:
             return "very light"
         default:
             break
@@ -78,15 +78,15 @@ class Course {
         
         case 0:
             return "no data"
-        case 1:
+        case 5:
             return "very tough"
-        case 2:
+        case 4:
             return "tough"
         case 3:
             return "average"
-        case 4:
+        case 2:
             return "easy"
-        case 5:
+        case 1:
             return "very easy"
         default:
             break
