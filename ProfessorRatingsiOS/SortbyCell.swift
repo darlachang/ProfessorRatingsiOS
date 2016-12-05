@@ -25,7 +25,7 @@ class SortbyCell: UITableViewCell {
         toggleButton.layer.borderWidth = 1
         //toggleButton.frame = CGRect.init(x: 300, y: 3, width: 100, height: 30)
         toggleButton.sizeToFit()
-        toggleButton.frame = CGRect.init(x: 300, y: 3, width:UIScreen.main.bounds.size.width - toggleButton.frame.size.width, height: 30)
+        toggleButton.frame = CGRect.init(x: UIScreen.main.bounds.size.width - toggleButton.frame.size.width, y: 3, width: 100, height: 30)
         self.contentView.addSubview(toggleButton)
         toggleButton.addTarget(self, action: #selector(sortbyClicked), for: .touchDown)
 

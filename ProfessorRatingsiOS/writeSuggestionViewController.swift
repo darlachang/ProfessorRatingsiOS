@@ -25,9 +25,15 @@ class writeSuggestionViewController: UIViewController {
         writeSugSubmit.layer.borderColor = PR_Colors.brightOrange.cgColor
         writeSugSubmit.layer.borderWidth = 1.0
         writeSugSubmit.layer.cornerRadius = 10
+        let gesture = UITapGestureRecognizer.init(target: self, action: #selector(click))
+        self.view.addGestureRecognizer(gesture)
         
 
         // Do any additional setup after loading the view.
+    }
+    
+    func click(){
+        self.view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
