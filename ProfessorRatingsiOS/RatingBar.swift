@@ -25,7 +25,7 @@ class RatingBar: UIView {
 //        }
         
         var yOffset = space
-        for i in 0..<values.count {
+        for i in (0...values.count-1).reversed() {
             let percentage = largest == 0 ? 0 : CGFloat(values[i]) / CGFloat(largest)
             let view = UIView()
             view.backgroundColor = color
@@ -33,7 +33,7 @@ class RatingBar: UIView {
             self.addSubview(view)
             
             let label = UILabel()
-            label.text = "\(values.count - i)"
+            label.text = "\(i+1)"
             label.textColor = PR_Colors.lightGreen
             label.font = UIFont.systemFont(ofSize: 14)
             label.sizeToFit()

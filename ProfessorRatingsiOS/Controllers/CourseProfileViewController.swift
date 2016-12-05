@@ -29,6 +29,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     var suggestionsInfo: [Suggestions] = []
     
     var isSortedBy: String! = "Time"
+    var refreshControl: UIRefreshControl!
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var professorLabel: UILabel!
@@ -52,7 +53,10 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         return image!
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        getCommentInfo()
+        getsuggestionInfo()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         getcourseinfo()
@@ -69,22 +73,25 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         Review.layer.borderWidth = 1.0
         Review.layer.cornerRadius = 10
         
-        //        let courseSegmentControl = UISegmentedControl (items: ["Ratings & Tag", "Comments", "Quotes"])
         //        courseSegmentControl.frame = CGRect.init(x: 10, y: 150, width: 300, height: 30)
         courseSegmentedControl.selectedSegmentIndex = 0
         courseSegmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: .selected)
         courseSegmentedControl.tintColor = PR_Colors.lightGreen
         //        courseSegmentedControl.backgroundColor = PR_Colors.lightGreen
         
-        //        ratings.setTitleColor(UIColor.green, for: .normal)
-        //        ratings.setTitleColor(UIColor.blue, for: .selected)
-        //        ratings.setBackgroundImage(self.imageWithColor(UIColor.gray), for: .selected)
-        
-        
-        // ratings.isSelected  //is a boolean
         setUpOtherProfessorsView()
-        getCommentInfo()
-        getsuggestionInfo()
+        refreshControl = UIRefreshControl()
+        self.refreshControl.addTarget(self, action: #selector(doSomething(Sender:)), for: UIControlEvents.valueChanged)
+        profileTableView.addSubview(refreshControl)
+        
+    }
+    func doSomething(Sender:AnyObject) {
+        if courseSegmentedControl.selectedSegmentIndex == COMMENT{
+            getCommentInfo()
+        }
+        else if courseSegmentedControl.selectedSegmentIndex == SUGGESTION{
+            getsuggestionInfo()
+        }
         
     }
     
@@ -164,7 +171,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                     cell.ratingNum.text =  a
                 }
                 cell.selectRow = .workLoad
-                //cell.ratingAmt.text = "\(RatingsAmount[1]) ratings"
                 
             case 2:
                 cell.ratingTitle.text = RatingsList[2] //grading
@@ -236,6 +242,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             }
             self.profileTableView.reloadData() //reload tableView
         }
+        
     }
     
     func getCommentInfo() {
@@ -262,10 +269,21 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                         ))
                     }
                 }
-                self.sortByPopularity()
+                
+                if self.isSortedBy == "Time"{
+                    self.sortByTime()
+                }
+                
+                else if self.isSortedBy == "Popularity"{
+                    self.sortByPopularity()
+                }
+                else{
+                    self.sortByPopularity()
+                }
+                
             }
         }
-        
+        refreshControl.endRefreshing()
     }
     
     func getsuggestionInfo(){
@@ -290,7 +308,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                 self.profileTableView.reloadData() //reload tableView
             }//(suggestionID: String, suggestion: String, date: String, agree:Int)
         }
-        
+        refreshControl.endRefreshing()
         
     }
     
