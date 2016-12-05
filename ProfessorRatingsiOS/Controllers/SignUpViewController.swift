@@ -74,6 +74,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         majorToolBar.isUserInteractionEnabled = true
         major.inputView = majorPicker
         major.inputAccessoryView = majorToolBar
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let gesture = UITapGestureRecognizer.init(target: self, action: #selector(self.endEditing))
+        self.view.addGestureRecognizer(gesture)
+    }
+    
+    func endEditing(){
+        self.view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
