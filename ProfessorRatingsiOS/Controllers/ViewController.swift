@@ -19,7 +19,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let gesture = UITapGestureRecognizer.init(target: self, action: #selector(click))
+        self.view.addGestureRecognizer(gesture)
+    }
+    
+    func click(){
+        self.view.endEditing(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
