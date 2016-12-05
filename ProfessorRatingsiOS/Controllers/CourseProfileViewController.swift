@@ -55,7 +55,6 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        getcourseinfo()
         getCommentInfo()
         getsuggestionInfo()
     }
@@ -89,8 +88,8 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         
         // ratings.isSelected  //is a boolean
         setUpOtherProfessorsView()
-        getCommentInfo()
-        getsuggestionInfo()
+        //getCommentInfo()
+        //getsuggestionInfo()
         refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: #selector(doSomething(Sender:)), for: UIControlEvents.valueChanged)
         profileTableView.addSubview(refreshControl)
