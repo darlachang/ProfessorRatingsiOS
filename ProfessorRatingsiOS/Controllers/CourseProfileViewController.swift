@@ -29,6 +29,8 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     var suggestionsInfo: [Suggestions] = []
     
     var isSortedBy: String! = "Time"
+    var refreshControl: UIRefreshControl!
+    var timer: Timer!
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var professorLabel: UILabel!
@@ -85,7 +87,25 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         setUpOtherProfessorsView()
         getCommentInfo()
         getsuggestionInfo()
+        refreshControl = UIRefreshControl()
+        self.refreshControl.addTarget(self, action: #selector(doSomething(Sender:)), for: UIControlEvents.valueChanged)
+        profileTableView.addSubview(refreshControl)
         
+    }
+    func doSomething(Sender:AnyObject) {
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(CourseProfileViewController.endOfWork), userInfo: nil, repeats: true)
+    }
+    
+    func endOfWork() {
+        if courseSegmentedControl.selectedSegmentIndex == COMMENT{
+            getCommentInfo()
+        }
+        else if courseSegmentedControl.selectedSegmentIndex == SUGGESTION{
+            getsuggestionInfo()
+        }
+        refreshControl.endRefreshing()
+        timer.invalidate()
+        timer = nil
     }
     
     override func didReceiveMemoryWarning() {
