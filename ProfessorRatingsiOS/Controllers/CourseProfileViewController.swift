@@ -54,12 +54,12 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        getcourseinfo()
         getCommentInfo()
         getsuggestionInfo()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        getcourseinfo()
         // request method: http://mive.us/reviews?course_id=5807c8567ccbad2219679d50
         // http://mive.us/courses?course_id=5807c8567ccbad2219679d50
         
@@ -86,11 +86,19 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         
     }
     func doSomething(Sender:AnyObject) {
-        if courseSegmentedControl.selectedSegmentIndex == COMMENT{
+        switch(courseSegmentedControl.selectedSegmentIndex)
+        {
+        case SCORE:
+            getcourseinfo()
+            break
+        case COMMENT:
             getCommentInfo()
-        }
-        else if courseSegmentedControl.selectedSegmentIndex == SUGGESTION{
+            break
+        case SUGGESTION:
             getsuggestionInfo()
+            break
+        default:
+            break
         }
         
     }
@@ -242,7 +250,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             }
             self.profileTableView.reloadData() //reload tableView
         }
-        
+        refreshControl.endRefreshing()
     }
     
     func getCommentInfo() {
@@ -306,7 +314,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                     }
                 }
                 self.profileTableView.reloadData() //reload tableView
-            }//(suggestionID: String, suggestion: String, date: String, agree:Int)
+            }
         }
         refreshControl.endRefreshing()
         
