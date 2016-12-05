@@ -92,7 +92,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
         else if courseSegmentedControl.selectedSegmentIndex == SUGGESTION{
             getsuggestionInfo()
         }
-        refreshControl.endRefreshing()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -242,6 +242,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
             }
             self.profileTableView.reloadData() //reload tableView
         }
+        
     }
     
     func getCommentInfo() {
@@ -268,10 +269,21 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                         ))
                     }
                 }
-                self.sortByPopularity()
+                
+                if self.isSortedBy == "Time"{
+                    self.sortByTime()
+                }
+                
+                else if self.isSortedBy == "Popularity"{
+                    self.sortByPopularity()
+                }
+                else{
+                    self.sortByPopularity()
+                }
+                
             }
         }
-        
+        refreshControl.endRefreshing()
     }
     
     func getsuggestionInfo(){
@@ -296,7 +308,7 @@ class CourseProfileViewController: UIViewController, UITableViewDataSource, UITa
                 self.profileTableView.reloadData() //reload tableView
             }//(suggestionID: String, suggestion: String, date: String, agree:Int)
         }
-        
+        refreshControl.endRefreshing()
         
     }
     
